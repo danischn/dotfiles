@@ -15,6 +15,7 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "romkatv/powerlevel10k"
 plug "Aloxaf/fzf-tab"
+plug "ael-code/zsh-colored-man-pages"
 
 #Local files
 plug "$HOME/.config/zsh/aliases.zsh"
