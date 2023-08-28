@@ -28,7 +28,7 @@ return {
 			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { buffer = bufnr, remap = false, desc = "Prev Diagnostic" })
 			vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr, remap = false, desc = "Lsp Rename" })
 			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = bufnr, remap = false, desc = "Signature Help"})
-			vim.keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, remap = false, desc = "Diagnostics" })
+      vim.keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, remap = false, desc = "Diagnostics" })
 			vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", { buffer = bufnr, remap = false, desc = "Add Workspace" })
 		end)
 
@@ -38,8 +38,6 @@ return {
 		--Python server
 		require("lspconfig").pyright.setup({ settings = { python = { analysis = { autoImportCompletions = true, typeCheckingMode = "off" } } } })
 
-    --Bash server
-    require("lspconfig").bashls.setup({})
 
 		lsp.setup()
 
