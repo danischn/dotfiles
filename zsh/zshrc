@@ -22,19 +22,6 @@ plug "$HOME/.config/zsh/aliases.zsh"
 plug "$HOME/.config/zsh/utils/ff.zsh"
 plug "$HOME/.config/zsh/utils/mcdir.zsh"
 
-
-# Bind ^f to the ff script
-function ff-widget {
-  ff
-  local precmd
-  for precmd in $precmd_functions; do
-    $precmd
-  done
-  zle reset-prompt
-}
-zle -N ff-widget
-bindkey "^f" ff-widget
-
 #FZF
 export FZF_DEFAULT_OPTS="--layout=reverse"
 

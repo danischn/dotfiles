@@ -67,3 +67,15 @@ ff() {
     "$editor" "$selected_item"
   fi
 }
+
+# Bind ^f to the ff script
+function ff-widget {
+  ff
+  local precmd
+  for precmd in $precmd_functions; do
+    $precmd
+  done
+  zle reset-prompt
+}
+zle -N ff-widget
+bindkey "^f" ff-widget
