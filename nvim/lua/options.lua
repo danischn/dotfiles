@@ -40,7 +40,7 @@ vim.opt.whichwrap:append("<,>,[,],h,l")         -- keys allowed to move to the p
 vim.opt.iskeyword:append("-")                   -- treats words with `-` as single words
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
-vim.opt.fillchars = {eob = " "} --Remove tildes after
+vim.opt.fillchars = {eob = " "}                 --Remove tildes after
 
 ---Highlighted yank
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -49,3 +49,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "incsearch", timeout = 50 })
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.b.minipairs_disable = true
+  end
+})
+
