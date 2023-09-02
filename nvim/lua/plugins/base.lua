@@ -68,4 +68,12 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" } },
 	},
+  {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    keys = { {"<leader>m", "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview"} },
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }
