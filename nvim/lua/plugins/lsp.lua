@@ -15,7 +15,7 @@ return {
 
 		local lsp = require("lsp-zero").preset({ manage_nvim_cmp = { set_sources = "recommended" } }) --More cmp sources
 
-		lsp.ensure_installed({ "pyright", "lua_ls", "bashls" }) --Languages
+		lsp.ensure_installed({ "pyright", "lua_ls", "marksman" }) --Languages
 
 		lsp.set_sign_icons({ error = "✘", warn = "▲", hint = "⚑", info = "»" })
 
@@ -36,7 +36,19 @@ return {
 		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 		--Python server
-		require("lspconfig").pyright.setup({ settings = { python = { analysis = { autoImportCompletions = true, typeCheckingMode = "off" } } } })
+		require("lspconfig").pyright.setup({
+      settings = {
+        python = {
+          analysis = {
+            autoImportCompletions = true,
+            typeCheckingMode = "off",
+          },
+        },
+      },
+    })
+
+    --Markdown
+    require("lspconfig").marksman.setup{}
 
 
 		lsp.setup()
