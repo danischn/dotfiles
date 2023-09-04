@@ -24,7 +24,6 @@ alias dot="cd ~/.dotfiles"
 
 #Vscode
 alias vo='code -r .' #open directory in used window
-alias vb='cp $HOME/Library/"Application Support"/Code/User/*.json  $HOME/.config/vscode'
 
 #Java
 alias cjava='javac *.java'

@@ -24,6 +24,7 @@ plug "$HOME/.config/zsh/utils/mcdir.zsh"
 
 #FZF
 export FZF_DEFAULT_OPTS="--layout=reverse"
+export FZF_TMUX_OPTS="-p60%"
 
 #Options
 setopt autocd
