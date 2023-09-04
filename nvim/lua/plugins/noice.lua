@@ -25,5 +25,5 @@ return {
 			lsp_doc_border = false, -- add a border to hover docs and signature help
 		},
 	},
-	dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	dependencies = { "MunifTanjim/nui.nvim"},
 }
