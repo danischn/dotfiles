@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+#Requirements:
+#fd and fzf
+
 ff() {
   # List of file types to open with 'open'
   local open_filetypes=("pdf" "jpg" "png" "docx")  # Add more file types as needed
@@ -32,6 +36,8 @@ ff() {
 
   # Use ANSI escape codes to colorize the output
   # Blue for directories, green for files, red for PDFs
+  # Define color variables
+
   local colorize_script='
     if [[ -d $1 ]]; then
       echo -ne "\033[34m$1\0\033[0m"
