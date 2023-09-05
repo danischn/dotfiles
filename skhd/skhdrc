@@ -75,7 +75,3 @@ hyper - 4 : yabai -m window --space 4;
 hyper - 5 : yabai -m window --space 5;
 hyper - 6 : yabai -m window --space 6;
 hyper - 7 : yabai -m window --space 7;
-
-#Open Applications
-ctrl - space : open -a arc
-ctrl - return : open -a kitty
