@@ -68,6 +68,7 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" } },
 	},
+  --Markdown-preview
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
