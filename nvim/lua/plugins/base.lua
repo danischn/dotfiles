@@ -68,7 +68,7 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" } },
 	},
-  --Markdown-preview
+  --Markdown
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
@@ -76,5 +76,15 @@ return {
     config = function()
       vim.fn["mkdp#util#install"]()
     end,
+  },
+  {
+    'jakewvincent/mkdnflow.nvim',
+    config = function()
+        require('mkdnflow').setup()
+    end,
+  },
+  { "ellisonleao/glow.nvim",
+    config = true,
+    cmd = "Glow"
   },
 }
