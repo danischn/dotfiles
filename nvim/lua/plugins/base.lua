@@ -75,8 +75,4 @@ return {
         require('mkdnflow').setup()
     end,
   },
-  { "ellisonleao/glow.nvim",
-    config = true,
-    cmd = "Glow"
-  },
 }
