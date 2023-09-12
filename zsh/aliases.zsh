@@ -21,6 +21,7 @@ alias cig="cd ~/.config"
 alias dl="cd ~/Downloads"
 alias kattis="cd ~/Documents/skole/3.sem/in2010/kattis"
 alias dot="cd ~/.dotfiles"
+alias wiki="cd ~/Documents/wiki"
 
 #Vscode
 alias vo='code -r .' #open directory in used window
