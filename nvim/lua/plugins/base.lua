@@ -70,6 +70,14 @@ return {
 	},
   --Markdown
   {
+    "iamcco/markdown-preview.nvim",
+    ft = "markdown",
+    keys = { {"<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview"} },
+    config = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
+  {
     'jakewvincent/mkdnflow.nvim',
     config = function()
         require('mkdnflow').setup()
