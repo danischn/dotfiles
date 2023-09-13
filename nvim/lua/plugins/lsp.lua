@@ -39,10 +39,7 @@ return {
 		require("lspconfig").pyright.setup({
       settings = {
         python = {
-          analysis = {
-            autoImportCompletions = true,
-            typeCheckingMode = "off",
-          },
+          analysis = { autoImportCompletions = true, typeCheckingMode = "off" },
         },
       },
     })

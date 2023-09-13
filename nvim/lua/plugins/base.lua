@@ -38,7 +38,7 @@ return {
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
-		opts = { window = { width = 100 }, plugins = { tmux = { enabled = true } } },
+		opts = { window = { width = 110 }, plugins = { tmux = { enabled = true } } },
 	},
 	--Split and join
 	{
