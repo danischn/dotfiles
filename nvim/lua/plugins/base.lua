@@ -54,13 +54,13 @@ return {
 	--Terminal
 	{
 		"numToStr/FTerm.nvim",
-		keys = { { "<leader>t", ":w <bar> lua require('FTerm').toggle()<cr>", desc = "Toggle Terminal" } },
+		keys = { { "<M-s>", "<cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle Terminal" } },
 		config = function()
 			require("FTerm").setup({
 				border = "double",
 				dimensions = { height = 0.9, width = 0.9 },
 			})
-      vim.keymap.set("t", "<leader>t", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+      vim.keymap.set("t", "<M-s>", '<C-\\><C-n><cmd>lua require("FTerm").toggle()<CR>')
 		end,
 	},
 	--UndoTree

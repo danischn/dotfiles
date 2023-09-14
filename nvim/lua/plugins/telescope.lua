@@ -5,8 +5,6 @@ return {
 		{ "<leader><leader>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 		{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
 		{ "<leader>b", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-		{ "<leader>k", "<cmd>Telescope keymaps theme=dropdown<cr>", desc = "Keymaps" },
-		{ "<leader>p", "<cmd>Telescope commands theme=dropdown<cr>", desc = "Commands" },
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -31,9 +29,6 @@ return {
 				find_files = {
 					theme = "dropdown",
 					previewer = false,
-				},
-				live_grep = {
-					theme = "dropdown",
 				},
 				buffers = {
 					theme = "dropdown",

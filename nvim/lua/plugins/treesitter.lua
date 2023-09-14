@@ -9,7 +9,7 @@ function M.config()
 	local configs = require("nvim-treesitter.configs")
 
 	configs.setup({
-		ensure_installed = { "lua", "python"}, -- put the language you want in this array
+		ensure_installed = { "lua", "python", "html"}, -- put the language you want in this array
 		ignore_install = { "" }, -- List of parsers to ignore installing
 		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 

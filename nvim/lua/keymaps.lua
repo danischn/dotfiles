@@ -31,3 +31,6 @@ map("i", "jk", "<ESC>", opts)
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
+
+--Maps for running code
+map("n", "<leader><cr>", ":w <bar> lua require('FTerm').run({'py', vim.fn.expand(\"%:.\")})<CR>", opts)
