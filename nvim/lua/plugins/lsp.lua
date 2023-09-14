@@ -30,6 +30,7 @@ return {
 			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = bufnr, remap = false, desc = "Signature Help"})
       vim.keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, remap = false, desc = "Diagnostics" })
 			vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", { buffer = bufnr, remap = false, desc = "Add Workspace" })
+			vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = bufnr, remap = false, desc = "Format" })
 		end)
 
 		--Lua server for nvim
