@@ -5,8 +5,8 @@ return {
 		local diagnostics = {
 			"diagnostics",
 			sources = { "nvim_diagnostic" },
-			sections = { "error", "warn", "info", "hint" },
-			symbols = { error = "✘:", warn = "▲:", hint = "⚑:", info = "»:" },
+			sections = { "error", "warn"},
+			symbols = { error = "✘:", warn = "▲:"},
 			colored = true,
 			always_visible = true,
 		}

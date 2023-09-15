@@ -19,25 +19,38 @@ return {
 
 		lsp.set_sign_icons({ error = "✘", warn = "▲", hint = "⚑", info = "»" })
 
+    local opts = { noremap = true, silent = true }
+
+    local key = vim.keymap.set
+
 		lsp.on_attach(function(_, bufnr)
       --My lsp keymaps
-			vim.keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", { buffer = bufnr, remap = false, desc = "Hover" })
-			vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { buffer = bufnr, remap = false, desc = "Go definition"})
-			vim.keymap.set("n", "gp", "<cmd>lua vim.diagnostic.open_float()<cr>", { buffer = bufnr, remap = false, desc = "Go Problem" })
-			vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { buffer = bufnr, remap = false, desc = "Next Diagnostic"})
-			vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { buffer = bufnr, remap = false, desc = "Prev Diagnostic" })
-			vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", { buffer = bufnr, remap = false, desc = "Lsp Rename" })
-			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { buffer = bufnr, remap = false, desc = "Signature Help"})
-      vim.keymap.set("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", { buffer = bufnr, remap = false, desc = "Diagnostics" })
-			vim.keymap.set("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", { buffer = bufnr, remap = false, desc = "Add Workspace" })
-			vim.keymap.set("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>", { buffer = bufnr, remap = false, desc = "Format" })
+			key("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+			key("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+			key("n", "gp", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+			key("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+			key("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+			key("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+			key("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+      key("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", opts)
+			key("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
+			key("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
 		end)
 
 		--Lua server for nvim
 		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 		--Python server
-		require("lspconfig").pyright.setup({ settings = { python = { analysis = { autoImportCompletions = true, typeCheckingMode = "off" } } } })
+		require("lspconfig").pyright.setup({
+      settings = {
+        python = {
+          analysis = {
+            autoImportCompletions = true,
+            typeCheckingMode = "off",
+          },
+        },
+      },
+    })
 
     --Markdown
     require("lspconfig").marksman.setup{}
