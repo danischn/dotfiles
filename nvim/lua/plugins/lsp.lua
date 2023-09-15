@@ -37,17 +37,10 @@ return {
 		require("lspconfig").lua_ls.setup(lsp.nvim_lua_ls())
 
 		--Python server
-		require("lspconfig").pyright.setup({
-      settings = {
-        python = {
-          analysis = { autoImportCompletions = true, typeCheckingMode = "off" },
-        },
-      },
-    })
+		require("lspconfig").pyright.setup({ settings = { python = { analysis = { autoImportCompletions = true, typeCheckingMode = "off" } } } })
 
     --Markdown
     require("lspconfig").marksman.setup{}
-
 
 		lsp.setup()
 
@@ -57,7 +50,6 @@ return {
 
 		cmp.setup({
 			mapping = {
-				["<Tab>"] = cmp.mapping.confirm({ select = true }),
 				["<cr>"] = cmp.mapping.confirm({ select = true }),
 				["<C-k>"] = cmp.mapping.select_prev_item(cmp_select),
 				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),

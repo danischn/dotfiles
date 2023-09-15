@@ -45,21 +45,14 @@ return {
     "Wansmer/treesj",
     keys = { { "<leader>j", "<cmd>TSJToggle<cr>", desc = "Split&Join" } },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("treesj").setup({
-        use_default_keymaps = false,
-      })
-    end,
+    opts = { use_default_keymaps = false },
   },
   --Terminal
   {
     "numToStr/FTerm.nvim",
     keys = { { "<M-s>", "<cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle Terminal" } },
     config = function()
-      require("FTerm").setup({
-        border = "double",
-        dimensions = { height = 0.9, width = 0.9 },
-      })
+      require("FTerm").setup({ border = "double", dimensions = { height = 0.9, width = 0.9 } })
       vim.keymap.set("t", "<M-s>", '<C-\\><C-n><cmd>lua require("FTerm").toggle()<CR>')
     end,
   },
@@ -68,7 +61,7 @@ return {
     "mbbill/undotree",
     keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" } },
   },
-  --Markdown
+  --Markdown Previewer
   {
     "iamcco/markdown-preview.nvim",
     ft = "markdown",
@@ -77,10 +70,15 @@ return {
       vim.fn["mkdp#util#install"]()
     end,
   },
+  --Markdownflow
   {
     'jakewvincent/mkdnflow.nvim',
-    config = function()
-      require('mkdnflow').setup()
-    end,
+    config = true,
+  },
+  --Leap
+  {
+    "ggandor/leap.nvim",
+    keys = { "s", "S" },
+    config = function() local leap = require "leap" leap.set_default_keymaps() end,
   },
 }
