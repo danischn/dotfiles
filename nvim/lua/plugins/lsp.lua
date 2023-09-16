@@ -19,22 +19,22 @@ return {
 
 		lsp.set_sign_icons({ error = "✘", warn = "▲", hint = "⚑", info = "»" })
 
-    local opts = { noremap = true, silent = true }
+		local opts = { noremap = true, silent = true }
 
-    local key = vim.keymap.set
+		local key = vim.keymap.set
 
 		lsp.on_attach(function(_, bufnr)
-      --My lsp keymaps
-			key("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-			key("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-			key("n", "gp", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-			key("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-			key("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-			key("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-			key("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-      key("n", "<leader>d", "<cmd>Telescope diagnostics<cr>", opts)
-			key("n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
-			key("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
+			--My lsp keymaps
+			key("n", "gh", ":lua vim.lsp.buf.hover()<cr>", opts)
+			key("n", "gd", ":lua vim.lsp.buf.definition()<cr>", opts)
+			key("n", "gp", ":lua vim.diagnostic.open_float()<cr>", opts)
+			key("n", "]d", ":lua vim.diagnostic.goto_next()<cr>", opts)
+			key("n", "[d", ":lua vim.diagnostic.goto_prev()<cr>", opts)
+			key("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>", opts)
+			key("i", "<C-h>", ":lua vim.lsp.buf.signature_help()<cr>", opts)
+			key("n", "<leader>d", ":Telescope diagnostics<cr>", opts)
+			key("n", "<leader>lw", ":lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
+			key("n", "<leader>f", ":Format<cr>", opts)
 		end)
 
 		--Lua server for nvim
@@ -42,18 +42,18 @@ return {
 
 		--Python server
 		require("lspconfig").pyright.setup({
-      settings = {
-        python = {
-          analysis = {
-            autoImportCompletions = true,
-            typeCheckingMode = "off",
-          },
-        },
-      },
-    })
+			settings = {
+				python = {
+					analysis = {
+						autoImportCompletions = true,
+						typeCheckingMode = "off",
+					},
+				},
+			},
+		})
 
-    --Markdown
-    require("lspconfig").marksman.setup{}
+		--Markdown
+		require("lspconfig").marksman.setup({})
 
 		lsp.setup()
 
