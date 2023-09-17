@@ -4,7 +4,7 @@
 
 ff() {
   # List of file types to open with 'open'
-  local open_filetypes=("pdf" "jpg" "png" "docx")  # Add more file types as needed
+  local open_filetypes=("pdf" "jpg" "png" "docx" "mp3")  # Add more file types as needed
 
   local editor="${EDITOR:?EDITOR variable not set or empty}"
   local fzf_options=(
