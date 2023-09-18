@@ -55,6 +55,7 @@ return {
 		config = function()
 			require("FTerm").setup({ border = "double", dimensions = { height = 0.9, width = 0.9 } })
 			vim.keymap.set("t", "<M-s>", '<C-\\><C-n><cmd>lua require("FTerm").toggle()<CR>')
+			vim.keymap.set("n", "<leader><cr>", ":w <bar> lua require('FTerm').run({'py', vim.fn.expand(\"%:.\")})<CR>")
 		end,
 	},
 	--UndoTree
