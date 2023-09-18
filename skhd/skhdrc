@@ -57,13 +57,6 @@ hyper - m : yabai -m window --toggle zoom-fullscreen
 # balance out tree of windows (resize to occupy same area)
 hyper - e : yabai -m space --balance
 
-# -- Moving Windows Around --
-# swap windows
-hyper - j : yabai -m window --swap south
-hyper - k : yabai -m window --swap north
-hyper - h : yabai -m window --swap west
-hyper - l : yabai -m window --swap east
-
 # move window to display left and right
 hyper - s : yabai -m window --display west; yabai -m display --focus west;
 hyper - g : yabai -m window --display east; yabai -m display --focus east;
@@ -80,7 +73,6 @@ hyper - 7 : yabai -m window --space 7;
 #Destroy space and create space
 hyper - q : yabai -m space --destroy
 hyper - d : yabai -m space --create
-
 
 hyper - right : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0;
 hyper - left : yabai -m window --resize left:-20:0 ; yabai -m window --resize right:-20:0;
