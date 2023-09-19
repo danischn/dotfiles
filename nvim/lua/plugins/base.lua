@@ -8,13 +8,6 @@ return {
 			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
-	--Better text objects
-	{
-		"echasnovski/mini.ai",
-		version = false,
-		event = "VeryLazy",
-		config = true,
-	},
 	--Autopairs
 	{
 		"echasnovski/mini.pairs",
