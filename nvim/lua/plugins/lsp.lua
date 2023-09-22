@@ -31,7 +31,7 @@ return {
 			key("n", "]d", ":lua vim.diagnostic.goto_next()<cr>", opts)
 			key("n", "[d", ":lua vim.diagnostic.goto_prev()<cr>", opts)
 			key("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>", opts)
-			key("i", "<C-h>", ":lua vim.lsp.buf.signature_help()<cr>", opts)
+			key("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 			key("n", "<leader>d", ":Telescope diagnostics<cr>", opts)
 			key("n", "<leader>lw", ":lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
 			key("n", "<leader>f", ":Format<cr>", opts)
