@@ -64,9 +64,10 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	--Markdownflow
+	--Markdown-flow
 	{
 		"jakewvincent/mkdnflow.nvim",
+		ft = "markdown",
 		config = true,
 	},
 }

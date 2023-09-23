@@ -5,17 +5,11 @@ return {
 		local diagnostics = {
 			"diagnostics",
 			sources = { "nvim_diagnostic" },
-			sections = { "error", "warn"},
-			symbols = { error = "✘:", warn = "▲:"},
+			sections = { "error", "warn" },
+			symbols = { error = "✘:", warn = "▲:" },
 			colored = false,
 			always_visible = true,
 		}
-
-		local location = {
-			"location",
-			padding = 0.5,
-		}
-
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
@@ -31,7 +25,7 @@ return {
 				lualine_b = { "branch" },
 				lualine_c = { diagnostics },
 				lualine_x = {},
-				lualine_y = { location },
+				lualine_y = { "location" },
 				lualine_z = { "progress" },
 			},
 		})
