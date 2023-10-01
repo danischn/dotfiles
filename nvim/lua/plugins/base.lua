@@ -39,7 +39,28 @@ return {
 		"Wansmer/treesj",
 		keys = { { "<leader>j", "<cmd>TSJToggle<cr>", desc = "Split&Join" } },
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		opts = { use_default_keymaps = false },
+		config = function()
+			local lang_utils = require("treesj.langs.utils")
+			require("treesj").setup({
+        use_default_keymaps = false,
+				langs = {
+					python = {
+						object = lang_utils.set_preset_for_dict(),
+					},
+				},
+			})
+		end,
+	},
+	--File explorer
+	{
+		"echasnovski/mini.files",
+		version = false,
+		keys = { { "<leader>e", "<CMD>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", desc = "Explorer" } },
+		opts = {
+			mappings = { go_in_plus = "l", synchronize = "<cr>" },
+			windows = { max_number = 3, width_focus = 28, width_nofocus = 28 },
+			options = { permanent_delete = false },
+		},
 	},
 	--Terminal
 	{
@@ -68,6 +89,6 @@ return {
 	{
 		"jakewvincent/mkdnflow.nvim",
 		ft = "markdown",
-		config = true,
+		opts = { links = { conceal = true }, to_do = { symbols = { " ", "-", "x" } } },
 	},
 }

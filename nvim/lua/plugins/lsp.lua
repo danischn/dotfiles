@@ -19,22 +19,17 @@ return {
 
 		lsp.set_sign_icons({ error = "✘", warn = "▲", hint = "⚑", info = "»" })
 
-		local opts = { noremap = true, silent = true }
-
-		local key = vim.keymap.set
-
 		lsp.on_attach(function(_, bufnr)
-			--My lsp keymaps
-			key("n", "gh", ":lua vim.lsp.buf.hover()<cr>", opts)
-			key("n", "gd", ":lua vim.lsp.buf.definition()<cr>", opts)
-			key("n", "gp", ":lua vim.diagnostic.open_float()<cr>", opts)
-			key("n", "]d", ":lua vim.diagnostic.goto_next()<cr>", opts)
-			key("n", "[d", ":lua vim.diagnostic.goto_prev()<cr>", opts)
-			key("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>", opts)
-			key("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-			key("n", "<leader>d", ":Telescope diagnostics<cr>", opts)
-			key("n", "<leader>lw", ":lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
-			key("n", "<leader>f", ":Format<cr>", opts)
+			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<cr>", opts)
+			vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<cr>", opts)
+			vim.keymap.set("n", "gp", ":lua vim.diagnostic.open_float()<cr>", opts)
+			vim.keymap.set("n", "]d", ":lua vim.diagnostic.goto_next()<cr>", opts)
+			vim.keymap.set("n", "[d", ":lua vim.diagnostic.goto_prev()<cr>", opts)
+			vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>", opts)
+			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+			vim.keymap.set("n", "<leader>d", ":Telescope diagnostics<cr>", opts)
+			vim.keymap.set("n", "<leader>lw", ":lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
 		end)
 
 		--Lua server for nvim
@@ -57,7 +52,7 @@ return {
 
 		lsp.setup()
 
-		--Cmp settings
+		--Setup CMP
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
