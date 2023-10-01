@@ -2,20 +2,17 @@ return {
 	"VonHeikemen/lsp-zero.nvim",
 	branch = "v2.x",
 	dependencies = {
-		{ "neovim/nvim-lspconfig" },
-		{ "williamboman/mason.nvim" },
-		{ "williamboman/mason-lspconfig.nvim" },
-		{ "hrsh7th/nvim-cmp" },
-		{ "hrsh7th/cmp-nvim-lsp" },
-		{ "hrsh7th/cmp-buffer" },
-		{ "L3MON4D3/LuaSnip" },
+		"neovim/nvim-lspconfig",
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+		"L3MON4D3/LuaSnip",
 	},
 	config = function()
-		vim.diagnostic.config({ virtual_text = false })
-
 		local lsp = require("lsp-zero").preset({ manage_nvim_cmp = { set_sources = "recommended" } }) --More cmp sources
-
-		lsp.ensure_installed({ "pyright", "lua_ls", "marksman" }) --Languages
 
 		lsp.set_sign_icons({ error = "✘", warn = "▲", hint = "⚑", info = "»" })
 
@@ -63,5 +60,7 @@ return {
 				["<C-j>"] = cmp.mapping.select_next_item(cmp_select),
 			},
 		})
+
+		vim.diagnostic.config({ virtual_text = false })
 	end,
 }
