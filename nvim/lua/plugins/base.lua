@@ -10,11 +10,11 @@ return {
 	},
 	--Autopairs
 	{
-		"echasnovski/mini.pairs",
-		version = false,
-		event = "VeryLazy",
-		config = true,
-	},
+    "echasnovski/mini.pairs",
+    version = false,
+    event = "VeryLazy",
+    config = true,
+  },
 	--Surround
 	{
 		"kylechui/nvim-surround",
