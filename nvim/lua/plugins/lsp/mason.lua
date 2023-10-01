@@ -8,19 +8,19 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"lua_ls",
-				"pyright",
+        "lua_ls",
+        "pyright",
         "marksman",
-			},
+      },
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"prettier",
-				"stylua",
-				"black",
-				"debugpy",
-			},
+        "prettier",
+        "stylua",
+        "black",
+        "debugpy",
+      },
 		})
 	end,
 }

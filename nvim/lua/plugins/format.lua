@@ -9,6 +9,8 @@ return {
 				markdown = { "prettier" },
 			},
 		})
-		vim.keymap.set({ "n", "v" }, "<leader>f", function() require("conform").format() end)
+		vim.keymap.set({ "n", "v" }, "<leader>f", function()
+			require("conform").format()
+		end)
 	end,
 }
