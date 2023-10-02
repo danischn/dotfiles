@@ -58,3 +58,4 @@ alias uio='ssh danischn@login.ifi.uio.no'
 
 #Git
 alias gl='git log --all --graph --decorate'
+alias g='git'
