@@ -57,4 +57,8 @@ alias week='date +%V'
 alias uio='ssh danischn@login.ifi.uio.no'
 
 #Git
+<<<<<<< HEAD
+=======
+alias gl='git log --all --graph --decorate'
+>>>>>>> lsp-refactor
 alias g='git'

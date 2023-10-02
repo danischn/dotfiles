@@ -10,11 +10,11 @@ return {
 	},
 	--Autopairs
 	{
-		"echasnovski/mini.pairs",
-		version = false,
-		event = "VeryLazy",
-		config = true,
-	},
+    "echasnovski/mini.pairs",
+    version = false,
+    event = "VeryLazy",
+    config = true,
+  },
 	--Surround
 	{
 		"kylechui/nvim-surround",
@@ -79,7 +79,6 @@ return {
 	--Markdown Previewer
 	{
 		"iamcco/markdown-preview.nvim",
-		ft = "markdown",
 		keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
 		config = function()
 			vim.fn["mkdp#util#install"]()

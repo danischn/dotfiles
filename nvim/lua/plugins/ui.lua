@@ -14,9 +14,9 @@ return {
 		},
 		routes = {
 			{
-        view = "notify",
-        filter = { event = "msg_showmode" },
-      },
+				view = "notify",
+				filter = { event = "msg_showmode" },
+			},
 		},
 	},
 	dependencies = { "MunifTanjim/nui.nvim" },
