@@ -79,7 +79,6 @@ return {
 	--Markdown Previewer
 	{
 		"iamcco/markdown-preview.nvim",
-		ft = "markdown",
 		keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
 		config = function()
 			vim.fn["mkdp#util#install"]()
