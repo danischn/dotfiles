@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # chtfzf.sh
 # by iotku
 # license: wtfpl
