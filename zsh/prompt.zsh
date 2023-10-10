@@ -5,7 +5,10 @@ setopt promptsubst
 
 #Git 
 zstyle ':vcs_info:*' enable git 
-zstyle ':vcs_info:*:*' formats " %{$fg[blue]%}(%{$fg[red]%}%b%{$fg[blue]%)"
+zstyle ':vcs_info:*:*' unstagedstr '!'
+zstyle ':vcs_info:*:*' stagedstr '+'
+zstyle ':vcs_info:*:*' formats " %{$fg[blue]%}(%{$fg[red]%}%b%{$fg[blue]%)%c"
+
 
 #Cursor shape
 zle-keymap-select () {
@@ -22,4 +25,4 @@ echo -ne "\e[6 q" # Use beam shape cursor on startup.
 
 precmd() { vcs_info }
 
-PROMPT='%{$fg[cyan]%}%~${vcs_info_msg_0_} %{$fg[green]%}➜ '
+PROMPT='%B%{$fg[cyan]%}%1~%b${vcs_info_msg_0_} %{$fg[green]%}➜ '

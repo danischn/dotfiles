@@ -56,3 +56,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.b.minipairs_disable = true
 	end,
 })
+
+

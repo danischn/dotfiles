@@ -10,6 +10,10 @@ alias rzsh='source ~/.config/zsh/.zshrc'
 alias c='clear'
 alias cpath='pwd | pbcopy'
 
+# Aliases to protect against overwriting
+alias cp='cp -i'
+alias mv='mv -i'
+
 #Cd
 alias b='cd - >/dev/null'
 alias ..="cd .."

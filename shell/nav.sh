@@ -49,7 +49,7 @@ nav() {
     cd $selected_item
   elif [[ " ${open_filetypes[@]} " =~ " ${extension} " ]]; then
     open $selected_item
-  else;
+  else
     $EDITOR $selected_item
   fi
 }

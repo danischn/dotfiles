@@ -10,11 +10,11 @@ return {
 	},
 	--Autopairs
 	{
-    "echasnovski/mini.pairs",
-    version = false,
-    event = "VeryLazy",
-    config = true,
-  },
+		"echasnovski/mini.pairs",
+		version = false,
+		event = "VeryLazy",
+		config = true,
+	},
 	--Surround
 	{
 		"kylechui/nvim-surround",
@@ -42,7 +42,7 @@ return {
 		config = function()
 			local lang_utils = require("treesj.langs.utils")
 			require("treesj").setup({
-        use_default_keymaps = false,
+				use_default_keymaps = false,
 				langs = {
 					python = {
 						object = lang_utils.set_preset_for_dict(),
@@ -62,15 +62,6 @@ return {
 			options = { permanent_delete = false },
 		},
 	},
-	--Terminal
-	{
-		"numToStr/FTerm.nvim",
-		keys = { { "<M-s>", "<cmd>lua require('FTerm').toggle()<cr>", desc = "Toggle Terminal" } },
-		config = function()
-			require("FTerm").setup({ border = "double", dimensions = { height = 0.9, width = 0.9 } })
-			vim.keymap.set("t", "<M-s>", '<C-\\><C-n><cmd>lua require("FTerm").toggle()<CR>')
-		end,
-	},
 	--UndoTree
 	{
 		"mbbill/undotree",
@@ -79,6 +70,7 @@ return {
 	--Markdown Previewer
 	{
 		"iamcco/markdown-preview.nvim",
+    ft = "markdown",
 		keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
 		config = function()
 			vim.fn["mkdp#util#install"]()
@@ -88,6 +80,9 @@ return {
 	{
 		"jakewvincent/mkdnflow.nvim",
 		ft = "markdown",
-		opts = { links = { conceal = true }, to_do = { symbols = { " ", "-", "x" } } },
+		opts = {
+			links = { conceal = true },
+			to_do = { symbols = { " ", "-", "x" } },
+		},
 	},
 }
