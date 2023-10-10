@@ -11,12 +11,11 @@ plug "Aloxaf/fzf-tab"
 plug "ael-code/zsh-colored-man-pages"
 
 #Local files
-source ~/.dotfiles/zsh/prompt.zsh
 source ~/.dotfiles/shell/aliases.sh
 source ~/.dotfiles/shell/nav.sh
 source ~/.dotfiles/shell/functions.sh
 
-# Bind Ctrl+F to the ff script
+#Bind Ctrl+F to the ff script
 function ff-widget {
   nav
   local precmd
@@ -41,3 +40,6 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
+
+# Setting up prompt
+eval "$(starship init zsh)"

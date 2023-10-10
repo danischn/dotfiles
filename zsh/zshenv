@@ -14,7 +14,10 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
 # Set the location of the command history file
-export HISTFILE="${ZDOTDIR}/.zsh_history"
+export HISTFILE="${XDG_CACHE_HOME}/zsh/.zsh_history"
 
-#Move ~/.python_history to XDG_CACHE_HOME
-export PYTHONPYCACHEPREFIX=$XDG_CACHE_HOME/python
+# https://github.com/zimfw/zimfw/issues/449
+unset KITTY_SHELL_INTEGRATION
+
+# Set Starship config
+export STARSHIP_CONFIG=~/.dotfiles/shell/starship.toml
