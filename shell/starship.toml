@@ -11,11 +11,28 @@ truncation_length = 3
 truncation_symbol = '…/'
 truncate_to_repo = false
 
-
 [character]
 success_symbol = '[➜](bold green)'
 error_symbol = '[➜](bold red)'
 vimcmd_symbol = '[](bold green)'
 
-[git_status]
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = ' '
+style = 'bold purple'
 
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = '='
+ahead = '⇡'
+behind = '⇣'
+diverged = '⇕'
+up_to_date = ''
+untracked = '?'
+stashed = '$'
+modified = '!'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+typechanged = ""
+style = 'bold grey'
