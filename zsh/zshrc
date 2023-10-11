@@ -16,7 +16,7 @@ source ~/.dotfiles/shell/nav.sh
 source ~/.dotfiles/shell/functions.sh
 
 #Bind Ctrl+F to the ff script
-function ff-widget {
+function nav-widget {
   nav
   local precmd
   for precmd in $precmd_functions; do
@@ -24,8 +24,8 @@ function ff-widget {
   done
   zle reset-prompt
 }
-zle -N ff-widget
-bindkey "^f" ff-widget
+zle -N nav-widget
+bindkey "^f" nav-widget
 
 #FZF
 export FZF_DEFAULT_OPTS="--layout=reverse"

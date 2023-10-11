@@ -6,6 +6,7 @@ alias ll='exa --header --long --icons'
 alias la='exa --header --long --all --icons'
 
 #General
+alias rbash='source ~/.bashrc'
 alias rzsh='source ~/.config/zsh/.zshrc'
 alias c='clear'
 alias cpath='pwd | pbcopy'

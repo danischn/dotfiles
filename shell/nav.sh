@@ -1,3 +1,5 @@
+#!usr/bin/env bash
+
 nav() {
   local fd_options=(
     "--hidden"
@@ -46,7 +48,7 @@ nav() {
   if [[ -z $selected_item ]]; then 
     return 0 
   elif [[ -d $selected_item ]]; then
-    cd $selected_item
+    cd "$selected_item"
   elif [[ " ${open_filetypes[@]} " =~ " ${extension} " ]]; then
     open $selected_item
   else
