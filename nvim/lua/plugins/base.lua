@@ -26,13 +26,32 @@ return {
 	{
 		"numToStr/Comment.nvim",
 		event = { "BufRead", "BufNewFile" },
-		opts = { toggler = { line = "<leader>c" }, opleader = { line = "<leader>c" } },
+		opts = {
+			toggler = {
+				line = "<leader>c",
+			},
+			opleader = {
+				line = "<leader>c",
+			},
+		},
 	},
 	--Zenmode
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
-		opts = { window = { width = 110 }, plugins = { tmux = { enabled = true } } },
+		opts = {
+			window = {
+				width = 110,
+			},
+			plugins = {
+				options = {
+					laststatus = 0,
+				},
+				tmux = {
+					enabled = true,
+				},
+			},
+		},
 	},
 	--Split and join
 	{
@@ -57,9 +76,18 @@ return {
 		version = false,
 		keys = { { "<leader>e", "<CMD>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", desc = "Explorer" } },
 		opts = {
-			mappings = { go_in_plus = "l", synchronize = "<cr>" },
-			windows = { max_number = 3, width_focus = 28, width_nofocus = 28 },
-			options = { permanent_delete = false },
+			mappings = {
+				go_in_plus = "l",
+				synchronize = "<cr>",
+			},
+			windows = {
+				max_number = 3,
+				width_focus = 28,
+				width_nofocus = 28,
+			},
+			options = {
+				permanent_delete = false,
+			},
 		},
 	},
 	--UndoTree
@@ -70,7 +98,7 @@ return {
 	--Markdown Previewer
 	{
 		"iamcco/markdown-preview.nvim",
-    ft = "markdown",
+		ft = "markdown",
 		keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
 		config = function()
 			vim.fn["mkdp#util#install"]()
@@ -81,8 +109,12 @@ return {
 		"jakewvincent/mkdnflow.nvim",
 		ft = "markdown",
 		opts = {
-			links = { conceal = true },
-			to_do = { symbols = { " ", "-", "x" } },
+			links = {
+				conceal = true,
+			},
+			to_do = {
+				symbols = { " ", "-", "x" },
+			},
 		},
 	},
 }

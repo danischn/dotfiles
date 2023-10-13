@@ -42,7 +42,7 @@ alias tnm='tmux new -s main'
 alias tks='tmux kill-server'
 
 #Nvim
-alias nc='cd ~/.config/nvim && nvim'
+alias nc='cd ~/.dotfiles/nvim && nvim'
 alias n='nvim'
 alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
 

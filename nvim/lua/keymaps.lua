@@ -10,16 +10,6 @@ map("n", "N", "Nzzzv")
 --Remap space as leader keys
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
--- Better window navigation
-map("n", "<C-h>", "<C-w>h", opts)
-map("n", "<C-j>", "<C-w>j", opts)
-map("n", "<C-k>", "<C-w>k", opts)
-map("n", "<C-l>", "<C-w>l", opts)
--- Resize window using <ctrl> arrow keys
-map("n", "<C-Up>", "<cmd>resize +2<cr>", opts)
-map("n", "<C-Down>", "<cmd>resize -2<cr>", opts)
-map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", opts)
-map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", opts)
 -- Clear highlights
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 -- Better paste

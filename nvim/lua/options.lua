@@ -1,6 +1,6 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0 -- more space in the neovim command line for displaying messages vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmpj
+vim.opt.cmdheight = 0 -- hide cmd bar since i use noice
 vim.opt.conceallevel = 2 -- hides links in markdown
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.ignorecase = true -- ignore case in search patterns
@@ -56,5 +56,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.b.minipairs_disable = true
 	end,
 })
-
-

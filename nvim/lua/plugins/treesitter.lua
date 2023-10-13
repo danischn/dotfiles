@@ -18,6 +18,7 @@ return {
 				"bash",
 				"vim",
         "tsv",
+        "latex",
 			},
 			textobjects = {
 				select = {
