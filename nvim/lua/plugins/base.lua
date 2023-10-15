@@ -95,26 +95,4 @@ return {
 		"mbbill/undotree",
 		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" } },
 	},
-	--Markdown Previewer
-	{
-		"iamcco/markdown-preview.nvim",
-		ft = "markdown",
-		keys = { { "<leader>m", "<cmd>MarkdownPreviewToggle<cr>", desc = "Markdown Preview" } },
-		config = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	},
-	--Markdown-flow
-	{
-		"jakewvincent/mkdnflow.nvim",
-		ft = "markdown",
-		opts = {
-			links = {
-				conceal = true,
-			},
-			to_do = {
-				symbols = { " ", "-", "x" },
-			},
-		},
-	},
 }
