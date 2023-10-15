@@ -7,8 +7,8 @@ return {
 			},
 			resize = {
 				enable_default_keybinds = false,
-				resize_step_x = 5,
-				resize_step_y = 5,
+				resize_step_x = 3,
+				resize_step_y = 3,
 			},
 		})
 		vim.keymap.set("n", "<M-a>", "<cmd>lua require('tmux').resize_left()<cr>")
