@@ -61,3 +61,5 @@ alias week='date +%V'
 #Git
 alias gl='git log --all --graph --decorate'
 alias g='git'
+
+alias fzf='fzf-tmux'
