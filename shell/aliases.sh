@@ -58,9 +58,6 @@ alias path='echo -e ${PATH//:/\\n}'
 # Get week number
 alias week='date +%V'
 
-#ssh uio
-alias uio='ssh danischn@login.ifi.uio.no'
-
 #Git
 alias gl='git log --all --graph --decorate'
 alias g='git'
