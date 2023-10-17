@@ -13,19 +13,6 @@ plug "ael-code/zsh-colored-man-pages"
 #Local files
 [ -f ~/.dotfiles/shell/aliases.sh ] && source ~/.dotfiles/shell/aliases.sh
 [ -f ~/.dotfiles/shell/functions.sh ] && source ~/.dotfiles/shell/functions.sh
-[ -f ~/.dotfiles/shell/nav.sh ] && source ~/.dotfiles/shell/nav.sh
-
-#Bind Ctrl+F to the ff script
-function nav-widget {
-  nav
-  local precmd
-  for precmd in $precmd_functions; do
-    $precmd
-  done
-  zle reset-prompt
-}
-zle -N nav-widget
-bindkey "^f" nav-widget
 
 #FZF
 export FZF_DEFAULT_OPTS="--layout=reverse"

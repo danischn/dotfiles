@@ -62,4 +62,4 @@ alias week='date +%V'
 alias gl='git log --all --graph --decorate'
 alias g='git'
 
-alias fzf='fzf-tmux'
+alias f='source ~/.dotfiles/shell/ff.sh'

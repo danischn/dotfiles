@@ -21,6 +21,8 @@ return {
 				"stylua",
 				"black",
 				"debugpy",
+				"shellcheck",
+				"pylint",
 			},
 		})
 	end,
