@@ -21,4 +21,14 @@ return {
 			},
 		},
 	},
+	{
+		"frabjous/knap",
+		config = function()
+			local gknapsettings = {
+				delay = 500,
+			}
+			vim.g.knap_settings = gknapsettings
+      vim.keymap.set({ 'n', 'v', 'i' },'<F5>', "<cmd>require('knap').process_once()<cr>")
+		end,
+	},
 }
