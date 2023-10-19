@@ -1,33 +1,46 @@
 # ----------------------- environment variables ----------------------
-
 export PATH="/opt/homebrew/bin:$PATH"
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export FZF_TMUX_OPTS="-p60%"
-export LESSHISTFILE=-
-export HISTSIZE=10000
-export HISTFILESIZE=20000
-export HISTFILE="$XDG_STATE_HOME"/bash/history
 
+# History 
+export HISTSIZE=1048576
+export HISTFILESIZE=$HISTSIZE
+export HISTFILE="${HOME}/.local/state/bash/history"
+export HISTCONTROL=ignoreboth:erasedups
+
+shopt -s histappend
+
+# Less
+# https://www.tecmint.com/view-colored-man-pages-in-linux/
+export LESSHISTFILE=-
+export LESS_TERMCAP_mb=$'\e[1;32m' #green
+export LESS_TERMCAP_md=$'\e[1;32m' #green
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
 # --------------------------- prompt ---------------------------------
 
 export PROMPT_DIRTRIM=3
 
-#Colors
-reset="\e[0m"
-cyan="\e[36m"
-purple="\e[35m"
+# Colors
+cyan='\[\e[36m\]'
+purple='\[\e[35m\]'
+reset='\[\e[0m\]'
 
 # get current branch in git repo
 function git_branch(){
-  git branch 2>/dev/null | grep '^*' | sed 's/* //'
+  git branch 2>/dev/null | grep '^*' | sed 's/*//'
 }
 
 function git_dirty(){
-  [[ -z $(git status -s) ]] || echo '?'
+  [[ -z $(git status -s 2>/dev/null) ]] || echo '?'
 }
 
-export PS1="${cyan}\w ${purple}\$(git_branch)\$(git_dirty) ${reset}$ "
+export PS1="${cyan}\w${purple}\$(git_branch)\$(git_dirty) ${reset}➜ "
 
 # ----------------------------- functions ----------------------------
 
@@ -44,14 +57,13 @@ function ff(){
   fi
 
   if [ "$last_char" = '/' ]; then
-    cd "$selected_dir"
+    cd "$selected_dir" 
   else 
-    cd "$selected_dir"
+    cd "$selected_dir" 2>/dev/null
     "$EDITOR" "$selected_file"
   fi
 }
 bind '"\C-f":"ff\n"'
-
 
 # ----------------------------- aliases ----------------------------
 
@@ -79,3 +91,4 @@ alias r='ranger'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
+alias sb='source ~/.bashrc'
