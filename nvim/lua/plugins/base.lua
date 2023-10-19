@@ -53,23 +53,6 @@ return {
 			},
 		},
 	},
-	--Split and join
-	{
-		"Wansmer/treesj",
-		keys = { { "<leader>j", "<cmd>TSJToggle<cr>", desc = "Split&Join" } },
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			local lang_utils = require("treesj.langs.utils")
-			require("treesj").setup({
-				use_default_keymaps = false,
-				langs = {
-					python = {
-						object = lang_utils.set_preset_for_dict(),
-					},
-				},
-			})
-		end,
-	},
 	--File explorer
 	{
 		"echasnovski/mini.files",

@@ -23,7 +23,11 @@ function git_branch(){
   git branch 2>/dev/null | grep '^*' | sed 's/* //'
 }
 
-export PS1="${cyan}\w ${purple}\$(git_branch) ${reset}$ "
+function git_dirty(){
+  [[ -z $(git status -s) ]] || echo '?'
+}
+
+export PS1="${cyan}\w ${purple}\$(git_branch)\$(git_dirty) ${reset}$ "
 
 # ----------------------------- functions ----------------------------
 
@@ -40,7 +44,7 @@ function ff(){
   fi
 
   if [ "$last_char" = '/' ]; then
-    cd "$selected_dir" 
+    cd "$selected_dir"
   else 
     cd "$selected_dir"
     "$EDITOR" "$selected_file"

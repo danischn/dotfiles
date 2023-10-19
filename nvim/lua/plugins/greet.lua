@@ -29,7 +29,6 @@ return {
 		}
 		dashboard.section.buttons.val = {}
 		dashboard.section.header.opts.hl = "Include"
-
 		dashboard.opts.opts.noautocmd = true
 		alpha.setup(dashboard.opts)
 	end,
