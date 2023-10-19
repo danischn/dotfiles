@@ -1,4 +1,10 @@
 # ----------------------- environment variables ----------------------
+# Set the XDG_*_HOME environment variables
+export XDG_DATA_HOME="${HOME}/.local/share"
+export XDG_CONFIG_HOME="${HOME}/.config"
+export XDG_CACHE_HOME="${HOME}/.cache"
+export XDG_STATE_HOME="${HOME}/.local/state"
+
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.dotfiles/scripts/:$PATH"
 export EDITOR="nvim"
@@ -8,9 +14,11 @@ export FZF_TMUX_OPTS="-p60%"
 # History 
 export HISTSIZE=1048576
 export HISTFILESIZE=$HISTSIZE
-export HISTFILE="${HOME}/.local/state/bash/history"
+export HISTFILE="${XDG_DATA_HOME}/state/bash/history"
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
+
+
 
 # Less
 # https://www.tecmint.com/view-colored-man-pages-in-linux/
