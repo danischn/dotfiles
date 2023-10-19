@@ -1,5 +1,6 @@
 # ----------------------- environment variables ----------------------
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts/:$PATH"
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export FZF_TMUX_OPTS="-p60%"
@@ -9,7 +10,6 @@ export HISTSIZE=1048576
 export HISTFILESIZE=$HISTSIZE
 export HISTFILE="${HOME}/.local/state/bash/history"
 export HISTCONTROL=ignoreboth:erasedups
-
 shopt -s histappend
 
 # Less
@@ -79,7 +79,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias dot="cd ~/.dotfiles"
-alias wiki="cd ~/Documents/wiki"
+alias notes="cd ~/Documents/notes && nvim index.md"
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
 alias tks='tmux kill-server'
@@ -91,4 +91,4 @@ alias r='ranger'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
-alias sb='source ~/.bashrc'
+alias rb='source ~/.bashrc'

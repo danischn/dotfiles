@@ -57,7 +57,7 @@ return {
 	{
 		"echasnovski/mini.files",
 		version = false,
-		keys = { { "<leader>e", "<CMD>lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>", desc = "Explorer" } },
+		keys = { { "<leader>e", "<CMD>lua MiniFiles.open()<CR>", desc = "Explorer" } },
 		opts = {
 			mappings = {
 				go_in_plus = "l",

@@ -21,3 +21,12 @@ map("i", "jk", "<ESC>", opts)
 -- Stay in indent mode
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
+
+-- Change cmdheight
+map("n", "<leader>1", function()
+	if vim.o.cmdheight == 1 then
+		vim.o.cmdheight = 0
+	else
+		vim.o.cmdheight = 1
+	end
+end)

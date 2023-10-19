@@ -2,14 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	event = "VimEnter",
 	config = function()
-		local diagnostics = {
-			"diagnostics",
-			sources = { "nvim_diagnostic" },
-			sections = { "error", "warn" },
-			symbols = { error = "✘:", warn = "▲:" },
-			colored = false,
-			always_visible = true,
-		}
 		require("lualine").setup({
 			options = {
 				globalstatus = true,
@@ -23,7 +15,7 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch" },
-				lualine_c = { diagnostics },
+				lualine_c = { "filename" },
 				lualine_x = {},
 				lualine_y = { "location" },
 				lualine_z = { "progress" },

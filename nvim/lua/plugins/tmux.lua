@@ -23,7 +23,6 @@ return {
 		config = function()
 			vim.g.VimuxOrientation = "h"
 			vim.g.VimuxHeight = "40"
-      -- Keymap to run code
 			vim.keymap.set("n", "<leader><cr>", function()
 				vim.cmd("wa")
 				vim.cmd("call VimuxRunCommand('clear; py ' . bufname('%'))")
