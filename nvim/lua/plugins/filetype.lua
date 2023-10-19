@@ -28,7 +28,8 @@ return {
 				delay = 500,
 			}
 			vim.g.knap_settings = gknapsettings
-      vim.keymap.set({ 'n', 'v', 'i' },'<F5>', "<cmd>require('knap').process_once()<cr>")
+      vim.keymap.set({ 'n', 'v', 'i' },'<F3>', function() require('knap').process_once() end)
+      vim.keymap.set({ 'n', 'v', 'i' },'<F8>', function() require("knap").toggle_autopreviewing() end)
 		end,
 	},
 }

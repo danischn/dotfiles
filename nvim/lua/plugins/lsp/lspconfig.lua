@@ -17,6 +17,7 @@ return {
 			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
 			vim.keymap.set("n", "<leader>d", ":Telescope diagnostics<cr>", opts)
 			vim.keymap.set("n", "<leader>lw", ":lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
+			vim.keymap.set("n", "<leader>li", ":LspInfo<cr>", opts)
 		end
 
     -- Hide ghost text
