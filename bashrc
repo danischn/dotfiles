@@ -35,7 +35,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export PROMPT_DIRTRIM=3
 
 # Colors
-cyan='\[\e[36m\]'
+cyan='\[\e[1;36m\]'
 purple='\[\e[35m\]'
 reset='\[\e[0m\]'
 

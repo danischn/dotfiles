@@ -4,7 +4,7 @@ pdfs=$(fd --color always --extension pdf --base-directory ~/Downloads)
 selected=$(echo "$pdfs" | fzf-tmux -p40% --ansi)
 
 if [ -z "$selected" ]; then
-    return 0
+    exit 0
 fi
 
 open ~/Downloads/"$selected"
