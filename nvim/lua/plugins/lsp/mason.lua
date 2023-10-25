@@ -11,7 +11,6 @@ return {
 				"lua_ls",
 				"pyright",
 				"marksman",
-				"bashls",
 			},
 		})
 
@@ -22,7 +21,6 @@ return {
 				"black",
 				"debugpy",
 				"shellcheck",
-				"pylint",
 			},
 		})
 	end,

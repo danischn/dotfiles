@@ -1,6 +1,6 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0 -- hide cmd bar since i use noice
+vim.opt.cmdheight = 0 -- hide cmd bar
 vim.opt.conceallevel = 2 -- hides links in markdown
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.ignorecase = true -- ignore case in search patterns

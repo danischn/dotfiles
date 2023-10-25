@@ -7,6 +7,7 @@ return {
 				python = { "black" },
 				lua = { "stylua" },
 				markdown = { "prettier" },
+				bash = { "beautysh" },
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()

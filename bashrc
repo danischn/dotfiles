@@ -18,8 +18,6 @@ export HISTFILE="${XDG_DATA_HOME}/state/bash/history"
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-
-
 # Less
 # https://www.tecmint.com/view-colored-man-pages-in-linux/
 export LESSHISTFILE=-
@@ -30,14 +28,16 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
 # --------------------------- prompt ---------------------------------
 
 export PROMPT_DIRTRIM=3
 
 # Colors
+
 cyan='\[\e[1;36m\]'
 purple='\[\e[35m\]'
-reset='\[\e[0m\]'
+reset='\[\e[0;0m\]'
 
 # get current branch in git repo
 function git_branch(){
@@ -56,13 +56,11 @@ function ff(){
   fd_options=( --hidden --follow --color always --exclude Library --exclude Music --exclude Movies --exclude Public --exclude Desktip --exclude Applications --exclude Pictures --exclude .cache --exclude .local --exclude .m2 --exclude .idlerc --exclude .Trash --exclude .Applications --exclude .ssh --exclude .vscode --exclude .config --exclude .DS_Store --exclude .npm --exclude .git)
 
   selected_raw=$(fd "${fd_options[@]}" | fzf-tmux -p60% --ansi)
-  selected_dir=$(echo "$selected_raw" | sed 's/\(.*\/\)[^/]*$/\1/')
-  selected_file=$(echo "$selected_raw" | sed 's/.*\///')
-  last_char=${selected_raw: -1}
+  if [ -z "$selected_raw" ]; then return 0; fi
 
-  if [ -z "$selected_raw" ]; then
-      return 0
-  fi
+  selected_dir=$(realpath "${selected_raw%/*}")
+  selected_file=$(basename "$selected_raw")
+  last_char=${selected_raw: -1}
 
   if [ "$last_char" = '/' ]; then
     cd "$selected_dir" 
@@ -71,7 +69,7 @@ function ff(){
     "$EDITOR" "$selected_file"
   fi
 }
-bind '"\C-f":"ff\n"'
+bind '"\C-f":"\C-uff\n"'
 
 # ----------------------------- aliases ----------------------------
 

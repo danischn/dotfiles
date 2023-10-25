@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-pdfs=$(fd --color always --extension pdf --base-directory ~/Downloads)
+pdfs=$(fd --color always --extension pdf --base-directory ~/Documents/skole/3.sem/pdfs)
 selected=$(echo "$pdfs" | fzf-tmux -p40% --ansi)
 
 if [ -z "$selected" ]; then
     exit 0
 fi
 
-open ~/Downloads/"$selected"
+open ~/Documents/skole/3.sem/pdfs/"$selected"
