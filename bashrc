@@ -71,6 +71,10 @@ function ff(){
 }
 bind '"\C-f":"\C-uff\n"'
 
+function lfcd () {
+    cd "$(command lf -print-last-dir "$@")"
+}
+
 # ----------------------------- aliases ----------------------------
 
 alias l='ls -AH --color=auto'
@@ -93,8 +97,10 @@ alias nc='cd ~/.dotfiles/nvim && nvim'
 alias n='nvim'
 alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
 alias py='python3'
+alias pip='pip3'
 alias r='ranger'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
 alias rb='source ~/.bashrc'
+alias lf='lfcd'

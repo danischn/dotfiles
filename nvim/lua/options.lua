@@ -15,6 +15,7 @@ vim.opt.splitright = true -- force all vertical splits to go to the right of cur
 vim.opt.swapfile = false -- creates a swapfile
 vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.timeout = true
+vim.opt.autowrite = true
 vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds):
 vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 50 -- faster completion (4000ms default)

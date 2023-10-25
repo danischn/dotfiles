@@ -1,7 +1,9 @@
 [user]
 	name = Daniel Schneider
 	email = dschneider0103@gmail.com
-
 [alias]
   st = status -sb
   co = checkout
+[core]
+  excludesfile = ~/.config/git/ignore
+  editor = vim
