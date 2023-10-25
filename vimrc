@@ -13,6 +13,7 @@ set ignorecase
 set scrolloff=8
 set autoindent
 set autowrite
+set nowrap
 syntax on 
 
 "--------------- Keymaps --------------
