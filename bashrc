@@ -34,7 +34,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 export PROMPT_DIRTRIM=3
 
 # Colors
-
 cyan='\[\e[1;36m\]'
 purple='\[\e[35m\]'
 reset='\[\e[0;0m\]'
@@ -83,6 +82,7 @@ alias la='ls -ahlF --color=auto'
 alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'
+alias rm='rm -Ir'
 alias b='cd - >/dev/null'
 alias ..="cd .."
 alias ...="cd ../.."
@@ -102,5 +102,4 @@ alias r='ranger'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
-alias rb='source ~/.bashrc'
 alias lf='lfcd'

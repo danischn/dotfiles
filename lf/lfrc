@@ -1,0 +1,15 @@
+set shell sh
+set hidden true
+set drawbox true
+
+# Functions
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        *) open "$f" ;;
+    esac
+}}
+
+
+# Bindings 
+map l open
