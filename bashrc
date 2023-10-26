@@ -7,6 +7,8 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.dotfiles/scripts/:$PATH"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export FZF_TMUX_OPTS="-p60%"
@@ -75,10 +77,9 @@ function lfcd () {
 }
 
 # ----------------------------- aliases ----------------------------
-
+alias la='ls --color=auto --group-directories-first -v -la'
 alias l='ls -AH --color=auto'
 alias ls='ls --color=auto'
-alias la='ls -ahlF --color=auto'
 alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'
