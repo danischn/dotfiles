@@ -5,10 +5,6 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="$HOME/.dotfiles/scripts/:$PATH"
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export FZF_TMUX_OPTS="-p60%"
@@ -30,6 +26,11 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# --------------------------- path ---------------------------------
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts/:$PATH"
 
 # --------------------------- prompt ---------------------------------
 
@@ -72,12 +73,16 @@ function ff(){
 }
 bind '"\C-f":"\C-uff\n"'
 
-function lfcd () {
+function lfcd() {
     cd "$(command lf -print-last-dir "$@")"
 }
 
+function mcdir() {
+  mkdir "$1" && cd "$1"
+}
+
 # ----------------------------- aliases ----------------------------
-alias la='ls --color=auto --group-directories-first -v -la'
+alias la='ls --color=auto -v -la'
 alias l='ls -AH --color=auto'
 alias ls='ls --color=auto'
 alias c='clear'
@@ -103,4 +108,3 @@ alias r='ranger'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
-alias lf='lfcd'
