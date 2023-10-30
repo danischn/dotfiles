@@ -12,10 +12,10 @@ return {
 					resize_step_y = 3,
 				},
 			})
-			vim.keymap.set("n", "<M-a>", "<cmd>lua require('tmux').resize_left()<cr>")
-			vim.keymap.set("n", "<M-s>", "<cmd>lua require('tmux').resize_bottom()<cr>")
-			vim.keymap.set("n", "<M-d>", "<cmd>lua require('tmux').resize_top()<cr>")
-			vim.keymap.set("n", "<M-f>", "<cmd>lua require('tmux').resize_right()<cr>")
+			vim.keymap.set("n", "<A-h>", "<cmd>lua require('tmux').resize_left()<cr>")
+			vim.keymap.set("n", "<A-j>", "<cmd>lua require('tmux').resize_bottom()<cr>")
+			vim.keymap.set("n", "<A-k>", "<cmd>lua require('tmux').resize_top()<cr>")
+			vim.keymap.set("n", "<A-l>", "<cmd>lua require('tmux').resize_right()<cr>")
 		end,
 	},
 	{

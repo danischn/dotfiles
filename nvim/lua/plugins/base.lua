@@ -12,14 +12,14 @@ return {
 	{
 		"echasnovski/mini.pairs",
 		version = false,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = true,
 	},
 	--Surround
 	{
 		"kylechui/nvim-surround",
 		version = "*",
-		event = "VeryLazy",
+		event = { "BufRead", "BufNewFile" },
 		config = true,
 	},
 	--Comment
@@ -49,6 +49,10 @@ return {
 				},
 				tmux = {
 					enabled = true,
+				},
+				alacritty = {
+					enabled = true,
+					font = "20", -- font size
 				},
 			},
 		},

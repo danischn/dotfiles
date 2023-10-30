@@ -1,6 +1,6 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
-vim.opt.cmdheight = 0 -- hide cmd bar
+vim.opt.cmdheight = 0 -- hide command bar
 vim.opt.conceallevel = 2 -- hides links in markdown
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.ignorecase = true -- ignore case in search patterns
@@ -9,7 +9,7 @@ vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.pumheight = 4 -- pop up menu height
 vim.opt.showtabline = 0 -- always show tabs
 vim.opt.smartcase = true -- smart case
-vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
+vim.opt.showmode = true -- we don't need to see things like -- INSERT -- anymore
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.swapfile = false -- creates a swapfile
