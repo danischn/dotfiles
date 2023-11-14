@@ -35,7 +35,7 @@ export PATH="$HOME/.dotfiles/scripts/:$PATH"
 
 # --------------------------- prompt ---------------------------------
 
-export PROMPT_DIRTRIM=3
+PROMPT_DIRTRIM=3
 
 # Colors
 cyan='\[\e[1;36m\]'

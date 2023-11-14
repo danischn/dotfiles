@@ -8,7 +8,7 @@ return {
 				lua = { "stylua" },
 				markdown = { "prettier" },
 				bash = { "beautysh" },
-        yaml = { "prettier" },
+				yaml = { "prettier" },
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()

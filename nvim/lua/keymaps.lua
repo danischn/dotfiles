@@ -12,6 +12,8 @@ map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 -- Clear highlights
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
+-- Better join
+map("n", "J", "mzJ`z")
 -- Better paste
 map("v", "p", "P", opts)
 -- Insert --
