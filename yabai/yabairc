@@ -48,3 +48,4 @@ yabai -m rule --add app="^QuickTime Player$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Dash$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^choose$" manage=off

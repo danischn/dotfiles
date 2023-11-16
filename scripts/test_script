@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-selected=$(fd | fzf-tmux -p40%)
-selected=$(dirname "$selected")
-echo "$selected"
