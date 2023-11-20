@@ -5,7 +5,6 @@ export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export FZF_TMUX_OPTS="-p60%"
@@ -82,8 +81,8 @@ function mcdir() {
   mkdir "$1" && cd "$1"
 }
 
-# ----------------------------- aliases ----------------------------
-alias la='ls --color=auto -v -la'
+# ----------------------------- aliases --------------------------
+alias la='ls -v -la --color=auto '
 alias l='ls -AH --color=auto'
 alias ls='ls --color=auto'
 alias c='clear'
