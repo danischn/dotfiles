@@ -95,6 +95,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias dot="cd ~/.dotfiles"
+alias udot="g commit -am 'update'"
 alias notes="cd ~/Documents/notes && nvim index.md"
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
