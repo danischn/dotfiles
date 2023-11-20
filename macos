@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# Hide Dock https://apple.stackexchange.com/questions/59556/is-there-a-way-to-completely-disable-dock
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 1000
+defaults write com.apple.dock no-bouncing -bool true
+
+# Key repeat
+defaults write -g InitialKeyRepeat -int 7
+defaults write -g KeyRepeat -int 2
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+# ------- Default applications --------
