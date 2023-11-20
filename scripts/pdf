@@ -7,5 +7,4 @@ if [ -z "$selected" ]; then
     exit 0
 fi
 
-cd ~/Documents/skole/3.sem/pdfs
-open "$selected"
+open ~/Documents/skole/3.sem/pdfs/"$selected"
