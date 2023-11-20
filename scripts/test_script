@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+selected=$(echo "https://unix.stackexchange.com/questions/572253/changing-wallpaper-with-terminal-command-on-macos" | choose)
+open "$selected"
