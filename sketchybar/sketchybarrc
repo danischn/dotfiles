@@ -1,0 +1,80 @@
+#                          ﱦ 齃     ﮂ  ﵁ 爵        ﭵ     ﱦ  ﰊ 異 ﴱ אַ  'Y⃣'
+# https://felixkratz.github.io/SketchyBar/config/tricks
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+
+############## BAR ##############
+bar=(
+  height=32
+  blur_radius=0
+  position=top
+  padding_left=10
+  corner_radius=0
+  color=0xff0000000
+  margin=0
+)
+sketchybar --bar "${bar[@]}"
+
+############## GLOBAL DEFAULTS ##############
+defaults=(
+  updates=when_shown
+  icon.font="Hack Nerd Font:Bold:20.0"
+  label.font="Hack Nerd Font:Bold:18.0"
+  icon.color=0xf0ffffff
+  icon.highlight_color=0xf0ffffff
+  label.color=0xf0ffffff
+  background.corner_radius=5 
+  background.height=30
+)
+sketchybar --default "${defaults[@]}"
+
+
+############## SPACES ###############
+
+SPACE_ICONS=("" "" "" "4" "5" "6" "7" "8" "9")
+
+sid=0
+for i in "${!SPACE_ICONS[@]}"
+  do
+    sid=$(($i+1))
+
+    spaces_defaults=(
+      associated_space=$sid
+      icon="${SPACE_ICONS[i]}"
+      icon.padding_left=22
+      icon.padding_right=22
+      icon.highlight_color=0xffE48FA8
+      label.drawing=off 
+      click_script="yabai -m space --focus $sid"
+    )
+
+    sketchybar --add space space.$sid left --set space.$sid "${spaces_defaults[@]}"
+done
+
+############## ITEM DEFAULTS ###############
+items=(
+  label.padding_left=6
+  label.padding_right=6
+  icon.padding_left=6
+  icon.padding_right=6
+  icon.font="Hack Nerd Font:Bold:14.0"
+  label.font="Hack Nerd Font:Bold:14.0"
+)
+sketchybar --default "${items[@]}"
+
+############## RIGHT iTEMS ##############
+#Clock
+sketchybar --add item clock right
+sketchybar --set clock update_freq=10 icon="󰥔" script="$PLUGIN_DIR/clock.sh"
+
+#Battery
+sketchybar --add item battery right
+sketchybar --set battery script="$PLUGIN_DIR/battery.sh" update_freq=120
+sketchybar --subscribe battery system_woke power_source_change
+
+#Volume
+sketchybar --add item volume right
+sketchybar --set volume  script="$PLUGIN_DIR/volume.sh"
+sketchybar --subscribe volume volume_change
+
+############## FINALIZING THE SETUP ##############
+sketchybar --update
