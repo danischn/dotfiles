@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
 
-wget -q -P ~/Documents/skole/3.sem/pdfs/ "$1"
-
 # Check if the download was successful
-if [ $? -eq 0 ]; then
-  # Extract the filename from the URL and create the full file path
+if  wget -q -P ~/Documents/skole/3.sem/pdfs/ "$1"; then
   filename=$(basename "$1")
   pdf_path=~/Documents/skole/3.sem/pdfs/"$filename"
-
-  # Check if the file exists and open it
-  if [ -e "$pdf_path" ]; then
-    open "$pdf_path"
-  else
-    echo "Failed to download or open the PDF file."
-  fi
+  open "$pdf_path"
+  exit 0
 else
-  echo "Failed to download the PDF file."
+  echo "Failed to download the url" 
+  exit 1
 fi

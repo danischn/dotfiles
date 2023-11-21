@@ -12,7 +12,7 @@ export FZF_TMUX_OPTS="-p60%"
 # History 
 export HISTSIZE=1048576
 export HISTFILESIZE=$HISTSIZE
-export HISTFILE="${XDG_DATA_HOME}/state/bash/history"
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
