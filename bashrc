@@ -88,7 +88,7 @@ alias ls='ls --color=auto'
 alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='rm -Ir'
+alias rm='rm -ir'
 alias b='cd - >/dev/null'
 alias ..="cd .."
 alias ...="cd ../.."

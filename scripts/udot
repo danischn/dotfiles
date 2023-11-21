@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
-read -p "Commit message: " message
 cd "$HOME/.dotfiles/" || exit
+git st
+read -p "Commit message: " message
 
-git add . 
-git commit -m "$message"
-git push
+if [ -z "$message" ]; then 
+  exit 0
+else
+  git add . 
+  git commit -m "$message"
+  git push
+fi
