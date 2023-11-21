@@ -1,22 +1,24 @@
 # ----------------------- environment variables ----------------------
-# Set the XDG_*_HOME environment variables
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_STATE_HOME="${HOME}/.local/state"
-
 export EDITOR="nvim"
+
+# --------------------------- fzf ---------------------------------
 export FZF_DEFAULT_OPTS="--layout=reverse"
 export FZF_TMUX_OPTS="-p60%"
+source "/opt/homebrew/opt/fzf/shell/completion.bash"
+source "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
 
-# History 
+# --------------------------- history ---------------------------------
 export HISTSIZE=1048576
 export HISTFILESIZE=$HISTSIZE
 export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-# Less
+# --------------------------- less ---------------------------------
 # https://www.tecmint.com/view-colored-man-pages-in-linux/
 export LESSHISTFILE=-
 export LESS_TERMCAP_mb=$'\e[1;32m' #green
@@ -28,12 +30,11 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # --------------------------- path ---------------------------------
-
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.dotfiles/scripts/:$PATH"
+export PATH="/opt/homebrew/opt/fzf/bin:$PATH" # -- for keybinds
 
 # --------------------------- prompt ---------------------------------
-
 PROMPT_DIRTRIM=3
 
 # Colors
@@ -53,7 +54,6 @@ function git_dirty(){
 export PS1="${cyan}\w${purple}\$(git_branch)\$(git_dirty) ${reset}➜ "
 
 # ----------------------------- functions ----------------------------
-
 function ff(){
   fd_options=( --hidden --follow --color always --exclude Library --exclude Music --exclude Movies --exclude Public --exclude Desktip --exclude Applications --exclude Pictures --exclude .cache --exclude .local --exclude .m2 --exclude .idlerc --exclude .Trash --exclude .Applications --exclude .ssh --exclude .vscode --exclude .config --exclude .DS_Store --exclude .npm --exclude .git)
 
@@ -95,7 +95,6 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias dot="cd ~/.dotfiles"
-alias udot="cd ~/.dotfiles/; g commit -am 'update' >/dev/null ; g push"
 alias notes="cd ~/Documents/notes && nvim index.md"
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
