@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
+#Url is the most recently copied element in the clipboard
+url=$(pbpaste)
+
 # Check if the download was successful
-if  wget -q -P ~/Documents/skole/3.sem/pdfs/ "$1"; then
-  filename=$(basename "$1")
+if  wget -q -P ~/Documents/skole/3.sem/pdfs/ "$url" ; then
+  filename=$(basename "$url")
   pdf_path=~/Documents/skole/3.sem/pdfs/"$filename"
   open "$pdf_path"
   exit 0
