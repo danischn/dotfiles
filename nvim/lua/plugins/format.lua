@@ -9,6 +9,7 @@ return {
 				markdown = { "prettier" },
 				bash = { "beautysh" },
 				yaml = { "prettier" },
+				json = { "prettier" },
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()
