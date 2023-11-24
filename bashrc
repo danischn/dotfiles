@@ -109,3 +109,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
 alias lf='lfcd'
+
+#Start pdf script in the background
+dpdf &

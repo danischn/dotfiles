@@ -8,8 +8,5 @@ do
  if [ "$ext" == "pdf" ]; then
    mv ~/Downloads/"$file" ~/Documents/skole/3.sem/pdfs/
    open ~/Documents/skole/3.sem/pdfs/"$file"
-   exit 0
  fi
 done
-
-dpdf
