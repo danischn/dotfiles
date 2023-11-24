@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
 # Use fswatch to monitor the ~/Downloads directory
-fswatch -0 ~/Downloads | while read -d "" _
+fswatch ~/Downloads | while read _
 do
  file=$(ls -t ~/Downloads/ | head -1) 
  ext=${file##*.}
-
  if [ "$ext" == "pdf" ]; then
-   mv "$file" ~/Documents/skole/3.sem/pdfs/
+   mv ~/Downloads/"$file" ~/Documents/skole/3.sem/pdfs/
    open ~/Documents/skole/3.sem/pdfs/"$file"
    exit 0
  fi
