@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-#Url is the most recently copied element in the clipboard
-url=$(pbpaste)
+# Use fswatch to monitor the ~/Downloads directory
+fswatch -0 ~/Downloads | while read -d "" _
+do
+ file=$(ls -t ~/Downloads/ | head -1) 
+ ext=${file##*.}
 
-# Check if the download was successful
-if  wget -q -P ~/Documents/skole/3.sem/pdfs/ "$url" ; then
-  filename=$(basename "$url")
-  pdf_path=~/Documents/skole/3.sem/pdfs/"$filename"
-  open "$pdf_path"
-  exit 0
-else
-  echo "Failed to download the url" 
-  exit 1
-fi
+ if [ "$ext" == "pdf" ]; then
+   open ~/Downloads/"$file"
+   exit 0
+ fi
+done
+
+dpdf
