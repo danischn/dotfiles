@@ -34,6 +34,10 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/.dotfiles/scripts/:$PATH"
 export PATH="/opt/homebrew/opt/fzf/bin:$PATH" # -- for keybinds
 
+# --------------------------- options ---------------------------------
+export CLICOLOR=1
+export LSCOLORS='exfxcxdxbxegedabagacad'
+
 # --------------------------- prompt ---------------------------------
 PROMPT_DIRTRIM=3
 
@@ -82,9 +86,8 @@ function mcdir() {
 }
 
 # ----------------------------- aliases --------------------------
-alias la='ls -v -la --color=auto '
-alias l='ls -AH --color=auto'
-alias ls='ls --color=auto'
+alias la='ls -vla' 
+alias l='ls -AH'
 alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'
