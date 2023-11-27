@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Use fswatch to monitor the ~/Downloads directory
+# Script to autopen downloaded pdfs
 fswatch ~/Downloads | while read _
 do
  file=$(ls -t ~/Downloads/ | head -1) 
