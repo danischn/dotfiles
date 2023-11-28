@@ -36,7 +36,7 @@ export PATH=/opt/homebrew/bin:$PATH
 
 # --------------------------- options ---------------------------------
 export CLICOLOR=1
-export LSCOLORS='exfxcxdxbxegedabagacad'
+export LSCOLORS='exfxcxdxbxegedabagacad' # https://geoff.greer.fm/lscolors/
 
 # --------------------------- prompt ---------------------------------
 PROMPT_DIRTRIM=3
