@@ -6,7 +6,7 @@ do
   file=$(ls -t ~/Downloads/ | head -1) 
   ext=${file##*.}
   if [ "$ext" == "pdf" ]; then
-    mv ~/Downloads/"$file" ~/Documents/skole/3.sem/pdfs/ > dev/null
+    mv ~/Downloads/"$file" ~/Documents/skole/3.sem/pdfs/ 2>/dev/null
     open ~/Documents/skole/3.sem/pdfs/"$file"
   fi
 done
