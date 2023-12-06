@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Script to autopen downloaded pdfs
-fswatch ~/Downloads | while read _
+fswatch -o ~/Downloads | while read _
 do
   sleep 0.5
   file=$(ls -t ~/Downloads/ | head -1) 
