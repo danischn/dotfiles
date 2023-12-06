@@ -3,10 +3,11 @@
 # Script to autopen downloaded pdfs
 fswatch ~/Downloads | while read _
 do
- file=$(ls -t ~/Downloads/ | head -1) 
- ext=${file##*.}
- if [ "$ext" == "pdf" ]; then
-   mv ~/Downloads/"$file" ~/Documents/skole/3.sem/pdfs/
-   open ~/Documents/skole/3.sem/pdfs/"$file"
- fi
+  sleep 0.5
+  file=$(ls -t ~/Downloads/ | head -1) 
+  ext=${file##*.}
+  if [ "$ext" == "pdf" ]; then
+    mv ~/Downloads/"$file" ~/Documents/skole/3.sem/pdfs/
+    open ~/Documents/skole/3.sem/pdfs/"$file"
+  fi
 done
