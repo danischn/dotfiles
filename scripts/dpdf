@@ -7,6 +7,6 @@ do
   ext=${file##*.}
   if [ "$ext" == "pdf" ]; then
     mv ~/Downloads/"$file" ~/Documents/skole/4.sem/pdfs/ 2>/dev/null
-    open ~/Documents/skole/4.sem/pdfs/"$file"
+    open ~/Documents/skole/4.sem/pdfs/"$file" 2>/dev/null
   fi
 done
