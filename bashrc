@@ -59,7 +59,7 @@ export PS1="${cyan}\w${purple}\$(git_branch)\$(git_dirty) ${reset}➜ "
 
 # ----------------------------- functions ----------------------------
 function ff(){
-  fd_options=( --hidden --follow --color always --exclude Library --exclude Music --exclude Movies --exclude automatic_backups --exclude Public --exclude Desktip --exclude Applications --exclude Pictures --exclude .cache --exclude .local --exclude .m2 --exclude .idlerc --exclude .Trash --exclude .Applications --exclude .ssh --exclude .vscode --exclude .config --exclude .DS_Store --exclude .npm --exclude .git)
+  fd_options=( --hidden --follow --color always --exclude Library --exclude Music --exclude Movies --exclude automatic_backups --exclude Public --exclude Desktip --exclude Applications --exclude Pictures --exclude .cache --exclude .local --exclude .m2 --exclude .idlerc --exclude .Trash --exclude .Applications --exclude .ssh --exclude .vscode --exclude .config --exclude .DS_Store --exclude .npm --exclude .git --exclude .matplotlib)
 
   selected_raw=$(fd "${fd_options[@]}" | fzf-tmux -p60% --ansi)
   if [ -z "$selected_raw" ]; then return 0; fi
