@@ -112,6 +112,7 @@ alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
 alias lf='lfcd'
+alias cpath='pwd | pbcopy'
 
 #Start pdf script in the background
 dpdf &
