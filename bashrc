@@ -72,7 +72,10 @@ function ff(){
     cd "$selected_dir" 
   else 
     cd "$selected_dir" 2>/dev/null
-    "$EDITOR" "$selected_file"
+    case $(file --mime-type "$selected_file" -bL) in text/*|application/json) 
+    $EDITOR "$selected_file";; *) 
+    open "$selected_file" ;; 
+    esac
   fi
 }
 bind '"\C-f":"\C-uff\n"'
