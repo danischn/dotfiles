@@ -51,3 +51,4 @@ yabai -m rule --add app="^Activity Monitor$" manage=off
 yabai -m rule --add app="^choose$" manage=off
 yabai -m rule --add app="^Hammerspoon$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
