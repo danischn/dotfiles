@@ -30,9 +30,9 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 # --------------------------- path ---------------------------------
-export PATH=~/.dotfiles/scripts/:$PATH
-export PATH=/opt/homebrew/opt/fzf/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
+PATH=~/.dotfiles/scripts/:$PATH
+PATH=/opt/homebrew/opt/fzf/bin:$PATH
+PATH=/opt/homebrew/bin:$PATH
 
 # --------------------------- options ---------------------------------
 export CLICOLOR=1
