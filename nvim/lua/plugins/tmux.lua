@@ -25,7 +25,7 @@ return {
 			vim.g.VimuxHeight = "40"
 			vim.keymap.set("n", "<leader><cr>", function()
 				vim.cmd("wa")
-				vim.cmd("call VimuxRunCommand('clear; py ' . bufname('%'))")
+        vim.cmd("call VimuxRunCommand('clear; py ' . bufname('%'))")
 			end)
 		end,
 	},

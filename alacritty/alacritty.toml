@@ -1,0 +1,45 @@
+[colors.bright]
+black = "0x767676"
+blue = "0x1a8fff"
+cyan = "0x14ffff"
+green = "0x23fd00"
+magenta = "0xfd28ff"
+red = "0xf2201f"
+white = "0xffffff"
+yellow = "0xfffd00"
+
+[colors.cursor]
+background = "0xffffff"
+foreground = "0x000000"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x0d73cc"
+cyan = "0x0dcdcd"
+green = "0x19cb00"
+magenta = "0xcb1ed1"
+red = "0xcc0403"
+white = "0xdddddd"
+yellow = "0xcecb00"
+
+[colors.primary]
+background = "0x25283A"
+foreground = "0xffffff"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 17
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[window]
+decorations = "none"
+option_as_alt = "OnlyLeft"
+
+[window.padding]
+x = 5
+y = 5
