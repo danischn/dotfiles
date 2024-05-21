@@ -75,10 +75,6 @@ function ff(){
 }
 bind '"\C-f":"\C-uff\n"'
 
-function lfcd() {
-    cd "$(command lf -print-last-dir "$@")"
-}
-
 function mcdir() {
   mkdir "$1" && cd "$1"
 }
