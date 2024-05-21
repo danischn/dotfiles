@@ -5,7 +5,7 @@ return {
 	config = function()
 		local lspconfig = require("lspconfig")
 
-    --Keymaps
+		--Keymaps
 		local opts = { noremap = true, silent = true }
 		local on_attach = function(client, bufnr)
 			vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<cr>", opts)
@@ -20,10 +20,10 @@ return {
 			vim.keymap.set("n", "<leader>li", ":LspInfo<cr>", opts)
 		end
 
-    -- Hide ghost text
-    vim.diagnostic.config({ virtual_text = false })
+		-- Hide ghost text
+		vim.diagnostic.config({ virtual_text = false })
 
-    -- Setup lsp completion
+		-- Setup lsp completion
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		--Python server
@@ -53,12 +53,11 @@ return {
 			},
 		})
 
-
-    --Bash server
-    lspconfig.bashls.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = {}
-    })
+		--Bash server
+		lspconfig.bashls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			settings = {},
+		})
 	end,
 }
