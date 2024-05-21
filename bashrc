@@ -105,13 +105,11 @@ alias n='nvim'
 alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
 alias py='python3'
 alias pip='pip3'
-alias r='ranger'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias g='git'
 alias lf='lfcd'
 alias cpath='pwd | pbcopy'
-alias lc='~/.cargo/bin/leetcode'
 
 #Start pdf script in the background
 dpdf &
