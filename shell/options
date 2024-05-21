@@ -1,12 +1,28 @@
 #!/bin/bash
 
 # History
-export HISTSIZE=1048576
-export HISTFILESIZE=$HISTSIZE
-export HISTFILE="${XDG_STATE_HOME}/bash/history"
-export HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=1048576
+HISTFILESIZE=$HISTSIZE
+HISTFILE=$XDG_STATE_HOME/bash/history
+HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-# Colors
+# Colors (https://geoff.greer.fm/lscolors/)
 export CLICOLOR=1
-export LSCOLORS='exfxcxdxbxegedabagacad' # https://geoff.greer.fm/lscolors/
+export LSCOLORS='exfxcxdxbxegedabagacad' 
+
+# Setup FZF
+export FZF_DEFAULT_OPTS="--layout=reverse"
+export FZF_TMUX_OPTS='-p50%'
+source "/opt/homebrew/opt/fzf/shell/completion.bash"
+source "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
+
+# Less 
+export LESSHISTFILE=-
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'

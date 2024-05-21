@@ -1,7 +1,0 @@
-#!/bin/bash
-
-export FZF_DEFAULT_OPTS="--layout=reverse"
-export FZF_TMUX_OPTS='-p50%'
-
-source "/opt/homebrew/opt/fzf/shell/completion.bash"
-source "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
