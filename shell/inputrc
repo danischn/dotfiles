@@ -12,7 +12,7 @@ set show-mode-in-prompt on
 set vi-cmd-mode-string "\1\e[2 q\2"
 set vi-ins-mode-string "\1\e[6 q\2"
 
-#Reduce delay when switching between modes
+#Reduce delay between switching between modes
 set keyseq-timeout 0.01
 
 # Use case-insensitive TAB autocompletion.
@@ -28,3 +28,4 @@ set menu-complete-display-prefix on
 
 # Display a list of the matching files
 set show-all-if-ambiguous on
+

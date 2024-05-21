@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# History
+export HISTSIZE=1048576
+export HISTFILESIZE=$HISTSIZE
+export HISTFILE="${XDG_STATE_HOME}/bash/history"
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# Colors
+export CLICOLOR=1
+export LSCOLORS='exfxcxdxbxegedabagacad' # https://geoff.greer.fm/lscolors/
