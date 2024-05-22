@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+  fd_options="--hidden --follow --color always"
+  exclude_dirs=(
+     Library  
+     Music  
+     Movies  
+     automatic_backups  
+     Public  
+     Desktip  
+     Applications  
+     Pictures  
+     .cache  
+     .local  
+     .m2  
+     .idlerc  
+     .Trash  
+     .Applications  
+     .ssh  
+     .vscode  
+     .config  
+     .DS_Store  
+     .npm  
+     .git  
+     .matplotlib  
+     .cups  
+     .cargo  
+     .swiftpm
+  )
+  for dir in "${exclude_dirs[@]}"; do
+    fd_options+="--exclude $dir "
+  done
+
+  echo $fd_options
