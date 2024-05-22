@@ -3,10 +3,6 @@ set nocompatible
 set relativenumber
 set clipboard=unnamed
 set showmode
-set expandtab
-set shiftwidth=2
-set tabstop=2
-set tabstop=2
 set hlsearch
 set incsearch
 set ignorecase
@@ -16,6 +12,12 @@ set autowrite
 set nowrap
 set ttyfast
 syntax on 
+
+" Tabing
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 "--------------- Keymaps --------------
 set noesckeys 
