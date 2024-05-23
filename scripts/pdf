@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-pdfs=$(fd --color always --extension pdf --base-directory ~/Documents/skole/3.sem/pdfs)
+pdfs=$(fd --color always --extension pdf --base-directory ~/Documents/skole/4.sem/pdfs)
 selected=$(echo "$pdfs" | fzf-tmux -p40% --ansi)
 
 if [ -z "$selected" ]; then
