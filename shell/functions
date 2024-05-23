@@ -6,11 +6,11 @@ function ff(){
     Library
     Music
     Movies
-    automatic_backups
     Public
     Desktip
     Applications
     Pictures
+    automatic_backups
     .cache
     .local
     .m2
@@ -51,5 +51,6 @@ function ff(){
 bind '"\C-f":"\C-uff\n"'
 
 function mcdir() {
-  mkdir "$1" && cd "$1"
+  mkdir "$1"
+  cd "$1" || return
 }
