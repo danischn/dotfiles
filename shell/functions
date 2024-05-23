@@ -33,21 +33,19 @@ function ff(){
     fd_options+=(--exclude "$dir")
   done
 
-  selected_raw=$(fd "${fd_options[@]}" | fzf-tmux -p60%,35% --ansi)
-  if [ -z "$selected_raw" ]; then return 0; fi
+  selected=$(fd "${fd_options[@]}" | fzf-tmux -p60%,35% --ansi)
+  if [ -z "$selected" ]; then return; fi
 
-  selected_dir=$(realpath "${selected_raw%/*}")
-  selected_file=$(basename "$selected_raw")
-  last_char=${selected_raw: -1}
+  filetype=$(file --mime-type -b "$selected")
 
-  if [ "$last_char" = '/' ]; then
-    cd "$selected_dir" 
-  else 
-    cd "$selected_dir" 2>/dev/null
-    case $(file --mime-type "$selected_file" -bL) in text/*|application/json) 
-    $EDITOR "$selected_file";; *) 
-    open "$selected_file" ;; 
-    esac
+  if [[ $filetype == "inode/directory" ]]; then
+      cd "$selected" || return
+  elif [[ $filetype == text/* || $filetype == application/json || $filetype == inode/x-empty ]]; then
+      cd "$(dirname "$selected")" || return
+      $EDITOR "$(basename "$selected")"
+  else
+      cd "$(dirname "$selected")" || return
+      open "$(basename "$selected")"
   fi
 }
 bind '"\C-f":"\C-uff\n"'
