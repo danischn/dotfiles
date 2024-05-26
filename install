@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# git clone $url && cd .dotfiles && ./install
+
+DOTFILES_LOCATION="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Vim
+ln -s "$DOTFILES_LOCATION"/vimrc ~/.vimrc
+
+# Bash
+ln -s "$DOTFILES_LOCATION"/shell/bashrc ~/.bashrc
+
+# Inputrc
+ln -s "$DOTFILES_LOCATION"/shell/inputrc ~/.inputrc

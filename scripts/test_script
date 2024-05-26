@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-if [ -z .bashrc ]; then
-  echo "True"
-fi
+SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+
+echo "${BASH_SOURCE[0]}"
