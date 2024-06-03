@@ -14,6 +14,6 @@ return {
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>f", function()
 			require("conform").format()
-		end)
+		end, { desc = "Format Document" })
 	end,
 }

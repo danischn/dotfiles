@@ -4,8 +4,13 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
+		opts = {
+			on_highlights = function(hl, c)
+				hl.CursorLineNr = { fg = c.gray }
+			end,
+		},
 		config = function()
-			vim.cmd([[colorscheme tokyonight]])
+			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
 	--Autopairs
@@ -72,10 +77,5 @@ return {
 				permanent_delete = false,
 			},
 		},
-	},
-	--UndoTree
-	{
-		"mbbill/undotree",
-		keys = { { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "UndoTree" } },
 	},
 }

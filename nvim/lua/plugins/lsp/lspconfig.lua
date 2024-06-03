@@ -7,7 +7,7 @@ return {
 
 		--Keymaps
 		local opts = { noremap = true, silent = true }
-		local on_attach = function(client, bufnr)
+		local on_attach = function()
 			vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<cr>", opts)
 			vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<cr>", opts)
 			vim.keymap.set("n", "gp", ":lua vim.diagnostic.open_float()<cr>", opts)

@@ -26,9 +26,22 @@ map("v", ">", ">gv", opts)
 
 -- Change cmdheight
 map("n", "<leader>1", function()
-	if vim.o.cmdheight == 1 then
-		vim.o.cmdheight = 0
+	vim.o.cmdheight = 1 - vim.o.cmdheight
+end)
+
+-- Map for running file
+map("n", "<leader><cr>", function()
+	vim.cmd("wa")
+	local filetype = vim.bo.filetype
+	local command
+	if filetype == "python" then
+		command = "clear; python3 " .. vim.fn.bufname("%")
+	elseif filetype == "lua" then
+		command = "clear; lua " .. vim.fn.bufname("%")
+		vim.cmd("call VimuxRunCommand('" .. command .. "')")
 	else
-		vim.o.cmdheight = 1
+		print("Can't run this file")
+		return
 	end
+	vim.cmd("call VimuxRunCommand('" .. command .. "')")
 end)

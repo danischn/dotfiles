@@ -1,5 +1,5 @@
 return {
-	--Markdown Previewer
+	-- Markdown Previewer
 	{
 		"iamcco/markdown-preview.nvim",
 		ft = "markdown",
@@ -8,7 +8,7 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	--Markdown-flow
+	-- Markdown-flow
 	{
 		"jakewvincent/mkdnflow.nvim",
 		ft = "markdown",

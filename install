@@ -4,35 +4,14 @@
 
 DOTFILES_LOCATION="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Vim
 ln -s "$DOTFILES_LOCATION"/vimrc ~/.vimrc
-
-# Bash
 ln -s "$DOTFILES_LOCATION"/shell/bashrc ~/.bashrc
-
-# Inputrc
 ln -s "$DOTFILES_LOCATION"/shell/inputrc ~/.inputrc
-
-#Alacritty
 ln -s "$DOTFILES_LOCATION"/shell/alacritty ~/.config/alacritty
-
-#Git
 ln -s "$DOTFILES_LOCATION"/shell/git ~/.config/git
-
-#Karabiner
 ln -s "$DOTFILES_LOCATION"/shell/karabiner ~/.config/karabiner
-
-#Sketchybar
 ln -s "$DOTFILES_LOCATION"/shell/sketchybar ~/.config/sketchybar
-
-#Nvim
 ln -s "$DOTFILES_LOCATION"/shell/nvim ~/.config/nvim
-
-#Skhd
 ln -s "$DOTFILES_LOCATION"/shell/skhd ~/.config/skhd
-
-#Tmux
 ln -s "$DOTFILES_LOCATION"/shell/tmux ~/.config/tmux
-
-#Yabai
 ln -s "$DOTFILES_LOCATION"/shell/yabai ~/.config/yabai

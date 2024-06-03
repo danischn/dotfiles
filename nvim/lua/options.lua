@@ -1,7 +1,7 @@
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 0 -- hide command bar
-vim.opt.conceallevel = 2 -- hides links in markdown
+vim.opt.conceallevel = 0 -- hides links in markdown
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
@@ -40,19 +40,3 @@ vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/
 vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
-
----Highlighted yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "hightlight selection on yank",
-	callback = function()
-		vim.highlight.on_yank({ higroup = "incsearch", timeout = 50 })
-	end,
-})
-
---No autopairs in markdown files
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "markdown",
-	callback = function()
-		vim.b.minipairs_disable = true
-	end,
-})
