@@ -4,6 +4,7 @@ return {
 	keys = {
 		{ "<leader>;", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
 		{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
+		{ "<leader>k", "<cmd>Telescope keymaps theme=dropdown<cr>", desc = "Keymaps" },
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",

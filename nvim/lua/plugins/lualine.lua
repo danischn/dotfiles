@@ -14,10 +14,15 @@ return {
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch" },
+				lualine_b = {
+					function()
+						local cwd = vim.fn.getcwd()
+						return vim.fn.fnamemodify(cwd, ":~")
+					end,
+				},
 				lualine_c = { "filename" },
 				lualine_x = {},
-				lualine_y = { "location" },
+				lualine_y = { "branch" },
 				lualine_z = { "progress" },
 			},
 		})

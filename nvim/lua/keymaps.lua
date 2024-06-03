@@ -27,7 +27,7 @@ map("v", ">", ">gv", opts)
 -- Change cmdheight
 map("n", "<leader>1", function()
 	vim.o.cmdheight = 1 - vim.o.cmdheight
-end)
+end, { desc = "Change cmdheight" })
 
 -- Map for running file
 map("n", "<leader><cr>", function()
@@ -44,4 +44,23 @@ map("n", "<leader><cr>", function()
 		return
 	end
 	vim.cmd("call VimuxRunCommand('" .. command .. "')")
-end)
+end, { desc = "Run file" })
+
+-- Map for previewing markdown file in pdf format
+local viewer_closed = true
+map("n", "<leader>v", function()
+	vim.cmd("wa")
+	local filetype = vim.bo.filetype
+	if filetype ~= "markdown" then
+		print("Not Markdown")
+		return
+	end
+	local filename = vim.fn.expand("%")
+	local pdfname = vim.fn.expand("%:r") .. ".pdf"
+	vim.system({ "pandoc", filename, "-o", pdfname }, {}, function()
+		if viewer_closed then
+			vim.system({ "open", pdfname }, {})
+			viewer_closed = false
+		end
+	end)
+end, { desc = "Preview markdown" })

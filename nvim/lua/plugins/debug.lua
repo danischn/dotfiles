@@ -4,19 +4,22 @@ return {
 		config = function()
 			vim.keymap.set("n", "<leader>s", function()
 				require("dap").continue()
-			end)
+			end, { desc = "Debug: Continue" })
+
 			vim.keymap.set("n", "<up>", function()
 				require("dap").step_over()
-			end)
+			end, { desc = "Debug: Step over" })
+
 			vim.keymap.set("n", "<down>", function()
 				require("dap").step_into()
-			end)
+			end, { desc = "Debug: Step Into" })
 			vim.keymap.set("n", "<right>", function()
 				require("dap").step_out()
-			end)
+			end, { desc = "Debug: Step out" })
+
 			vim.keymap.set("n", "<leader>b", function()
 				require("dap").toggle_breakpoint()
-			end)
+			end, { desc = "Debug: Toggle breakpoint" })
 		end,
 	},
 	{

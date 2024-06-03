@@ -4,13 +4,9 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {
-			on_highlights = function(hl, c)
-				hl.CursorLineNr = { fg = c.gray }
-			end,
-		},
+    version = "3.0.0",
 		config = function()
-			vim.cmd.colorscheme("tokyonight-storm")
+			vim.cmd[[colorscheme tokyonight]]
 		end,
 	},
 	--Autopairs
