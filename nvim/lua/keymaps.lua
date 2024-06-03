@@ -2,7 +2,7 @@
 local map = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
---Better Scrolling(from thePrimeagen)
+--Better Scrolling
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
@@ -31,36 +31,18 @@ end, { desc = "Change cmdheight" })
 
 -- Map for running file
 map("n", "<leader><cr>", function()
-	vim.cmd("wa")
-	local filetype = vim.bo.filetype
-	local command
-	if filetype == "python" then
-		command = "clear; python3 " .. vim.fn.bufname("%")
-	elseif filetype == "lua" then
-		command = "clear; lua " .. vim.fn.bufname("%")
-		vim.cmd("call VimuxRunCommand('" .. command .. "')")
-	else
-		print("Can't run this file")
-		return
-	end
-	vim.cmd("call VimuxRunCommand('" .. command .. "')")
-end, { desc = "Run file" })
+    vim.cmd("wa")
+    local filetype = vim.bo.filetype
+    local command
 
--- Map for previewing markdown file in pdf format
-local viewer_closed = true
-map("n", "<leader>v", function()
-	vim.cmd("wa")
-	local filetype = vim.bo.filetype
-	if filetype ~= "markdown" then
-		print("Not Markdown")
-		return
-	end
-	local filename = vim.fn.expand("%")
-	local pdfname = vim.fn.expand("%:r") .. ".pdf"
-	vim.system({ "pandoc", filename, "-o", pdfname }, {}, function()
-		if viewer_closed then
-			vim.system({ "open", pdfname }, {})
-			viewer_closed = false
-		end
-	end)
-end, { desc = "Preview markdown" })
+    if filetype == "python" then
+        command = "clear; python3 " .. vim.fn.bufname("%")
+    elseif filetype == "lua" then
+        command = "clear; lua " .. vim.fn.bufname("%")
+    else
+        print("Can't run this file")
+        return
+    end
+
+    vim.cmd("call VimuxRunCommand('" .. command .. "')")
+end, { desc = "Run file" })
