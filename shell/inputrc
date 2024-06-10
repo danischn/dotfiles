@@ -12,7 +12,7 @@ set show-mode-in-prompt on
 set vi-cmd-mode-string "\1\e[2 q\2"
 set vi-ins-mode-string "\1\e[6 q\2"
 
-#Reduce delay between switching between modes
+#Reduce delay between switching between modes in vim
 set keyseq-timeout 0.01
 
 # Use case-insensitive TAB autocompletion.
