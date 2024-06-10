@@ -58,7 +58,7 @@ return {
 	{
 		"echasnovski/mini.files",
 		version = false,
-		keys = { { "<leader>e", "<CMD>lua MiniFiles.open()<CR>", desc = "Explorer" } },
+		keys = { { "<leader>e", "<cmd>lua MiniFiles.open()<cr>", desc = "Explorer" } },
 		opts = {
 			mappings = {
 				go_in_plus = "l",

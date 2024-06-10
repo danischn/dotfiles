@@ -16,21 +16,3 @@ map("v", "p", "P")
 map("n", "<leader>1", function()
 	vim.o.cmdheight = 1 - vim.o.cmdheight
 end, { desc = "Change cmdheight" })
-
--- Map for running file
-map("n", "<leader><cr>", function()
-	vim.cmd("wa")
-	local filetype = vim.bo.filetype
-	local command
-
-	if filetype == "python" then
-		command = "clear; python3 " .. vim.fn.bufname("%")
-	elseif filetype == "lua" then
-		command = "clear; lua " .. vim.fn.bufname("%")
-	else
-		print("Can't run this file")
-		return
-	end
-
-	vim.cmd("call VimuxRunCommand('" .. command .. "')")
-end, { desc = "Run file" })
