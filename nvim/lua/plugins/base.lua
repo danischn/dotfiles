@@ -4,9 +4,9 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-    version = "3.0.0",
+		version = "3.0.0",
 		config = function()
-			vim.cmd[[colorscheme tokyonight]]
+			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
 	--Autopairs
