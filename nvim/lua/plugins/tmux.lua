@@ -1,19 +1,11 @@
 return {
 	{
 		"aserowy/tmux.nvim",
-		lazy = false,
-		keys = {
-			{ "<A-h>", "<cmd>lua require('tmux').resize_left()<cr>", { desc = "Resize left" } },
-			{ "<A-j>", "<cmd>lua require('tmux').resize_bottom()<cr>", { desc = "Resize bottom" } },
-			{ "<A-k>", "<cmd>lua require('tmux').resize_top()<cr>", { desc = "Resize top" } },
-			{ "<A-l>", "<cmd>lua require('tmux').resize_right()<cr>", { desc = "Resize right" } },
-		},
 		opts = {
 			copy_sync = {
 				sync_clipboard = false,
 			},
 			resize = {
-				enable_default_keybinds = false,
 				resize_step_x = 3,
 				resize_step_y = 3,
 			},

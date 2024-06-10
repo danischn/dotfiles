@@ -13,6 +13,15 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+-- Check if we need to reload the file when it changed
+vim.api.nvim_create_autocmd("FocusGained", {
+	callback = function()
+		if vim.o.buftype ~= "nofile" then
+			vim.cmd("checktime")
+		end
+	end,
+})
+
 -- Previewer for markdown to pdf
 local viewer_closed = true
 vim.api.nvim_create_autocmd("BufWritePost", {

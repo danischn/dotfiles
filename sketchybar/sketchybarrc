@@ -17,8 +17,8 @@ sketchybar --bar "${bar[@]}"
 ############## GLOBAL DEFAULTS ##############
 defaults=(
   updates=when_shown
-  icon.font="Hack Nerd Font:Bold:20.0"
-  label.font="Hack Nerd Font:Bold:18.0"
+  icon.font="JetBrainsMono Nerd Font:Bold:18.0"
+  label.font="JetBrainsMono Nerd Font:Bold:18.0"
   icon.color=0xf0ffffff
   icon.highlight_color=0xf0ffffff
   label.color=0xf0ffffff
@@ -56,8 +56,8 @@ items=(
   label.padding_right=2
   background.padding_right=8
   background.padding_left=8
-  icon.font="Hack Nerd Font:Bold:14.0"
-  label.font="Hack Nerd Font:Bold:14.0"
+  icon.font="JetBrainsMono Nerd Font:Bold:14.0"
+  label.font="JetBrainsMono Nerd Font:Bold:14.0"
 )
 sketchybar --default "${items[@]}"
 

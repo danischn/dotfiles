@@ -10,7 +10,6 @@ set scrolloff=8
 set autoindent
 set autowrite
 set nowrap
-set ttyfast
 syntax on 
 
 " Tabing
