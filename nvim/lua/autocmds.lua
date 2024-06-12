@@ -18,7 +18,6 @@ vim.api.nvim_create_autocmd("FocusGained", {
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"help",
-		"lspinfo",
 		"alpha",
 	},
 	callback = function(event)
