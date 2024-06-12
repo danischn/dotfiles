@@ -14,11 +14,10 @@ vim.api.nvim_create_autocmd("FocusGained", {
 	end,
 })
 
--- close some filetypes with <q>
+-- close help with <q>
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"help",
-		"alpha",
 	},
 	callback = function(event)
 		vim.bo[event.buf].buflisted = false

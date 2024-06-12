@@ -1,6 +1,5 @@
 return {
 	"goolord/alpha-nvim",
-	event = "VimEnter",
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
@@ -28,7 +27,15 @@ return {
 			[[                                                                       ]],
 		}
 		dashboard.section.buttons.val = {}
-		dashboard.opts.opts.noautocmd = true
 		alpha.setup(dashboard.opts)
+
+		-- close startscreen with <q> and dont allow pressing <i>
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "alpha",
+			callback = function(event)
+				vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = event.buf })
+				vim.keymap.set("n", "i", "<nop>", { buffer = event.buf })
+			end,
+		})
 	end,
 }
