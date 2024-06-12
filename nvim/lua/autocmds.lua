@@ -14,6 +14,19 @@ vim.api.nvim_create_autocmd("FocusGained", {
 	end,
 })
 
+-- close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {
+		"help",
+		"lspinfo",
+		"alpha",
+	},
+	callback = function(event)
+		vim.bo[event.buf].buflisted = false
+		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+	end,
+})
+
 -- Previewer for markdown to pdf
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*.md",

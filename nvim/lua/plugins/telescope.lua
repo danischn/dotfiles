@@ -3,7 +3,7 @@ return {
 	cmd = "Telescope",
 	keys = {
 		{ "<leader>;", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-		{ "<leader>/", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
+		{ "<leader>/", "<cmd>Telescope grep_string<cr>", desc = "Grep" },
 		{ "<leader>k", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
 		{ "<leader>h", "<cmd>Telescope help_tags<cr>", desc = "Search Help" },
 	},
@@ -35,6 +35,9 @@ return {
 					theme = "dropdown",
 					previewer = false,
 				},
+			},
+			extensions = {
+				fzf = {},
 			},
 		})
 		require("telescope").load_extension("fzf")

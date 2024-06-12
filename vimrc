@@ -1,6 +1,5 @@
 "--------------- Options --------------
-set nocompatible
-set relativenumber
+set number
 set clipboard=unnamed
 set showmode
 set hlsearch
@@ -25,7 +24,7 @@ let mapleader=" "
 inoremap jk <ESC>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-nnoremap <leader>h :noh<cr>
+nnoremap <silent> <esc> :noh<cr>
 nnoremap <leader>e :Lexplore<cr>
 vnoremap < <gv
 vnoremap > >gv

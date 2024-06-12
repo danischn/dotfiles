@@ -74,4 +74,9 @@ return {
 			},
 		},
 	},
+	-- Essential for working with markdown files
+	{
+		"jakewvincent/mkdnflow.nvim",
+		ft = "markdown",
+	},
 }
