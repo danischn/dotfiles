@@ -1,23 +1,14 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-		config = function()
-			vim.keymap.set("n", "<leader>s", function()
-				require("dap").continue()
-			end, { desc = "Debug: Continue" })
-			vim.keymap.set("n", "<up>", function()
-				require("dap").step_over()
-			end, { desc = "Debug: Step over" })
-			vim.keymap.set("n", "<down>", function()
-				require("dap").step_into()
-			end, { desc = "Debug: Step Into" })
-			vim.keymap.set("n", "<right>", function()
-				require("dap").step_out()
-			end, { desc = "Debug: Step out" })
-			vim.keymap.set("n", "<leader>b", function()
-				require("dap").toggle_breakpoint()
-			end, { desc = "Debug: Toggle breakpoint" })
-		end,
+		-- stylua: ignore
+		keys = {
+      { "<leader>s", function() require("dap").continue() end, desc = "Debug: Continue" },
+      { "<up>", function() require("dap").step_over() end, desc = "Debug: Step over" },
+      { "<down>", function() require("dap").step_into() end, desc = "Debug: Step into" },
+      { "<right>", function() require("dap").step_out() end, desc = "Debug: Step out" },
+      { "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle breakpoint" },
+    },
 	},
 	{
 		"rcarriga/nvim-dap-ui",

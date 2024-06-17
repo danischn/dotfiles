@@ -6,25 +6,14 @@ return {
 		local lspconfig = require("lspconfig")
 
 		--Keymaps
-		local opts = { noremap = true, silent = true }
+		-- stylua: ignore
 		local on_attach = function()
-      opts.desc = "Hover"
-			vim.keymap.set("n", "gh", ":lua vim.lsp.buf.hover()<cr>", opts)
-
-      opts.desc = "Go definition"
-			vim.keymap.set("n", "gd", ":lua vim.lsp.buf.definition()<cr>", opts)
-
-      opts.desc = "See diagnostic"
-			vim.keymap.set("n", "gp", ":lua vim.diagnostic.open_float()<cr>", opts)
-
-      opts.desc = "Rename variable"
-			vim.keymap.set("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>", opts)
-
-      opts.desc = "Signature_help"
-			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-
-      opts.desc = "Add workspace folder"
-			vim.keymap.set("n", "<leader>lw", ":lua vim.lsp.buf.add_workspace_folder()<cr>", opts)
+			vim.keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Hover" })
+      vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go definition" })
+      vim.keymap.set("n", "gp", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Go definition" })
+			vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = "Rename variable" })
+			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { desc = "Signature help" })
+			vim.keymap.set( "n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", { desc = "Add workspace folder" })
 		end
 
 		-- Hide ghost text

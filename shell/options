@@ -8,7 +8,7 @@ HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
 # Colors (https://geoff.greer.fm/lscolors/)
-export CLICOLOR=1
+export CLICOLOR=
 export LSCOLORS='exfxcxdxbxegedabagacad' 
 
 # Setup FZF
@@ -22,6 +22,9 @@ export FZF_DEFAULT_OPTS="
 export FZF_TMUX_OPTS='-p50%'
 source "/opt/homebrew/opt/fzf/shell/completion.bash"
 source "/opt/homebrew/opt/fzf/shell/key-bindings.bash"
+
+# Unknown locale, assuming C error
+export LANG="en_US.UTF-8"
 
 # Less 
 export LESSHISTFILE=-

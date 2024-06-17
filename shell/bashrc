@@ -4,7 +4,7 @@
 source ~/.dotfiles/shell/functions
 source ~/.dotfiles/shell/prompt
 source ~/.dotfiles/shell/aliases
-source ~/.dotfiles/shell/options
+source ~/.dotfiles/shell/options 
 
 # Start PDF script in background
 dpdf &

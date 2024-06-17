@@ -20,7 +20,7 @@ return {
 				"black",
 				"debugpy",
 				"shellcheck",
-        "markdownlint"
+				"bashls",
 			},
 		})
 	end,

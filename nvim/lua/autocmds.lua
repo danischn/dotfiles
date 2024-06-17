@@ -13,24 +13,3 @@ vim.api.nvim_create_autocmd("FocusGained", {
 		end
 	end,
 })
-
--- close help with <q>
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = {
-		"help",
-	},
-	callback = function(event)
-		vim.bo[event.buf].buflisted = false
-		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-	end,
-})
-
--- Previewer for markdown to pdf
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = "*.md",
-	callback = function()
-		local filename = vim.fn.expand("%")
-		local pdfname = vim.fn.expand("%:r") .. ".pdf"
-		vim.system({ "pandoc", filename, "-o", pdfname })
-	end,
-})

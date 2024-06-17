@@ -9,6 +9,7 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 			ensure_installed = {
+				"c",
 				"lua",
 				"python",
 				"regex",
@@ -16,8 +17,8 @@ return {
 				"markdown_inline",
 				"bash",
 				"vim",
-				"tsv",
-				"latex",
+				"vimdoc",
+				"query",
 			},
 		})
 	end,

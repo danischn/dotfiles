@@ -9,13 +9,6 @@ return {
 			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
-	--Autopairs
-	{
-		"echasnovski/mini.pairs",
-		version = false,
-		event = "InsertEnter",
-		config = true,
-	},
 	--Surround
 	{
 		"kylechui/nvim-surround",
@@ -74,7 +67,7 @@ return {
 			},
 		},
 	},
-	-- Essential for working with markdown files
+	-- Nice when working with md-files
 	{
 		"jakewvincent/mkdnflow.nvim",
 		ft = "markdown",

@@ -1,18 +1,15 @@
--- Shorten function name
-local map = vim.keymap.set
 vim.g.mapleader = " "
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
-map("n", "n", "nzzzv")
-map("n", "N", "Nzzzv")
-map("n", "<esc>", "<cmd>nohlsearch<cr>")
-map("n", "J", "mzJ`z")
-map("i", "jk", "<ESC>")
-map("v", "<", "<gv")
-map("v", ">", ">gv")
-map("n", "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>")
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Change cmdheight
-map("n", "<leader>1", function()
+vim.keymap.set("n", "<leader>1", function()
 	vim.o.cmdheight = 1 - vim.o.cmdheight
 end, { desc = "Change cmdheight" })
