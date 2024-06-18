@@ -1,11 +1,9 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = "BufReadPre",
-	dependencies = "hrsh7th/cmp-nvim-lsp",
+	dependencies = { "hrsh7th/cmp-nvim-lsp"},
 	config = function()
 		local lspconfig = require("lspconfig")
-
-		--Keymaps
 		-- stylua: ignore
 		local on_attach = function()
 			vim.keymap.set("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Hover" })
