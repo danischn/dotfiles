@@ -30,7 +30,7 @@ ctrl - 9 : yabai -m space --focus 9
 # -- Modifying the Layout --
 # Rotate layout clockwise
 hyper - r : yabai -m space --rotate 270
-hyper - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+hyper - t : yabai -m window --toggle float --grid 4:4:1:1:4:4
 
 # -- Modifying Window Size --
 # Maximize a window
