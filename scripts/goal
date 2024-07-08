@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+read -p "New goal: " goal
+sketchybar --set goal label=" $goal"

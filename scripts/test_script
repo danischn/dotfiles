@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-SCRIPT_DIR="$(dirname "${BASH_SOURCE[0]}")"
+# Scrits for updating the task in sketchybar
+#
 
-echo "${BASH_SOURCE[0]}"

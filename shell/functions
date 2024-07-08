@@ -1,13 +1,13 @@
 #!/bin/bash
 
 function ff(){
-  fd_options=(--hidden --follow --color always)
+  fd_options=(--hidden --follow --color=always)
   exclude_dirs=(
     Library
     Music
     Movies
     Public
-    Desktip
+    Desktop
     Applications
     Pictures
     automatic_backups

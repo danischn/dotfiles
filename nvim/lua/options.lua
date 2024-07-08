@@ -12,7 +12,6 @@ vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.splitbelow = true -- force all horizonal splits to go under the current window
 vim.opt.swapfile = true -- creates a swapfile
-vim.opt.termguicolors = true -- set term gui colors (most terminals support this)
 vim.opt.autowrite = true
 vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds):
 vim.opt.undofile = true -- enable persistent undo

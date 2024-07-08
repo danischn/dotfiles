@@ -32,10 +32,11 @@ return {
 	--Zenmode
 	{
 		"folke/zen-mode.nvim",
+		ft = "markdown",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
 		opts = {
 			window = {
-				width = 110,
+				width = 100,
 			},
 			plugins = {
 				options = {

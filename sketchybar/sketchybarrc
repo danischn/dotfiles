@@ -83,6 +83,10 @@ sketchybar --add item keyboard right
 sketchybar --set keyboard icon="󰌌" script="$PLUGIN_DIR/keyboard.sh"
 sketchybar --subscribe keyboard input_change
 
+#Task
+sketchybar --add item goal right
+sketchybar --set goal label=" {empty}"
+
 
 ############## FINALIZING THE SETUP ##############
 sketchybar --update
