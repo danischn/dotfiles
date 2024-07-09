@@ -4,7 +4,7 @@ vim.opt.cmdheight = 0 -- hide command bar
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.smartcase = true -- overrides ignorecase if search pattern contains upper case characters
-vim.opt.hlsearch = true -- highlights searchs 
+vim.opt.hlsearch = true -- highlights searchs
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 vim.opt.pumheight = 4 -- pop up menu height
 vim.opt.showmode = false -- Dont need to see mode in command line
@@ -31,4 +31,3 @@ vim.opt.shortmess:append("c") -- hide all the completion messages, e.g. "-- XXX 
 vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
 vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
-vim.opt.linebreak = true

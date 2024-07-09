@@ -7,8 +7,8 @@ return {
 				globalstatus = true,
 				icons_enabled = true,
 				theme = "auto",
-				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
+				component_separators = { left = "", right = "" },
 				disabled_filetypes = { "alpha" },
 				always_divide_middle = true,
 			},
@@ -19,10 +19,12 @@ return {
 						local cwd = vim.fn.getcwd()
 						return vim.fn.fnamemodify(cwd, ":~")
 					end,
+					"filename",
+					"branch",
 				},
-				lualine_c = { "filename" },
+				lualine_c = {},
 				lualine_x = {},
-				lualine_y = { "branch" },
+				lualine_y = { "location" },
 				lualine_z = { "progress" },
 			},
 		})

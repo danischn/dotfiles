@@ -17,7 +17,7 @@ function ff(){
     fd_options+=(--exclude "$dir")
   done
 
-  selected=$(fd "${fd_options[@]}" | fzf-tmux -p60%,35% --ansi)
+  selected=$(fd "${fd_options[@]}" | fzf-tmux -p50%,30% --ansi)
   if [ -z "$selected" ]; then return; fi
 
   filetype=$(file --mime-type -b "$selected")

@@ -1,5 +1,4 @@
 return {
-	--Colorscheme
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
@@ -9,14 +8,12 @@ return {
 			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
-	--Surround
 	{
 		"kylechui/nvim-surround",
 		version = "*",
 		event = { "BufRead", "BufNewFile" },
 		config = true,
 	},
-	--Comment
 	{
 		"numToStr/Comment.nvim",
 		event = { "BufRead", "BufNewFile" },
@@ -29,10 +26,8 @@ return {
 			},
 		},
 	},
-	--Zenmode
 	{
 		"folke/zen-mode.nvim",
-		ft = "markdown",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
 		opts = {
 			window = {
@@ -48,7 +43,6 @@ return {
 			},
 		},
 	},
-	--File explorer
 	{
 		"echasnovski/mini.files",
 		version = false,
@@ -68,10 +62,8 @@ return {
 			},
 		},
 	},
-	-- Nice when working with md-files
 	{
-		"jakewvincent/mkdnflow.nvim",
+		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
-		opts = {},
 	},
 }
