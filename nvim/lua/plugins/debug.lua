@@ -29,6 +29,8 @@ return {
 		end,
 	},
 	{
+		-- "Python quit unexpectedly every time debug is finsihed"
+		-- Temporary solution: https://www.loekvandenouweland.com/content/disable-python-quit-unexpectedly.html
 		"mfussenegger/nvim-dap-python",
 		ft = "python",
 		dependencies = { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" },

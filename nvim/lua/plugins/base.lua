@@ -66,4 +66,11 @@ return {
 		"dhruvasagar/vim-table-mode",
 		ft = "markdown",
 	},
+	{
+		"lervag/vimtex",
+		lazy = false,
+		init = function()
+			vim.g.vimtex_view_method = "sioyek"
+		end,
+	},
 }

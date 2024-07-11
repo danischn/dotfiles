@@ -4,7 +4,7 @@ set clipboard=unnamed
 set showmode
 set hlsearch
 set incsearch
-set ignorecase
+set smartcase
 set scrolloff=8
 set autoindent
 set autowrite
@@ -15,7 +15,7 @@ syntax on
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-set expandtab
+set expandtab  
 
 "--------------- Keymaps --------------
 set noesckeys 
