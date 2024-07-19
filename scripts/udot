@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd "$HOME/.dotfiles/" || exit
+cd "$HOME/dotfiles/" || exit
 git st
 read -p "Commit message: " message
 
