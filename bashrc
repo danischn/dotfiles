@@ -1,22 +1,29 @@
 #!/bin/bash
 
-# ------------------- Options -------------------
+# ---------------- miscellaneous  ---------------
 
-PATH=~/dotfiles/scripts/:$PATH
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_STATE_HOME="$HOME/.local/state"
+export PATH=~/dotfiles/scripts/:$PATH
+export EDITOR="nvim"
+export CLICOLOR=
+export LSCOLORS='exfxcxdxbxegedabagacad'  # Colors (https://geoff.greer.fm/lscolors/)
+export LANG="en_US.UTF-8"
+export LESSHISTFILE=-
+export PAGER="less"
+export MANPAGER='less --use-color'
+
+# ------------------- history -------------------
+
 HISTSIZE=1048576
 HISTFILESIZE=$HISTSIZE
 HISTFILE=$XDG_STATE_HOME/bash/history
 HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-export EDITOR="nvim"
-
-# Colors (https://geoff.greer.fm/lscolors/)
-export CLICOLOR=
-export LSCOLORS='exfxcxdxbxegedabagacad' 
-
-# Unknown locale, assuming C error
-export LANG="en_US.UTF-8"
+# ------------------- fzf -----------------------
 
 export FZF_DEFAULT_OPTS="
   --layout=reverse
@@ -25,18 +32,18 @@ export FZF_DEFAULT_OPTS="
   --pointer='▶'
   --marker='│'
 "
+eval "$(fzf --bash)"
 
-#Less
-export LESSHISTFILE=-
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
+# #Less
+# export LESS_TERMCAP_mb=$'\e[1;32m'
+# export LESS_TERMCAP_md=$'\e[1;32m'
+# export LESS_TERMCAP_me=$'\e[0m'
+# export LESS_TERMCAP_se=$'\e[0m'
+# export LESS_TERMCAP_so=$'\e[01;33m'
+# export LESS_TERMCAP_ue=$'\e[0m'
+# export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-# ------------------ Functions ------------------
+# ------------------ functions ------------------
 
 function ff(){
   fd_options=(--follow --color=always)
@@ -78,7 +85,7 @@ function mcdir() {
 }
 
 
-# ------------------ Aliases ------------------
+# ------------------ aliases ------------------
 
 alias la='ls -vla' 
 alias l='ls -AH'
@@ -91,21 +98,17 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias dot="cd ~/.dotfiles"
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
 alias tks='tmux kill-server'
 alias n='nvim'
 alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
-alias py='python3'
-alias pip='pip3'
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
-alias g='git'
 alias cpath='pwd | pbcopy'
 
 
-# ------------------- Prompt -------------------
+# ------------------- prompt -------------------
 
 PROMPT_DIRTRIM=3
 
