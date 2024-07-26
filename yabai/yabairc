@@ -52,3 +52,4 @@ yabai -m rule --add app="^choose$" manage=off
 yabai -m rule --add app="^Hammerspoon$" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^qutebrowser$" title!="^$" role="AXWindow" subrole="AXDialog" manage=on # Make yabai recognize qutebrowser

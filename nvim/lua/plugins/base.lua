@@ -73,4 +73,8 @@ return {
 			vim.g.vimtex_view_method = "sioyek"
 		end,
 	},
+	{
+		"norcalli/nvim-colorizer.lua",
+		opts = {},
+	},
 }

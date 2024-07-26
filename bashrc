@@ -31,10 +31,12 @@ shopt -s histappend
 
 export FZF_DEFAULT_OPTS="
   --layout=reverse
-  --color hl:011,fg+:015,bg+:-1,hl+:011
+  --color hl:011,fg+:015,bg+:-1,hl+:011,border:#ffffff
   --prompt='❯ '
   --pointer='▶'
   --marker='│'
+  --border=sharp
+  --tmux
 "
 eval "$(fzf --bash)"
 
