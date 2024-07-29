@@ -12,8 +12,7 @@
 #PanelUI-button {
   -moz-box-ordinal-group: 0 !important;
   order: -2 !important;
-  margin: 2px !important;
-  /* display: none !important; */
+  /* margin: 2px !important; */
 }
 
 /* Window control buttons (min, resize and close) */
@@ -22,15 +21,12 @@
   margin-right: 12px !important;
 }
 
-/* Page back and foward buttons */
+/* Page back, foward, stop and reload buttons */
+#stop-button,
+#reload-button,
 #back-button,
 #forward-button
 {
-  display: none !important
-}
-
-/* Extensions button */
-#unified-extensions-button {
   display: none !important
 }
 
@@ -66,8 +62,8 @@
 /* Navbar size calc */
 :root{
 --tab-border-radius: 6px !important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 6px  */
---NavbarWidth: 43; /*  Default values: 36 - 43  */
---TabsHeight: 36; /*  Minimum: 30  *//*  Default: 36  */
+--NavbarWidth: 40; /*  Default values: 36 - 43  */
+--TabsHeight: 30; /*  Minimum: 30  *//*  Default: 36  */
 --TabsBorder: 8; /*  Doesnt do anything on small layout  *//*  Default: 8  */
 --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))  /*  Only on small layout  *//*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  *//*  Default as a number: 44  */}
 

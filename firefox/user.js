@@ -78,3 +78,6 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 
 // PREF: make ctrl-tab better
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true)
+
+// Hide url
+user_pref("browser.urlbar.maxRichResults", 0);
