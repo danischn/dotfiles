@@ -38,6 +38,7 @@ user_pref("browser.urlbar.suggest.calculator", false);
 user_pref("browser.urlbar.unitConversion.enabled", false);
 user_pref("browser.urlbar.trending.featureGate", false);
 user_pref("browser.urlbar.suggest.engines", false);
+user_pref("browser.urlbar.maxRichResults", 0);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -78,6 +79,3 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 
 // PREF: make ctrl-tab better
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true)
-
-// Hide url
-user_pref("browser.urlbar.maxRichResults", 0);
