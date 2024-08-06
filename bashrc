@@ -14,10 +14,6 @@ export LANG="en_US.UTF-8"
 export LESSHISTFILE=-
 export PAGER="less"
 export MANPAGER='less --use-color'
-eval "$(/opt/homebrew/bin/brew shellenv)" # Setup homebrew
-
-#Remove dups from path (https://stackoverflow.com/questions/44232009/how-to-handle-duplicates-in-my-path-variable)
-PATH="$(perl -e 'print join(":", grep { not $seen{$_}++ } split(/:/, $ENV{PATH}))')" 
 
 # ------------------- history -------------------
 
