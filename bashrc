@@ -8,26 +8,35 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 export PATH=~/dotfiles/scripts/:$PATH
 export EDITOR="nvim"
-export CLICOLOR=
-export LSCOLORS='exfxcxdxbxegedabagacad'  # Colors (https://geoff.greer.fm/lscolors/)
-export LANG="en_US.UTF-8"
-export LESSHISTFILE=-
 export PAGER="less"
-export MANPAGER='less --use-color'
+export MANPAGER='nvim +Man!'
+source "$HOME/dotfiles/dircolors"
+
+# ---------------  clean ~  --------------
+ 
+export CARGO_HOME="$XDG_DATA_HOME"/cargo 
+export LESSHISTFILE=-
 
 # ------------------- history -------------------
 
 HISTSIZE=1048576
 HISTFILESIZE=$HISTSIZE
+
+#Check if history file exists
 HISTFILE=$XDG_STATE_HOME/bash/history
+if [ ! -f "$HISTFILE" ]; then
+  mkdir -p "$(dirname "$HISTFILE")"
+  touch "$HISTFILE"
+fi
+
 HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
 # ------------------- fzf -----------------------
 
 export FZF_DEFAULT_OPTS="
+  --color hl:#5f87af,hl+:#5f87af,fg+:#d0d0d0,bg+:-1,border:#ffffff
   --layout=reverse
-  --color hl:011,fg+:015,bg+:-1,hl+:011,border:#ffffff
   --prompt='❯ '
   --pointer='▶'
   --marker='│'
@@ -67,7 +76,7 @@ function ff(){
       $EDITOR "$(basename "$selected")"
   else
       cd "$(dirname "$selected")" || return
-      open "$(basename "$selected")"
+      xdg-open "$(basename "$selected")"
   fi
 }
 bind '"\C-f":"\C-uff\n"'
@@ -80,8 +89,8 @@ function mcdir() {
 
 # ------------------ aliases ------------------
 
-alias la='ls -vla' 
-alias l='ls -AH'
+alias ls='ls -hF --color=auto'
+alias l='ls -lahF --color=auto'
 alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'

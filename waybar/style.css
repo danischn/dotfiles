@@ -1,0 +1,45 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono;
+    font-size: 14px;
+}
+
+window#waybar {
+    background: rgba(37, 40, 58, 0.5);
+    border-bottom: none;
+    color: white;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-bottom: 1px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #292e42  ;
+    border-bottom: none;
+}
+
+#mode, #clock, #battery {
+    padding: 0 10px;
+}
+
+#clock {
+    background-color: transparent;
+}
+
+#battery {
+    background-color: transparent;
+    color: white;
+}

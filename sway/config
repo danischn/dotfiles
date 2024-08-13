@@ -1,0 +1,113 @@
+## Variables
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term alacritty
+set $drun tofi-drun | xargs swaymsg exec --
+bindsym $mod+Space exec $drun
+
+input "type:keyboard" {
+	xkb_layout us,no
+	xkb_options grp:lswitch
+  repeat_delay 150
+  repeat_rate 40
+}
+
+input "type:pointer" {
+  accel_profile flat
+}
+
+input "type:touchpad" {
+  natural_scroll enabled
+}
+
+output eDP-1 {
+  background #545c7e solid_color
+  scale 1.375
+}
+
+gaps inner 0
+gaps outer 0
+default_border pixel 2
+client.focused #7aa2f7  #7aa2f7 #ffffff #7aa2f7 
+
+# Hide cursor after 4 seconds of no input
+seat * hide_cursor 4000
+seat * hide_cursor when-typing enable
+
+#Start wl-paste here
+exec wl-paste --watch cliphist store
+bindsym $mod+v exec cliphist list | tofi --config ~/.config/tofi/clip-config | cliphist decode | wl-copy && wtype -M ctrl -M shift -P v
+
+bindsym $mod+p exec fd -e pdf --base-directory ~/Downloads | tofi | xargs -I {} xdg-open ~/Downloads/{}
+
+# ----------------------------- Keybinds ------------------------------
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Drag floating windows by holding down $mod and left mouse button.
+floating_modifier $mod normal
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec 'sway exit'
+
+# Move your focus around
+bindsym $mod+$left fullscreen disable; focus left
+bindsym $mod+$down fullscreen disable; focus down
+bindsym $mod+$up fullscreen disable; focus up
+bindsym $mod+$right fullscreen disable; focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+set $ws1 "1:term"
+set $ws2 "2:web"
+set $ws3 "3:pdf"
+set $ws4 "4:misc"
+
+# Switch to workspace
+bindsym control+1 workspace $ws1
+bindsym control+2 workspace $ws2
+bindsym control+3 workspace $ws3
+bindsym control+4 workspace $ws4
+
+# Move focused container to workspace and focus it
+bindsym $mod+1 move container to workspace $ws1, workspace $ws1
+bindsym $mod+2 move container to workspace $ws2, workspace $ws2
+bindsym $mod+3 move container to workspace $ws3, workspace $ws3
+bindsym $mod+4 move container to workspace $ws4, workspace $ws4
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+t floating toggle
+
+# Resizing containers:
+mode "resize" {
+    bindsym $left resize shrink width 20px
+    bindsym $down resize grow height 20px
+    bindsym $up resize shrink height 20px
+    bindsym $right resize grow width 20px
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+bar {
+  swaybar_command waybar
+}
+
+# OSD server
+exec swayosd-server
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 100
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume 100
+
+include /etc/sway/config.d/*

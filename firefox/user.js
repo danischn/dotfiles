@@ -76,6 +76,3 @@ user_pref("signon.rememberSignons", false);
 // PREF: disable address and credit card manager
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
-
-// PREF: make ctrl-tab better
-user_pref("browser.ctrlTab.sortByRecentlyUsed", true)

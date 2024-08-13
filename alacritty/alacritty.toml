@@ -5,7 +5,7 @@ cyan = "0x14ffff"
 green = "0x23fd00"
 magenta = "0xfd28ff"
 red = "0xf2201f"
-white = "0xffffff"
+white = "0x100000"
 yellow = "0xfffd00"
 
 [colors.cursor]
@@ -30,15 +30,12 @@ foreground = "0xffffff"
 TERM = "xterm-256color"
 
 [font]
-size = 17
+size = 13
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
-[window]
-decorations = "none"
-
 [window.padding]
 x = 5
-y = 5
+y = 2

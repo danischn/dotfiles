@@ -12,7 +12,6 @@
 #PanelUI-button {
   -moz-box-ordinal-group: 0 !important;
   order: -2 !important;
-  /* margin: 2px !important; */
 }
 
 /* Window control buttons (min, resize and close) */
