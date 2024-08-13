@@ -107,7 +107,7 @@ bar {
 exec swayosd-server
 bindsym XF86MonBrightnessUp exec swayosd-client --brightness raise
 bindsym XF86MonBrightnessDown exec swayosd-client --brightness lower
-bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 100
-bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume 100
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume 5 --max-volume 120
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5 --max-volume 120
 
 include /etc/sway/config.d/*
