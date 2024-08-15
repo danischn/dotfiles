@@ -1,12 +1,21 @@
 # TODO
 
-- [] Fix color scheme for neovim
+- [x] Fix tooltip on waybar clock
+- [x] Clean up waybar config
+- [x] Fix color scheme for neovim
 - [] Add docs
-- [] Clean up waybar config
 - [] Clean up network config change to iwd/wpa_supplicant
 - [] Fix default apps(mimeapps/desktop-apps)
 - [] Clean up sway config
+- [] Fix bind for when you focus a fullscreen workspace
 - [] Fix zathura no database warning
 - [] Fix colors in prompt
 - [] Fix Firefox new-tab and vimium
 - [] Fix scroll in manpages
+- [] Font size zathura
+- [] Restore session Firefox
+- [] Make Firefox ask you to close it
+- [] Understand dircolors
+- [] Fix eob nvim
+- [] Fix fzf colors
+- [] Fix ff function
