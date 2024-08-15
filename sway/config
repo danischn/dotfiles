@@ -24,14 +24,15 @@ input "type:touchpad" {
 }
 
 output eDP-1 {
-  background #545c7e solid_color
+  background #696969 solid_color
   scale 1.375
 }
 
 gaps inner 0
 gaps outer 0
 default_border pixel 2
-client.focused #7aa2f7  #7aa2f7 #ffffff #7aa2f7 
+client.focused #ffffff  #ffffff #ffffff #ffffff 
+client.unfocused #000000  #000000 #000000 #000000 
 
 # Hide cursor after 4 seconds of no input
 seat * hide_cursor 4000

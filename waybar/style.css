@@ -6,7 +6,7 @@
 }
 
 window#waybar {
-    background: rgba(37, 40, 58, 0.5);
+    background: #808080;
     border-bottom: none;
     color: white;
 }
@@ -27,7 +27,7 @@ tooltip label {
 }
 
 #workspaces button.focused {
-    background: #292e42  ;
+    background: #696969  ;
     border-bottom: none;
 }
 

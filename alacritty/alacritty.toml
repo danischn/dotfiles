@@ -9,8 +9,8 @@ white = "0x100000"
 yellow = "0xfffd00"
 
 [colors.cursor]
-background = "0xffffff"
-foreground = "0x000000"
+background = "0x000000"
+foreground = "0xffffff"
 
 [colors.normal]
 black = "0x000000"
