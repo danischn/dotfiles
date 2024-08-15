@@ -4,5 +4,8 @@
 - [] Add docs
 - [] Clean up waybar config
 - [] Clean up network config change to iwd/wpa_supplicant
-- [] Fix default apps(mimeapps/desktopapps)
+- [] Fix default apps(mimeapps/desktop-apps)
 - [] Clean up sway config
+- [] Fix zathura no database warning
+- [] Fix colors in prompt
+
