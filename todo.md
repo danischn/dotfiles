@@ -8,4 +8,5 @@
 - [] Clean up sway config
 - [] Fix zathura no database warning
 - [] Fix colors in prompt
-
+- [] Fix Firefox new-tab and vimium
+- [] Fix scroll in manpages
