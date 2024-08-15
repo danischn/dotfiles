@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # ---------------- miscellaneous  ---------------
-export PATH=~/dotfiles/scripts/:$PATH
 export EDITOR="nvim"
 export PAGER="less"
 export MANPAGER='nvim +Man!'
@@ -105,7 +104,7 @@ alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
 alias week='date +%V'
 
 # ------------------- prompt -------------------
-#
+
 PROMPT_DIRTRIM=3
 
 # Get current branch in git repo
