@@ -5,7 +5,7 @@ export PATH=~/dotfiles/scripts/:$PATH
 export EDITOR="nvim"
 export PAGER="less"
 export MANPAGER='nvim +Man!'
-source "$HOME/dotfiles/dircolors"
+eval "$(dircolors -b "$HOME/dotfiles/dircolors")"
 
 # ------------------- options  ------------------
 shopt -s checkwinsize
@@ -120,7 +120,7 @@ function git_dirty(){
 # Define the color codes for bold text and blue color
 BOLD='\[\033[1m\]'
 RESET='\[\033[0m\]'
-BLUE='\[\033[34m\]'
+PURPLE='\033[0;35m'
 
 # Update the PS1 variable with bold formatting
-PS1="${BOLD}\w${BLUE}\$(git_branch)\$(git_dirty) ${RESET}➜ "
+PS1="${BOLD}\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ "
