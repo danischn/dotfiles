@@ -91,8 +91,8 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ls='ls -hF --color=auto'
-alias l='ls -lahF --color=auto'
+alias ls='ls -hF --color=auto --group-directories-first'
+alias l='ls -lahF --color=auto --group-directories-first'
 alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -118,9 +118,10 @@ function git_dirty(){
 }
 
 # Define the color codes for bold text and blue color
-BOLD='\[\033[1m\]'
 RESET='\[\033[0m\]'
-PURPLE='\033[0;35m'
+PURPLE='\[\033[1;35m\]'
+BLUE='\[\033[1;34m\]'
+
 
 # Update the PS1 variable with bold formatting
-PS1="${BOLD}\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ "
+PS1="$BLUE\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ "
