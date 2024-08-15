@@ -1,18 +1,16 @@
 #!/bin/bash
 
 # ---------------- miscellaneous  ---------------
-
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_STATE_HOME="$HOME/.local/state"
 export PATH=~/dotfiles/scripts/:$PATH
 export EDITOR="nvim"
 export PAGER="less"
 export MANPAGER='nvim +Man!'
 source "$HOME/dotfiles/dircolors"
 
-# ---------------  clean ~  --------------
+# ------------------- options  ------------------
+shopt -s checkwinsize
+
+# -------------------  clean ~ ------------------
  
 export CARGO_HOME="$XDG_DATA_HOME"/cargo 
 export LESSHISTFILE=-
@@ -35,7 +33,7 @@ shopt -s histappend
 # ------------------- fzf -----------------------
 
 export FZF_DEFAULT_OPTS="
-  --color hl:#5f87af,hl+:#5f87af,fg+:#d0d0d0,bg+:-1,border:#ffffff
+  --color hl:#5f87af,hl+:#5f87af,fg+:#d0d0d0,bg+:-1,border:#000000
   --layout=reverse
   --prompt='❯ '
   --pointer='▶'
@@ -89,6 +87,10 @@ function mcdir() {
 
 # ------------------ aliases ------------------
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias ls='ls -hF --color=auto'
 alias l='ls -lahF --color=auto'
 alias c='clear'
@@ -96,30 +98,17 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -ir'
 alias b='cd - >/dev/null'
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
 alias tks='tmux kill-server'
-alias n='nvim'
 alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
-alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
-alias cpath='pwd | pbcopy'
-
 
 # ------------------- prompt -------------------
-
+#
 PROMPT_DIRTRIM=3
 
-# Colors
-cyan='\[\e[1;36m\]'
-purple='\[\e[35m\]'
-reset='\[\e[0;0m\]'
-
-# get current branch in git repo
+# Get current branch in git repo
 function git_branch(){
   git branch 2>/dev/null | grep '^*' | sed 's/*//'
 }
@@ -128,4 +117,10 @@ function git_dirty(){
   [[ -z $(git status -s 2>/dev/null) ]] || echo '?'
 }
 
-PS1="${cyan}\w${purple}\$(git_branch)\$(git_dirty) ${reset}➜ "
+# Define the color codes for bold text and blue color
+BOLD='\[\033[1m\]'
+RESET='\[\033[0m\]'
+BLUE='\[\033[34m\]'
+
+# Update the PS1 variable with bold formatting
+PS1="${BOLD}\w${BLUE}\$(git_branch)\$(git_dirty) ${RESET}➜ "

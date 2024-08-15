@@ -1,0 +1,3 @@
+#!/bin/bash
+
+fd -e pdf --base-directory ~/Downloads | tofi | xargs -I {} xdg-open ~/Downloads/{}

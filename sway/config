@@ -39,9 +39,13 @@ seat * hide_cursor when-typing enable
 
 #Start wl-paste here
 exec wl-paste --watch cliphist store
-bindsym $mod+v exec cliphist list | tofi --config ~/.config/tofi/clip-config | cliphist decode | wl-copy && wtype -M ctrl -M shift -P v
+bindsym $mod+v exec open-cliphist
 
-bindsym $mod+p exec fd -e pdf --base-directory ~/Downloads | tofi | xargs -I {} xdg-open ~/Downloads/{}
+#Open pdfs
+bindsym $mod+p exec open-pdf
+
+#Use f10 as screenshot tool
+bindsym XF86Launch2 exec printf "area\nactive" | tofi | xargs -I{} grimshot savecopy {}
 
 # ----------------------------- Keybinds ------------------------------
 

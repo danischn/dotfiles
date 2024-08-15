@@ -1,11 +1,10 @@
 return {
 	{
-		"folke/tokyonight.nvim",
+		"Verf/deepwhite.nvim",
 		lazy = false,
 		priority = 1000,
-		version = "3.0.0",
 		config = function()
-			vim.cmd.colorscheme("tokyonight-storm")
+			vim.cmd.colorscheme("deepwhite")
 		end,
 	},
 	{
