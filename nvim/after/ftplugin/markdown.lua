@@ -23,4 +23,4 @@ vim.keymap.set("n", "<leader>o", function()
 end, { buffer = 0, desc = "Markdown: Open current file as pdf in viewer" })
 
 -- https://castel.dev/post/lecture-notes-1/#correcting-spelling-mistakes-on-the-fly
-vim.keymap.set("i", "<c-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
+vim.keymap.set("i", "<c-s>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { buffer = 0, desc = "Markdown: correct spelling" })

@@ -20,7 +20,6 @@ return {
 			winopts = {
 				border = "single",
 				preview = {
-					-- default = "bat",
 					layout = "vertical",
 					delay = 10,
 				},

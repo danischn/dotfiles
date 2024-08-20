@@ -17,6 +17,7 @@ input "type:keyboard" {
 
 input "type:pointer" {
   accel_profile flat
+  pointer_accel 0.3
 }
 
 input "type:touchpad" {
@@ -28,11 +29,9 @@ output eDP-1 {
   scale 1.375
 }
 
-gaps inner 0
-gaps outer 0
-default_border pixel 2
-client.focused #ffffff  #ffffff #ffffff #ffffff 
-client.unfocused #000000  #000000 #ffffff #000000 
+default_dim_inactive 0.2
+
+default_border pixel 0
 
 # Hide cursor after 4 seconds of no input
 seat * hide_cursor 4000

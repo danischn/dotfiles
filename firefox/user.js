@@ -76,3 +76,8 @@ user_pref("signon.rememberSignons", false);
 // PREF: disable address and credit card manager
 user_pref("extensions.formautofill.addresses.enabled", false);
 user_pref("extensions.formautofill.creditCards.enabled", false);
+
+// PREF: open links in same tab, doesnt work when writing here
+// https://support.mozilla.org/en-US/questions/1226151
+user_pref("browser.link.open_newwindow.restriction", 0)
+user_pref("browser.link.open_newwindow", 1)

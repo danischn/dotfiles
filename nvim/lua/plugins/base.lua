@@ -74,10 +74,6 @@ return {
 	},
 	{
 		"norcalli/nvim-colorizer.lua",
-		opts = {},
-	},
-	{
-		"norcalli/nvim-colorizer.lua",
 		config = true,
 	},
 }

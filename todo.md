@@ -19,3 +19,6 @@
 - [] Fix eob nvim
 - [] Fix fzf colors
 - [] Fix ff function
+- [] Make tmux copy to systemclipboard
+- [] Make firefox read user.as
+- [] Fix cliphist list
