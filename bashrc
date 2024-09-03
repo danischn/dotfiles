@@ -32,7 +32,7 @@ shopt -s histappend
 # ------------------- fzf -----------------------
 
 export FZF_DEFAULT_OPTS="
-  --color hl:#999791,hl+:#595855,fg+:-1,bg+:-1,border:#1A1918 
+  --color hl:#F27900,hl+:#F27900,fg+:-1,bg+:-1,border:#1A1918 
   --layout=reverse
   --prompt='❯ '
   --pointer='▶'

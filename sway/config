@@ -8,21 +8,19 @@ set $term alacritty
 set $drun tofi-drun | xargs swaymsg exec --
 bindsym $mod+Space exec $drun
 
-input "type:keyboard" {
+input * {
 	xkb_layout us,no
 	xkb_options grp:lswitch
   repeat_delay 150
   repeat_rate 40
-}
-
-input "type:pointer" {
   accel_profile flat
   pointer_accel 0.3
-}
-
-input "type:touchpad" {
   natural_scroll enabled
 }
+
+# Hide cursor after 4 seconds of no input
+seat * hide_cursor 4000
+seat * hide_cursor when-typing enable
 
 output eDP-1 {
   background #696969 solid_color
@@ -32,10 +30,6 @@ output eDP-1 {
 default_dim_inactive 0.2
 
 default_border pixel 0
-
-# Hide cursor after 4 seconds of no input
-seat * hide_cursor 4000
-seat * hide_cursor when-typing enable
 
 #Start wl-paste here
 exec wl-paste --watch cliphist store

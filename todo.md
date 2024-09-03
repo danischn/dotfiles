@@ -2,7 +2,7 @@
 
 - [x] Fix tooltip on waybar clock
 - [x] Clean up waybar config
-- [x] Fix color scheme for neovim
+- [] Fix color scheme for neovim
 - [] Add docs
 - [] Clean up network config change to iwd/wpa_supplicant
 - [] Fix default apps(mimeapps/desktop-apps)
@@ -17,8 +17,13 @@
 - [] Make Firefox ask you to close it
 - [] Understand dircolors
 - [] Fix eob nvim
-- [] Fix fzf colors
+- [x] Fix fzf colors
 - [] Fix ff function
 - [] Make tmux copy to systemclipboard
 - [] Make firefox read user.as
 - [] Fix cliphist list
+- [] Make waybar overlay in fullscreen mode
+- [] Make some bookmarks for firefox
+- [] Add rule to always open zathura in workspace 3
+- [] Make it easy to copy pictures and text from thinkpad to ipad
+- [] Hide . and .. from ls and l command
