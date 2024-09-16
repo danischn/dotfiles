@@ -28,4 +28,5 @@
 - [] Make it easy to copy pictures and text from thinkpad to ipad
 - [] Hide . and .. from ls and l command
 - [] Setup alt-tab for sway
-
+- [] Check out wilder plugin nvim
+- [] Add page-seperator in zathura
