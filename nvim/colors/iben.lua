@@ -1,5 +1,5 @@
 vim.cmd([[hi clear]])
-vim.g.colors_name = "daniel"
+vim.g.colors_name = "iben"
 vim.o.background = "light"
 
 local colors = {

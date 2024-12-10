@@ -16,3 +16,7 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "<leader>1", function()
 	vim.o.cmdheight = 1 - vim.o.cmdheight
 end, { desc = "Change cmdheight" })
+
+-- Comment
+vim.keymap.set("n", "<leader>c", "gcc", { remap = true })
+vim.keymap.set("v", "<leader>c", "gc", { remap = true })
