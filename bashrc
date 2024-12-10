@@ -68,7 +68,7 @@ function ff(){
 
   if [[ $filetype == "inode/directory" ]]; then
       cd "$selected" || return
-  elif [[ $filetype == text/* || $filetype == application/json || $filetype == inode/x-empty ]]; then
+  elif [[ $filetype == text/* || $filetype == application/* || $filetype == inode/x-empty ]]; then
       cd "$(dirname "$selected")" || return
       $EDITOR "$(basename "$selected")"
   else
