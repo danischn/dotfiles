@@ -6,9 +6,9 @@ return {
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
 		opts = { plugins = { tmux = { enabled = true } } },
 	},
-  {
-    "norcalli/nvim-colorizer.lua",
-  },
+	{
+		"norcalli/nvim-colorizer.lua",
+	},
 	{
 		"eoh-bse/minintro.nvim",
 		config = true,
