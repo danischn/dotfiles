@@ -139,6 +139,7 @@ EXEC 31 # Unix
 .scss 32
 .less 32
 .js 32
+.sql 32
 .coffee 32
 .man 32
 .0 32

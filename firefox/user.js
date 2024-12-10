@@ -79,5 +79,5 @@ user_pref("extensions.formautofill.creditCards.enabled", false);
 
 // PREF: open links in same tab, doesnt work when writing here
 // https://support.mozilla.org/en-US/questions/1226151
-user_pref("browser.link.open_newwindow.restriction", 0)
-user_pref("browser.link.open_newwindow", 1)
+user_pref("browser.link.open_newwindow.restriction", 0);
+user_pref("browser.link.open_newwindow", 1);

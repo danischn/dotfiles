@@ -102,7 +102,8 @@ alias tnm='tmux new -s main'
 alias tks='tmux kill-server'
 alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
 alias week='date +%V'
-
+alias py='python'
+alias rpdf='fdupes -rdN ~/Downloads'
 # ------------------- prompt -------------------
 
 PROMPT_DIRTRIM=3

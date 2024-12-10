@@ -1,3 +1,4 @@
+vim.cmd.colorscheme("iben") -- my own colorscheme
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 0 -- hide command bar
@@ -11,6 +12,7 @@ vim.opt.showmode = false -- Dont need to see mode in command line
 vim.opt.smartindent = true -- make indenting smarter again
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
 vim.opt.splitbelow = true -- force all horizonal splits to go under the current window
+vim.opt.termguicolors = true -- must be enabled
 vim.opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds):
 vim.opt.undofile = true -- enable persistent undo
 vim.opt.updatetime = 50 -- faster completion (4000ms default)

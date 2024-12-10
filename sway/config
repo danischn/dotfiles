@@ -5,8 +5,6 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $drun tofi-drun | xargs swaymsg exec --
-bindsym $mod+Space exec $drun
 
 input * {
 	xkb_layout us,no
@@ -14,7 +12,7 @@ input * {
   repeat_delay 150
   repeat_rate 40
   accel_profile flat
-  pointer_accel 0.3
+  pointer_accel 0.8
   natural_scroll enabled
 }
 
@@ -31,26 +29,26 @@ default_dim_inactive 0.2
 
 default_border pixel 0
 
-#Start wl-paste here
+# ----------------------------- Pickers ------------------------------
+
+# Application opener
+set $drun tofi-drun | xargs swaymsg exec --
+bindsym $mod+Space exec $drun
+
+# Clipboard manager
 exec wl-paste --watch cliphist store
 bindsym $mod+v exec open-cliphist
 
-#Open pdfs
+# PDF opener
 bindsym $mod+p exec open-pdf
 
-#Use f10 as screenshot tool
-bindsym XF86Launch2 exec printf "area\nactive" | tofi | xargs -I{} grimshot savecopy {}
+# Screenshotter
+bindsym Print exec printf "area\nfullscreen" | tofi | xargs -I{} grimshot savecopy {}
 
 # ----------------------------- Keybinds ------------------------------
 
 # Kill focused window
 bindsym $mod+q kill
-
-# Drag floating windows by holding down $mod and left mouse button.
-floating_modifier $mod normal
-
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec 'sway exit'
 
 # Move your focus around
 bindsym $mod+$left fullscreen disable; focus left
@@ -75,11 +73,20 @@ bindsym control+2 workspace $ws2
 bindsym control+3 workspace $ws3
 bindsym control+4 workspace $ws4
 
+assign [app_id="firefox"] workspace $ws2
+assign [app_id="org.pwmt.zathura"] workspace $ws3
+for_window [app_id="nwg-displays"] floating enable
+
 # Move focused container to workspace and focus it
 bindsym $mod+1 move container to workspace $ws1, workspace $ws1
 bindsym $mod+2 move container to workspace $ws2, workspace $ws2
 bindsym $mod+3 move container to workspace $ws3, workspace $ws3
 bindsym $mod+4 move container to workspace $ws4, workspace $ws4
+
+bindsym $mod+w move workspace to output up
+bindsym $mod+a move workspace to output left
+bindsym $mod+s move workspace to output down
+bindsym $mod+d move workspace to output right
 
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -93,8 +100,9 @@ mode "resize" {
     bindsym $down resize grow height 20px
     bindsym $up resize shrink height 20px
     bindsym $right resize grow width 20px
-    bindsym Escape mode "default"
+    bindsym escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
 bar {

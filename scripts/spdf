@@ -1,0 +1,3 @@
+#/bin/bash
+
+rga-fzf -l "$1" | xargs -r xdg-open

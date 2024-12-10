@@ -11,6 +11,7 @@ return {
 			ensure_installed = {
 				"c",
 				"lua",
+				"java",
 				"python",
 				"regex",
 				"markdown",
@@ -19,6 +20,7 @@ return {
 				"vim",
 				"vimdoc",
 				"query",
+				"sql",
 			},
 		})
 	end,
