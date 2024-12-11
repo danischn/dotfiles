@@ -16,6 +16,11 @@ return {
 			["<Tab>"] = { "snippet_forward", "fallback" },
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 		},
+		menu = {
+			draw = {
+				columns = { { "label", gap = 1 }, { "kind_icon", "kind" } },
+			},
+		},
 		completion = {
 			list = {
 				max_items = 4,
