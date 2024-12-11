@@ -16,6 +16,11 @@ return {
 			["<Tab>"] = { "snippet_forward", "fallback" },
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 		},
+		completion = {
+			list = {
+				max_items = 4,
+			},
+		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
