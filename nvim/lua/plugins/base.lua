@@ -1,18 +1,12 @@
 return {
 	{ "kylechui/nvim-surround", opts = {} },
 	{ "echasnovski/mini.ai", opts = {} },
+	{ "norcalli/nvim-colorizer.lua" },
+	{ "eoh-bse/minintro.nvim", lazy = false, opts = {} },
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
 		opts = { plugins = { tmux = { enabled = true } } },
-	},
-	{
-		"norcalli/nvim-colorizer.lua",
-	},
-	{
-		"eoh-bse/minintro.nvim",
-		config = true,
-		lazy = false,
 	},
 	{
 		"echasnovski/mini.files",
