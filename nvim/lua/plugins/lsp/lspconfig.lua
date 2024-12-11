@@ -1,7 +1,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = "BufReadPre",
-	dependencies = { "hrsh7th/cmp-nvim-lsp"},
+	dependencies = { "saghen/blink.cmp" },
 	config = function()
 		local lspconfig = require("lspconfig")
 		-- stylua: ignore
@@ -13,11 +13,8 @@ return {
 			vim.keymap.set( "n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", { desc = "Add workspace folder" })
 		end
 
-		-- Hide ghost text
-		vim.diagnostic.config({ virtual_text = false })
-
 		-- Setup lsp completion
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		--Python server
 		lspconfig.pyright.setup({
