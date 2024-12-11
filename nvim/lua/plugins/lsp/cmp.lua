@@ -17,8 +17,22 @@ return {
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 		},
 		menu = {
+			enabled = true,
+			min_width = 15,
+			max_height = 10,
+			border = "none",
+			winblend = 0,
+			winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+			scrolloff = 2,
+			scrollbar = true,
+			direction_priority = { "s", "n" },
+			auto_show = true,
 			draw = {
-				columns = { { "label", gap = 1 }, { "kind_icon", "kind" } },
+				align_to_component = "label", -- or 'none' to disable
+				padding = 1,
+				gap = 1,
+				treesitter = false,
+				columns = { { "label", "label_description", gap = 1 },{ "kind_icon" } },
 			},
 		},
 		completion = {
