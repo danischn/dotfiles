@@ -1,6 +1,7 @@
 return {
 	{ "kylechui/nvim-surround", opts = {} },
 	{ "echasnovski/mini.ai", opts = {} },
+	{ "stevearc/dressing.nvim", opts = {} },
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "eoh-bse/minintro.nvim", lazy = false, opts = {} },
 	{

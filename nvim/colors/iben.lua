@@ -267,7 +267,6 @@ local hl_groups = {
 	CmpItemAbbrDeprecated = { link = "Visual" },
 	CmpItemAbbrMatch = { link = "Identifier" },
 	CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
-
 	CmpItemKindText = { fg = colors.base0 },
 	CmpItemKindSnippet = { fg = colors.base2 },
 	CmpItemKindConstant = { fg = colors.blue },

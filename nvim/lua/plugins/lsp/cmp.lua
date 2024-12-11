@@ -17,9 +17,16 @@ return {
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 		},
 		completion = {
-			list = { max_items = 4},
-			menu = { draw = { columns = { { "label", "label_description", gap = 1 }, { "kind_icon" }, { "kind" } } } },
+			list = {
+				max_items = 4,
+			},
+			menu = {
+				draw = {
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon" }, { "kind" } },
+				},
+			},
 		},
+		appearance = { use_nvim_cmp_as_default = true },
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},

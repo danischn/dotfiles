@@ -12,7 +12,6 @@ return {
 			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { desc = "Signature help" })
 			vim.keymap.set( "n", "<leader>lw", "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", { desc = "Add workspace folder" })
 		end
-
 		-- Setup lsp completion
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
