@@ -4,6 +4,7 @@ return {
 	{ "stevearc/dressing.nvim", opts = {} },
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "eoh-bse/minintro.nvim", lazy = false, opts = {} },
+	{ "folke/tokyonight.nvim", lazy = false, opts = {} },
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
