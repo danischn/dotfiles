@@ -7,6 +7,7 @@ return {
 		-- stylua: ignore
 		local on_attach = function()
       vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go definition" })
+      vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to declaration" })
       vim.keymap.set("n", "gp", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "See problem" })
 			vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", { desc = "Rename variable" })
 			vim.keymap.set("i", "<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", { desc = "Signature help" })
