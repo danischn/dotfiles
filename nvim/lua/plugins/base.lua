@@ -4,7 +4,14 @@ return {
 	{ "stevearc/dressing.nvim", opts = {} },
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "eoh-bse/minintro.nvim", lazy = false, opts = {} },
-	{ "folke/tokyonight.nvim", lazy = false, opts = {} },
+	{
+		"echasnovski/mini.hues",
+		version = false,
+		opts = {
+			background = "#E8E1DC",
+			foreground = "#39312D",
+		},
+	},
 	{
 		"folke/zen-mode.nvim",
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },

@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("deepwhite") -- my own colorscheme
+-- vim.cmd.colorscheme("iben") -- my own colorscheme
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 0 -- hide command bar
