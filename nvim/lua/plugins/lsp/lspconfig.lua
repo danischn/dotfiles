@@ -33,6 +33,7 @@ return {
 		--Lua server
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
+			semanticTokensProvider = nil,
 			on_attach = on_attach,
 			settings = {
 				Lua = {

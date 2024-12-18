@@ -1,8 +1,8 @@
 vim.cmd([[hi clear]])
-vim.g.colors_name = "iben"
+vim.g.colors_name = "deepwhite"
 vim.o.background = "light"
 
-local colors = {
+local c = {
 	base0 = "#1A1918", -- hsv(30, 8%, 10%)
 	base1 = "#595855", -- hsv(45, 4%, 35%)
 	base2 = "#807E79", -- hsv(43, 5%, 50%)
@@ -29,90 +29,95 @@ local colors = {
 	purple = "#6F00A6", -- hsv(280, 100%, 65%)
 	pink = "#A6006F", -- hsv(320, 100%, 65%)
 	red = "#A60000", -- hsv(360, 100%, 65%)
+
+	iris = "#907aa9",
+	muted = "#9893a5",
 }
 
-local hl_groups = {
-	Normal = { fg = colors.base0, bg = colors.base7 },
+local groups = {
+	Normal = { fg = c.base0, bg = c.base7 },
 	NormalFloat = { link = "Normal" },
-	NonText = { fg = colors.base3 },
+	NonText = { fg = c.base3 },
 
-	SpecialKey = { fg = colors.blue },
+	SpecialKey = { fg = c.blue },
 	Directory = { link = "SpecialKey" },
 
-	Title = { fg = colors.base0, bold = true },
+	Title = { fg = c.base0, bold = true },
 
-	IncSearch = { fg = colors.base0, bg = colors.light_yellow },
+	IncSearch = { fg = c.base0, bg = c.light_yellow },
 	Search = { link = "IncSearch" },
 	CurSearch = { link = "IncSearch" },
 
-	LineNr = { fg = colors.base3 },
+	LineNr = { fg = c.base3 },
 	CursorLineNr = { link = "Normal" },
 
-	Question = { fg = colors.base0, bold = true },
+	Question = { fg = c.base0, bold = true },
 
-	StatusLine = { fg = colors.base0, bg = colors.base7, bold = true },
-	StatusLineNC = { fg = colors.base0, bg = colors.base7 },
+	StatusLine = { fg = c.base0, bg = c.base7, bold = true },
+	StatusLineNC = { fg = c.base0, bg = c.base7 },
 
 	TabLine = { link = "Normal" },
 	TabLineSel = { reverse = true },
 
-	WinSeparator = { fg = colors.base0 },
+	WinSeparator = { fg = c.base0 },
 
 	SignColumn = { link = "LineNr" },
 	FoldColumn = { link = "SignColumn" },
 
-	Conceal = { fg = colors.base5 },
-	SpellBad = { fg = colors.base0, undercurl = true },
+	Conceal = { fg = c.base5 },
+	SpellBad = { fg = c.base0, undercurl = true },
 	SpellCap = { link = "SpellBad" },
 	SpellLocal = { link = "SpellBad" },
 	SpellRare = { link = "SpellBad" },
 
-	Pmenu = { fg = colors.base0, bg = colors.base7 },
-	PmenuSel = { fg = colors.base0, bg = colors.base3 },
-	PmenuSbar = { bg = colors.base0 },
+	Pmenu = { fg = c.base0, bg = c.base7 },
+	PmenuSel = { fg = c.base0, bg = c.base3 },
+	PmenuSbar = { bg = c.base0 },
 	PmenuThumb = { link = "PmenuSbar" },
 
-	WildMenu = { bg = colors.base4 },
-	Visual = { bg = colors.base5 },
+	WildMenu = { bg = c.base4 },
+	Visual = { bg = c.base5 },
 	Folded = {},
 
-	Cursor = { bg = colors.base2 },
+	Cursor = { bg = c.base2 },
 	TermCursor = { link = "Cursor" },
-	CursorLine = { bg = colors.base6 },
+	CursorLine = { bg = c.base6 },
 	CursorColumn = { link = "CursorLine" },
 
-	ColorColumn = { bg = colors.light_yellow },
+	ColorColumn = { bg = c.light_yellow },
 
-	MoreMsg = { fg = colors.cyan },
-	ModeMsg = { fg = colors.blue },
-	ErrorMsg = { fg = colors.base7, bg = colors.red },
-	WarningMsg = { fg = colors.base7, bg = colors.orange },
+	MoreMsg = { fg = c.cyan },
+	ModeMsg = { fg = c.blue },
+	ErrorMsg = { fg = c.base7, bg = c.red },
+	WarningMsg = { fg = c.base7, bg = c.orange },
 
-	DiffAdd = { fg = colors.green },
-	DiffChange = { fg = colors.orange },
-	DiffDelete = { fg = colors.red },
+	DiffAdd = { fg = c.green },
+	DiffChange = { fg = c.orange },
+	DiffDelete = { fg = c.red },
 
-	Comment = { fg = colors.base3 },
-	Constant = { fg = colors.base0, bg = colors.light_blue }, -- String Character Number Boolean Float
-	String = { fg = colors.base0, bg = colors.light_green },
-	Identifier = { fg = colors.base0 },
+	Comment = { fg = c.base3 },
+	Constant = { fg = c.base0, bg = c.light_blue }, -- String Character Number Boolean Float
+	String = { fg = c.base0, bg = c.light_green },
+	Identifier = { fg = c.base0 },
 	Delimiter = { link = "Identifier" },
-	Statement = { fg = colors.base0, bg = colors.light_orange }, -- Conditional Repeat Label Operator Keyword Exception
+	Statement = { fg = c.base0, bg = c.light_orange }, -- Conditional Repeat Label Operator Keyword Exception
 	Operator = { link = "Identifier" },
 	PreProc = { link = "Question" }, -- Include Define Macro PreCondit
-	Type = { fg = colors.pink }, -- StorageClass Structure Typedef
+	Type = { fg = c.pink }, -- StorageClass Structure Typedef
 	Special = { link = "SpecialKey" }, -- SpecialChar Tag Delimiter SpecialComment Debug
-	Function = { fg = colors.base0, bold = true },
+	Function = { link = "Identifier" },
 	Underlined = { underline = true },
-	Ignore = { fg = colors.base7 },
+	Ignore = { fg = c.base7 },
 	Error = { link = "ErrorMsg" },
-	Todo = { fg = colors.green },
+	Todo = { fg = c.green },
 
-	MatchParen = { fg = colors.red, underline = true },
+	MatchParen = { fg = c.red, underline = true },
 
 	-- Plugins
+	-- Lspsaga
+	RenameNormal = { link = "Normal" },
 
-	-- Treesitter
+	-- Treesittere
 	["@variable"] = { link = "Identifier" },
 	["@variable.builtin"] = { link = "Type" },
 	["@variable.parameter"] = { link = "Identifier" },
@@ -163,7 +168,7 @@ local hl_groups = {
 
 	["@keyword"] = { link = "Keyword" },
 	["@keyword.coroutine"] = { link = "Keyword" },
-	["@keyword.function"] = { bg = colors.light_purple },
+	["@keyword.function"] = { bg = c.light_purple },
 	["@keyword.operator"] = { link = "Keyword" },
 	["@keyword.import"] = { link = "Include" },
 	["@keyword.storage"] = { link = "Keyword" },
@@ -206,7 +211,7 @@ local hl_groups = {
 	["@markup.link.url"] = { link = "Keyword" },
 
 	["@markup.raw"] = { link = "SpecialComment" },
-	["@markup.raw.block"] = { link = "SpecialComment" },
+	["@markup.raw.block"] = {},
 
 	["@markup.list"] = { link = "Identifier" },
 	["@markup.list.checked"] = { link = "Comment" },
@@ -221,17 +226,16 @@ local hl_groups = {
 	["@diff.delta"] = { link = "DiffChange" },
 
 	-- lsp
-	DiagnosticError = { fg = colors.red },
-	DiagnosticHint = { fg = colors.base3 },
-	DiagnosticInfo = { fg = colors.blue },
-	DiagnosticOk = { fg = colors.green },
-	DiagnosticUnderlineError = { sp = colors.red, undercurl = true },
-	DiagnosticUnderlineHint = { sp = colors.base3, undercurl = true },
-	DiagnosticUnderlineInfo = { sp = colors.blue, undercurl = true },
-	DiagnosticUnderlineOk = { sp = colors.green, undercurl = true },
-	DiagnosticUnderlineWarn = { sp = colors.orange, undercurl = true },
-	DiagnosticWarn = { fg = colors.orange },
-
+	DiagnosticError = { fg = c.red },
+	DiagnosticHint = { fg = c.base3 },
+	DiagnosticInfo = { fg = c.blue },
+	DiagnosticOk = { fg = c.green },
+	DiagnosticUnderlineError = { sp = c.red, undercurl = true },
+	DiagnosticUnderlineHint = { sp = c.base3, undercurl = true },
+	DiagnosticUnderlineInfo = { sp = c.blue, undercurl = true },
+	DiagnosticUnderlineOk = { sp = c.green, undercurl = true },
+	DiagnosticUnderlineWarn = { sp = c.orange, undercurl = true },
+	DiagnosticWarn = { fg = c.orange },
 	-- lsp highlights
 	["@lsp.type.class"] = { link = "@type" },
 	["@lsp.type.decorator"] = { link = "@function" },
@@ -262,24 +266,6 @@ local hl_groups = {
 	["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
 	["@lsp.typemod.variable.injected"] = { link = "@variable" },
 
-	-- nvim-cmp
-	CmpItemAbbr = { link = "Comment" },
-	CmpItemAbbrDeprecated = { link = "Visual" },
-	CmpItemAbbrMatch = { link = "Identifier" },
-	CmpItemAbbrMatchFuzzy = { link = "CmpItemAbbrMatch" },
-	CmpItemKindText = { fg = colors.base0 },
-	CmpItemKindSnippet = { fg = colors.base2 },
-	CmpItemKindConstant = { fg = colors.blue },
-	CmpItemKindVariable = { fg = colors.blue },
-	CmpItemKindKeyword = { fg = colors.orange },
-	CmpItemKindMethod = { fg = colors.purple },
-	CmpItemKindFunction = { link = "CmpItemKindMethod" },
-	CmpItemKindConstructor = { link = "CmpItemKindMethod" },
-	CmpItemKindClass = { fg = colors.pink },
-	CmpItemKindInterface = { link = "CmpItemKindClass" },
-	CmpItemKindModule = { link = "CmpItemKindClass" },
-	CmpItemKindStruct = { link = "CmpItemKindClass" },
-
 	-- mini.files
 	MiniFilesBorder = { link = "WinSeparator" }, -- border of regular windows.
 	MiniFilesBorderModified = { link = "DiffChange" }, -- border of windows showing modified buffer.
@@ -288,8 +274,9 @@ local hl_groups = {
 	MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
 	MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
 	MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
+
 }
 
-for name, val in pairs(hl_groups) do
+for name, val in pairs(groups) do
 	vim.api.nvim_set_hl(0, name, val)
 end
