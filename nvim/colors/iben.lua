@@ -67,6 +67,7 @@ local groups = {
 	Typedef = { link = "Type" },
 
 	Special = { fg = c.blue },
+	SpecialKey = { link = "Special" },
 	SpecialChar = { link = "Special" },
 	Tag = { link = "Special" },
 	Delimiter = { link = "Identifier" },
