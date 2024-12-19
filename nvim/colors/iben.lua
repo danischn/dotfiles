@@ -1,45 +1,80 @@
-vim.cmd([[hi clear]])
+vim.cmd("hi clear")
 vim.g.colors_name = "deepwhite"
 vim.o.background = "light"
 
 local c = {
-	base0 = "#1A1918", -- hsv(30, 8%, 10%)
-	base1 = "#595855", -- hsv(45, 4%, 35%)
-	base2 = "#807E79", -- hsv(43, 5%, 50%)
-	base3 = "#999791", -- hsv(45, 5%, 60%)
-	base4 = "#B3B1AD", -- hsv(40, 3%, 70%)
-	base5 = "#CCCBC6", -- hsv(50, 3%, 80%)
-	base6 = "#E6E4DF", -- hsv(43, 3%, 90%)
-	base7 = "#FAF2EB", -- hsv(24, 4%, 98%)
+	base0 = "#1A1918",
+	base1 = "#595855",
+	base2 = "#807E79",
+	base3 = "#999791",
+	base4 = "#B3B1AD",
+	base5 = "#CCCBC6",
+	base6 = "#E6E4DF",
+	base7 = "#FAF2EB",
 
-	light_orange = "#FAE1C8", -- hsv(30, 20%, 98%)
-	light_yellow = "#FAFAC8", -- hsv(60, 20%, 98%)
-	light_cyan = "#C8FAFA", -- hsv(180, 20%, 98%)
-	light_green = "#D4FAD4", -- hsv(120, 15%, 98%)
-	light_blue = "#D4D4FA", -- hsv(240, 15%, 98%)
-	light_purple = "#EDD4FA", -- hsv(280, 15%, 98%)
-	light_pink = "#FAD4ED", -- hsv(320, 15%, 98%)
-	light_red = "#FAD4D4", -- hsv(360, 15%, 98%)
+	light_orange = "#FAE1C8",
+	light_yellow = "#FAFAC8",
+	light_cyan = "#C8FAFA",
+	light_green = "#D4FAD4",
+	light_blue = "#D4D4FA",
+	light_purple = "#EDD4FA",
+	light_pink = "#FAD4ED",
+	light_red = "#FAD4D4",
 
-	orange = "#F27900", -- hsv(30, 100%, 95%)
-	yellow = "#F2F200", -- hsv(60, 100%, 95%)
-	cyan = "#00A6A6", -- hsv(180, 100%, 65%)
-	green = "#00A600", -- hsv(120, 100%, 65%)
-	blue = "#0000A6", -- hsv(240, 100%, 65%)
-	purple = "#6F00A6", -- hsv(280, 100%, 65%)
-	pink = "#A6006F", -- hsv(320, 100%, 65%)
-	red = "#A60000", -- hsv(360, 100%, 65%)
-
-	iris = "#907aa9",
-	muted = "#9893a5",
+	orange = "#F27900",
+	yellow = "#F2F200",
+	cyan = "#00A6A6",
+	green = "#00A600",
+	blue = "#0000A6",
+	purple = "#6F00A6",
+	pink = "#A6006F",
+	red = "#A60000",
 }
 
 local groups = {
 	Normal = { fg = c.base0, bg = c.base7 },
 	NormalFloat = { link = "Normal" },
+	Comment = { fg = c.base3 },
 	NonText = { fg = c.base3 },
 
-	SpecialKey = { fg = c.blue },
+	Constant = { fg = c.base0, bg = c.light_blue },
+	String = { fg = c.green },
+	Number = { link = "Constant" },
+	Boolean = { link = "Constant" },
+	Float = { link = "Constant" },
+
+	Identifier = { fg = c.base0 },
+	Function = { link = "Identifier" },
+
+	Statement = { fg = c.base0, bg = c.light_orange },
+	Conditional = { link = "Statement" },
+	Repeat = { link = "Statement" },
+	Label = { link = "Statement" },
+	Operator = { fg = c.base0 },
+	Keyword = { link = "Statement" },
+	Exception = { link = "Statement" },
+
+	Question = { fg = c.base0, bold = true },
+	PreProc = { link = "Question" },
+	Include = { link = "Question" },
+	Define = { link = "Question" },
+	Macro = { link = "Question" },
+	PreCondit = { link = "Question" },
+
+	Type = { fg = c.pink },
+	StorageClass = { link = "Type" },
+	Structure = { link = "Type" },
+	Typedef = { link = "Type" },
+
+	Special = { fg = c.blue },
+	SpecialChar = { link = "Special" },
+	Tag = { link = "Special" },
+	Delimiter = { link = "Identifier" },
+	SpecialComment = { link = "Special" },
+	Debug = { link = "Special" },
+
+	Underlined = { underline = true },
+
 	Directory = { link = "SpecialKey" },
 
 	Title = { fg = c.base0, bold = true },
@@ -50,8 +85,6 @@ local groups = {
 
 	LineNr = { fg = c.base3 },
 	CursorLineNr = { link = "Normal" },
-
-	Question = { fg = c.base0, bold = true },
 
 	StatusLine = { fg = c.base0, bg = c.base7, bold = true },
 	StatusLineNC = { fg = c.base0, bg = c.base7 },
@@ -95,27 +128,11 @@ local groups = {
 	DiffChange = { fg = c.orange },
 	DiffDelete = { fg = c.red },
 
-	Comment = { fg = c.base3 },
-	Constant = { fg = c.base0, bg = c.light_blue }, -- String Character Number Boolean Float
-	String = { fg = c.base0, bg = c.light_green },
-	Identifier = { fg = c.base0 },
-	Delimiter = { link = "Identifier" },
-	Statement = { fg = c.base0, bg = c.light_orange }, -- Conditional Repeat Label Operator Keyword Exception
-	Operator = { link = "Identifier" },
-	PreProc = { link = "Question" }, -- Include Define Macro PreCondit
-	Type = { fg = c.pink }, -- StorageClass Structure Typedef
-	Special = { link = "SpecialKey" }, -- SpecialChar Tag Delimiter SpecialComment Debug
-	Function = { link = "Identifier" },
-	Underlined = { underline = true },
 	Ignore = { fg = c.base7 },
 	Error = { link = "ErrorMsg" },
 	Todo = { fg = c.green },
 
 	MatchParen = { fg = c.red, underline = true },
-
-	-- Plugins
-	-- Lspsaga
-	RenameNormal = { link = "Normal" },
 
 	-- Treesittere
 	["@variable"] = { link = "Identifier" },
@@ -236,6 +253,7 @@ local groups = {
 	DiagnosticUnderlineOk = { sp = c.green, undercurl = true },
 	DiagnosticUnderlineWarn = { sp = c.orange, undercurl = true },
 	DiagnosticWarn = { fg = c.orange },
+
 	-- lsp highlights
 	["@lsp.type.class"] = { link = "@type" },
 	["@lsp.type.decorator"] = { link = "@function" },
@@ -274,7 +292,6 @@ local groups = {
 	MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
 	MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
 	MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
-
 }
 
 for name, val in pairs(groups) do
