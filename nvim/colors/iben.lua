@@ -87,8 +87,8 @@ local groups = {
 	LineNr = { fg = c.base3 },
 	CursorLineNr = { link = "Normal" },
 
-	StatusLine = { fg = c.base0, bg = c.base7, bold = true },
-	StatusLineNC = { fg = c.base0, bg = c.base7 },
+	StatusLine = { fg = c.base0, bg = c.base6 },
+	StatusLineNC = { fg = c.base0, bg = c.base6 },
 
 	TabLine = { link = "Normal" },
 	TabLineSel = { reverse = true },
