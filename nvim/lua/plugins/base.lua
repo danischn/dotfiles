@@ -1,7 +1,7 @@
 return {
 	{ "kylechui/nvim-surround", opts = {} },
 	{ "norcalli/nvim-colorizer.lua" },
-	{ "eoh-bse/minintro.nvim", lazy = false, opts = {} },
+	{ "eoh-bse/minintro.nvim", opts = {} },
 	{ "williamboman/mason.nvim", opts = {} },
 	{
 		"folke/zen-mode.nvim",
