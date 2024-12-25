@@ -8,3 +8,6 @@ end, { buffer = 0, desc = "Run lua file" })
 vim.keymap.set("n", "<leader>.", function()
 	vim.uv.chdir(vim.fn.expand("~/dotfiles/nvim"))
 end)
+
+vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { buffer = 0, desc = "Execute the current line" })
+vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { buffer = 0, desc = "Execute the current file" })

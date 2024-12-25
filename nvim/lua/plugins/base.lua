@@ -1,22 +1,20 @@
 return {
-	{ "kylechui/nvim-surround", opts = {} },
+	{ "echasnovski/mini.surround", opts = {} },
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "eoh-bse/minintro.nvim", opts = {} },
 	{ "williamboman/mason.nvim", opts = {} },
+	{ "aserowy/tmux.nvim", opts = {} },
 	{
-		"folke/zen-mode.nvim",
-		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
-		opts = { plugins = { tmux = { enabled = true } } },
+		"preservim/vimux",
+		config = function()
+			vim.g.VimuxOrientation = "h"
+			vim.g.VimuxHeight = "40"
+		end,
 	},
 	{
-		"echasnovski/mini.files",
-		version = false,
-		keys = { { "<leader>e", "<cmd>lua MiniFiles.open()<cr>", desc = "Explorer" } },
-		opts = {
-			mappings = { go_in_plus = "l", synchronize = "<cr>" },
-			windows = { max_number = 3, width_focus = 28, width_nofocus = 28 },
-			options = { permanent_delete = false },
-		},
+		"folke/zen-mode.nvim",
+		keys = { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" },
+		opts = { plugins = { tmux = { enabled = true } } },
 	},
 	{
 		"jpalardy/vim-slime",
