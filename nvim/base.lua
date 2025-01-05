@@ -4,6 +4,7 @@ return {
 	{ "williamboman/mason.nvim", opts = {} },
 	{ "aserowy/tmux.nvim", opts = { copy_sync = false } },
 	{ "norcalli/nvim-colorizer.lua", opts = {} },
+	{ "ervandew/supertab" },
 	{
 		"preservim/vimux",
 		config = function()

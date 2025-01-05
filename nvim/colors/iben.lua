@@ -4,14 +4,13 @@ vim.cmd("hi clear")
 vim.g.colors_name = "iben"
 vim.o.background = "light"
 
-local fg = "#000000"
+local black = "#000000"
 local bg = "#FAF2EB"
 local def = "#325CC0"
 local constant = "#8945B0"
 local string = "#448C27"
 local comment = "#999791"
 local active = "#FFBC5D"
-local pmenu_bg = "#E7E7E7"
 
 local error = "#D13E23"
 local warn = "#F4B371"
@@ -31,44 +30,44 @@ local ansi = {
 }
 
 local groups = {
-	Normal = { fg = fg, bg = bg },
+	Normal = { fg = black, bg = bg },
 	NormalFloat = { link = "Normal" },
 	Comment = { fg = comment },
 	NonText = { fg = "#696969" },
 
-	Constant = { fg = fg },
+	Constant = { fg = black },
 	String = { fg = string },
 	Number = { link = "Constant" },
 	Boolean = { link = "Constant" },
 	Float = { link = "Constant" },
 
-	Identifier = { fg = fg },
+	Identifier = { fg = black },
 	Function = { fg = def },
 
-	Statement = { fg = fg, bold = true },
+	Statement = { fg = black, bold = true },
 	Conditional = { link = "Statement" },
 	Repeat = { link = "Statement" },
 	Label = { link = "Statement" },
-	Operator = { fg = fg },
+	Operator = { fg = black },
 	Keyword = { link = "Statement" },
 	Exception = { link = "Statement" },
 
-	Question = { fg = fg },
+	Question = { fg = black },
 	PreProc = { link = "Question" },
 	Include = { link = "Question" },
 	Define = { link = "Question" },
 	Macro = { link = "Question" },
 	PreCondit = { link = "Question" },
 
-	Type = { fg = fg },
+	Type = { fg = black },
 	StorageClass = { link = "Type" },
 	Structure = { link = "Type" },
 	Typedef = { link = "Type" },
 
-	Special = { fg = fg },
+	Special = { fg = black },
 	SpecialKey = { link = "Special" },
 	SpecialChar = { link = "Special" },
-	Tag = { link = "Special" },
+	Tag = { fg = black, underline = true },
 	Delimiter = { link = "Special" },
 	SpecialComment = { link = "Special" },
 	Debug = { link = "Special" },
@@ -79,20 +78,20 @@ local groups = {
 
 	Title = { fg = constant },
 
-	IncSearch = { fg = fg, bg = active },
+	IncSearch = { fg = black, bg = active },
 	Search = { link = "IncSearch" },
 	CurSearch = { link = "IncSearch" },
 
 	LineNr = { fg = "#7d7c7c" },
 	CursorLineNr = { link = "Normal" },
 
-	StatusLine = { fg = fg, bg = bg },
-	StatusLineNC = { fg = fg, bg = bg },
+	StatusLine = { fg = black, bg = bg },
+	StatusLineNC = { fg = black, bg = bg },
 
 	TabLine = { link = "Normal" },
 	TabLineSel = { reverse = true },
 
-	WinSeparator = { fg = fg },
+	WinSeparator = { fg = black },
 
 	SignColumn = { link = "LineNr" },
 	FoldColumn = { link = "SignColumn" },
@@ -103,12 +102,9 @@ local groups = {
 	SpellLocal = { undercurl = 1, sp = ansi.cyan },
 	SpellRare = { undercurl = 1, sp = ansi.magenta },
 
-	Pmenu = { bg = pmenu_bg },
-	PmenuSel = { bg = "#354c50" },
-	PmenuSbar = { bg = "#212f31" },
-	PmenuThumb = { bg = "#47666b" },
+	Pmenu = { fg = black },
+	PmenuSel = { link = "CursorLine" },
 
-	WildMenu = { bg = "#999999" },
 	Visual = { link = "CursorLine" },
 	Folded = {},
 
@@ -117,18 +113,18 @@ local groups = {
 	CursorColumn = { link = "CursorLine" },
 
 	MoreMsg = { fg = ansi.green, bold = 1 },
-	ErrorMsg = { fg = fg, bg = ansi.red },
+	ErrorMsg = { fg = black, bg = ansi.red },
 	WarningMsg = { fg = "#e1ad4c" },
 
 	Ignore = {},
 	Error = { link = "ErrorMsg" },
 	Todo = { bg = "#d0d058", fg = bg },
 
-	MatchParen = { underline = 1, sp = active },
+	MatchParen = { fg = ansi.red, underline = 1 },
 
 	-- Treesitter
 	["@variable"] = { link = "Identifier" },
-	["@variable.builtin"] = { link = "Type" },
+  ["@variable.builtin"] = { link = "Identifier" },
 	["@variable.parameter"] = { link = "Identifier" },
 	["@variable.member"] = { link = "Identifier" },
 
@@ -176,27 +172,10 @@ local groups = {
 	["@operator"] = { link = "Operator" },
 
 	["@keyword"] = { link = "Keyword" },
-	["@keyword.coroutine"] = { link = "Keyword" },
-	["@keyword.function"] = { link = "Keyword" },
-	["@keyword.operator"] = { link = "Keyword" },
-	["@keyword.import"] = { link = "Keyword" },
-	["@keyword.storage"] = { link = "Keyword" },
-	["@keyword.repeat"] = { link = "Keyword" },
-	["@keyword.return"] = { link = "Keyword" },
-	["@keyword.debug"] = { link = "Keyword" },
-	["@keyword.exception"] = { link = "Keyword" },
-	["@keyword.conditional"] = { link = "Keyword" },
-	["@keyword.conditional.ternary"] = { link = "Conditional" },
-	["@keyword.directive"] = { link = "PreProc" },
-	["@keyword.directive.define"] = { link = "PreProc" },
 
 	["@punctutation"] = { link = "Delimiter" },
-	["@punctutation.delimiter"] = { link = "Delimiter" },
-	["@punctutation.bracket"] = { link = "Delimiter" },
-	["@punctutation.special"] = { link = "Delimiter" },
 
 	["@comment"] = { link = "Comment" },
-	["@comment.documentation"] = { link = "Comment" },
 
 	["@comment.warning"] = { link = "WarningMsg" },
 	["@comment.error"] = { link = "Error" },
@@ -208,16 +187,13 @@ local groups = {
 	["@markup.underline"] = { underline = true },
 	["@markup.strike"] = { strikethrough = true },
 
-	["@markup.heading"] = { link = "Title" },
-	["@markup.heading.gitcommit"] = { link = "@spell" },
+	["@markup.heading"] = { fg = black, bold = true },
 
 	["@markup.quote"] = { link = "Comment" },
 	["@markup.math"] = { link = "Special" },
 	["@markup.environment"] = { link = "Macro" },
 
 	["@markup.link"] = { link = "Underlined" },
-	["@markup.link.label"] = { link = "SpecialChar" },
-	["@markup.link.url"] = { link = "Keyword" },
 
 	["@markup.raw"] = { link = "SpecialComment" },
 	["@markup.raw.block"] = {},
@@ -239,9 +215,9 @@ local groups = {
 	DiagnosticWarn = { fg = warn },
 	DiagnosticHint = { fg = hint },
 	DiagnosticInfo = { fg = info },
-	DiagnosticUnnecessary = { fg = fg, underline = true },
+	DiagnosticUnnecessary = { fg = black, underline = true },
 	DiagnosticVirtualTextError = { bg = "#F8B28F", fg = "#411414" },
-	DiagnosticVirtualTextWarn = { bg = "#fff987", fg = fg },
+	DiagnosticVirtualTextWarn = { bg = "#fff987", fg = black },
 	DiagnosticVirtualTextHint = { fg = "#0F171D", bg = "#C3D0DA" },
 	DiagnosticVirtualTextInfo = { bg = "#ADFFB7", fg = "#042F09" },
 
