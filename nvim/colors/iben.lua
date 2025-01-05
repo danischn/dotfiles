@@ -1,76 +1,75 @@
+-- https://github.com/tonsky/sublime-scheme-alabaster
+
 vim.cmd("hi clear")
-vim.g.colors_name = "deepwhite"
+vim.g.colors_name = "iben"
 vim.o.background = "light"
 
-local c = {
-	base0 = "#1A1918",
-	base1 = "#595855",
-	base2 = "#807E79",
-	base3 = "#999791",
-	base4 = "#B3B1AD",
-	base5 = "#CCCBC6",
-	base6 = "#E6E4DF",
-	base7 = "#FAF2EB",
+local fg = "#000000"
+local bg = "#FAF2EB"
+local def = "#325CC0"
+local constant = "#8945B0"
+local string = "#448C27"
+local comment = "#999791"
+local active = "#FFBC5D"
+local pmenu_bg = "#E7E7E7"
 
-	light_orange = "#FAE1C8",
-	light_yellow = "#FAFAC8",
-	light_cyan = "#C8FAFA",
-	light_green = "#D4FAD4",
-	light_blue = "#D4D4FA",
-	light_purple = "#EDD4FA",
-	light_pink = "#FAD4ED",
-	light_red = "#FAD4D4",
+local error = "#D13E23"
+local warn = "#F4B371"
+local hint = "#8EBEEC"
+local info = "#88CC66"
 
-	orange = "#F27900",
-	yellow = "#F2F200",
-	cyan = "#00A6A6",
-	green = "#00A600",
-	blue = "#0000A6",
-	purple = "#6F00A6",
-	pink = "#A6006F",
-	red = "#A60000",
+local ansi = {
+	black = "#000000",
+	blue = "#325CC0",
+	brightyellow = "#FFBC5D",
+	cyan = "#0083b2",
+	green = "#448c27",
+	magenta = "#7A3E9D",
+	red = "#AA3731",
+	white = "#F7F7F7",
+	yellow = "#CB9000",
 }
 
 local groups = {
-	Normal = { fg = c.base0, bg = c.base7 },
+	Normal = { fg = fg, bg = bg },
 	NormalFloat = { link = "Normal" },
-	Comment = { fg = c.base3 },
-	NonText = { fg = c.base3 },
+	Comment = { fg = comment },
+	NonText = { fg = "#696969" },
 
-	Constant = { fg = c.base0, bg = c.light_blue },
-	String = { fg = c.green },
+	Constant = { fg = fg },
+	String = { fg = string },
 	Number = { link = "Constant" },
 	Boolean = { link = "Constant" },
 	Float = { link = "Constant" },
 
-	Identifier = { fg = c.base0 },
-	Function = { link = "Identifier" },
+	Identifier = { fg = fg },
+	Function = { fg = def },
 
-	Statement = { fg = c.base0, bg = c.light_orange },
+	Statement = { fg = fg, bold = true },
 	Conditional = { link = "Statement" },
 	Repeat = { link = "Statement" },
 	Label = { link = "Statement" },
-	Operator = { fg = c.base0 },
+	Operator = { fg = fg },
 	Keyword = { link = "Statement" },
 	Exception = { link = "Statement" },
 
-	Question = { fg = c.base0, bold = true },
+	Question = { fg = fg },
 	PreProc = { link = "Question" },
 	Include = { link = "Question" },
 	Define = { link = "Question" },
 	Macro = { link = "Question" },
 	PreCondit = { link = "Question" },
 
-	Type = { fg = c.pink },
+	Type = { fg = fg },
 	StorageClass = { link = "Type" },
 	Structure = { link = "Type" },
 	Typedef = { link = "Type" },
 
-	Special = { fg = c.blue },
+	Special = { fg = fg },
 	SpecialKey = { link = "Special" },
 	SpecialChar = { link = "Special" },
 	Tag = { link = "Special" },
-	Delimiter = { link = "Identifier" },
+	Delimiter = { link = "Special" },
 	SpecialComment = { link = "Special" },
 	Debug = { link = "Special" },
 
@@ -78,64 +77,56 @@ local groups = {
 
 	Directory = { link = "SpecialKey" },
 
-	Title = { fg = c.base0, bold = true },
+	Title = { fg = constant },
 
-	IncSearch = { fg = c.base0, bg = c.light_yellow },
+	IncSearch = { fg = fg, bg = active },
 	Search = { link = "IncSearch" },
 	CurSearch = { link = "IncSearch" },
 
-	LineNr = { fg = c.base3 },
+	LineNr = { fg = "#7d7c7c" },
 	CursorLineNr = { link = "Normal" },
 
-	StatusLine = { fg = c.base0, bg = c.base7, bold = true },
-	StatusLineNC = { fg = c.base0, bg = c.base7 },
+	StatusLine = { fg = fg, bg = bg },
+	StatusLineNC = { fg = fg, bg = bg },
 
 	TabLine = { link = "Normal" },
 	TabLineSel = { reverse = true },
 
-	WinSeparator = { fg = c.base0 },
+	WinSeparator = { fg = fg },
 
 	SignColumn = { link = "LineNr" },
 	FoldColumn = { link = "SignColumn" },
 
-	Conceal = { fg = c.base5 },
-	SpellBad = { fg = c.base0, undercurl = true },
-	SpellCap = { link = "SpellBad" },
-	SpellLocal = { link = "SpellBad" },
-	SpellRare = { link = "SpellBad" },
+	Conceal = { fg = "#b0b0b0" },
+	SpellBad = { undercurl = 1, sp = ansi.red },
+	SpellCap = { undercurl = 1, sp = ansi.blue },
+	SpellLocal = { undercurl = 1, sp = ansi.cyan },
+	SpellRare = { undercurl = 1, sp = ansi.magenta },
 
-	Pmenu = { fg = c.base0, bg = c.base7 },
-	PmenuSel = { fg = c.base0, bg = c.base3 },
-	PmenuSbar = { bg = c.base0 },
-	PmenuThumb = { link = "PmenuSbar" },
+	Pmenu = { bg = pmenu_bg },
+	PmenuSel = { bg = "#354c50" },
+	PmenuSbar = { bg = "#212f31" },
+	PmenuThumb = { bg = "#47666b" },
 
-	WildMenu = { bg = c.base4 },
-	Visual = { bg = c.base5 },
+	WildMenu = { bg = "#999999" },
+	Visual = { link = "CursorLine" },
 	Folded = {},
 
-	Cursor = { bg = c.base2 },
 	TermCursor = { link = "Cursor" },
-	CursorLine = { bg = c.base6 },
+	CursorLine = { bg = "#E6E4DF" },
 	CursorColumn = { link = "CursorLine" },
 
-	ColorColumn = { bg = c.light_yellow },
+	MoreMsg = { fg = ansi.green, bold = 1 },
+	ErrorMsg = { fg = fg, bg = ansi.red },
+	WarningMsg = { fg = "#e1ad4c" },
 
-	MoreMsg = { fg = c.cyan },
-	ModeMsg = { fg = c.blue },
-	ErrorMsg = { fg = c.base7, bg = c.red },
-	WarningMsg = { fg = c.base7, bg = c.orange },
-
-	DiffAdd = { fg = c.green },
-	DiffChange = { fg = c.orange },
-	DiffDelete = { fg = c.red },
-
-	Ignore = { fg = c.base7 },
+	Ignore = {},
 	Error = { link = "ErrorMsg" },
-	Todo = { fg = c.green },
+	Todo = { bg = "#d0d058", fg = bg },
 
-	MatchParen = { fg = c.red, underline = true },
+	MatchParen = { underline = 1, sp = active },
 
-	-- Treesittere
+	-- Treesitter
 	["@variable"] = { link = "Identifier" },
 	["@variable.builtin"] = { link = "Type" },
 	["@variable.parameter"] = { link = "Identifier" },
@@ -174,9 +165,9 @@ local groups = {
 	["@property"] = { link = "Identifier" },
 
 	["@function"] = { link = "Function" },
-	["@function.builtin"] = { link = "Special" },
-	["@function.call"] = { link = "Special" },
-	["@function.macro"] = { link = "Macro" },
+	["@function.builtin"] = { link = "Function" },
+	["@function.call"] = { link = "Function" },
+	["@function.macro"] = { link = "Function" },
 
 	["@function.method"] = { link = "@function" },
 	["@function.method.call"] = { link = "@function.call" },
@@ -186,20 +177,20 @@ local groups = {
 
 	["@keyword"] = { link = "Keyword" },
 	["@keyword.coroutine"] = { link = "Keyword" },
-	["@keyword.function"] = { bg = c.light_purple },
+	["@keyword.function"] = { link = "Keyword" },
 	["@keyword.operator"] = { link = "Keyword" },
-	["@keyword.import"] = { link = "Include" },
+	["@keyword.import"] = { link = "Keyword" },
 	["@keyword.storage"] = { link = "Keyword" },
-	["@keyword.repeat"] = { link = "Repeat" },
+	["@keyword.repeat"] = { link = "Keyword" },
 	["@keyword.return"] = { link = "Keyword" },
-	["@keyword.debug"] = { link = "Debug" },
-	["@keyword.exception"] = { link = "Exception" },
-
-	["@keyword.conditional"] = { link = "Conditional" },
+	["@keyword.debug"] = { link = "Keyword" },
+	["@keyword.exception"] = { link = "Keyword" },
+	["@keyword.conditional"] = { link = "Keyword" },
 	["@keyword.conditional.ternary"] = { link = "Conditional" },
 	["@keyword.directive"] = { link = "PreProc" },
 	["@keyword.directive.define"] = { link = "PreProc" },
 
+	["@punctutation"] = { link = "Delimiter" },
 	["@punctutation.delimiter"] = { link = "Delimiter" },
 	["@punctutation.bracket"] = { link = "Delimiter" },
 	["@punctutation.special"] = { link = "Delimiter" },
@@ -244,46 +235,15 @@ local groups = {
 	["@diff.delta"] = { link = "DiffChange" },
 
 	-- lsp
-	DiagnosticError = { fg = c.red },
-	DiagnosticHint = { fg = c.base3 },
-	DiagnosticInfo = { fg = c.blue },
-	DiagnosticOk = { fg = c.green },
-	DiagnosticUnderlineError = { sp = c.red, undercurl = true },
-	DiagnosticUnderlineHint = { sp = c.base3, undercurl = true },
-	DiagnosticUnderlineInfo = { sp = c.blue, undercurl = true },
-	DiagnosticUnderlineOk = { sp = c.green, undercurl = true },
-	DiagnosticUnderlineWarn = { sp = c.orange, undercurl = true },
-	DiagnosticWarn = { fg = c.orange },
-
-	-- lsp highlights
-	["@lsp.type.class"] = { link = "@type" },
-	["@lsp.type.decorator"] = { link = "@function" },
-	["@lsp.type.enum"] = { link = "@type" },
-	["@lsp.type.enumMember"] = { link = "@constant" },
-	["@lsp.type.function"] = { link = "@function.call" },
-	["@lsp.type.interface"] = { link = "@type" },
-	["@lsp.type.macro"] = { link = "@macro" },
-	["@lsp.type.method"] = { link = "@function.call" },
-	["@lsp.type.namespace"] = { link = "@namespace" },
-	["@lsp.type.parameter"] = { link = "@parameter" },
-	["@lsp.type.property"] = { link = "@property" },
-	["@lsp.type.struct"] = { link = "@structure" },
-	["@lsp.type.type"] = { link = "@type" },
-	["@lsp.type.variable"] = { link = "@variable" },
-	["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
-	["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
-	["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
-	["@lsp.typemod.function.declaration"] = { link = "@function" },
-	["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
-	["@lsp.typemod.keyword.async"] = { link = "@keyword.coroutine" },
-	["@lsp.typemod.macro.defaultLibrary"] = { link = "@function.builtin" },
-	["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
-	["@lsp.typemod.method.declaration"] = { link = "@function" },
-	["@lsp.typemod.operator.injected"] = { link = "@operator" },
-	["@lsp.typemod.string.injected"] = { link = "@string" },
-	["@lsp.typemod.type.defaultLibrary"] = { link = "@type.builtin" },
-	["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
-	["@lsp.typemod.variable.injected"] = { link = "@variable" },
+	DiagnosticError = { fg = error },
+	DiagnosticWarn = { fg = warn },
+	DiagnosticHint = { fg = hint },
+	DiagnosticInfo = { fg = info },
+	DiagnosticUnnecessary = { fg = fg, underline = true },
+	DiagnosticVirtualTextError = { bg = "#F8B28F", fg = "#411414" },
+	DiagnosticVirtualTextWarn = { bg = "#fff987", fg = fg },
+	DiagnosticVirtualTextHint = { fg = "#0F171D", bg = "#C3D0DA" },
+	DiagnosticVirtualTextInfo = { bg = "#ADFFB7", fg = "#042F09" },
 
 	-- mini.files
 	MiniFilesBorder = { link = "WinSeparator" }, -- border of regular windows.

@@ -1,23 +1,16 @@
 return {
 	{ "kylechui/nvim-surround", opts = {} },
-	{ "echasnovski/mini.ai", opts = {} },
-	{ "stevearc/dressing.nvim", opts = {} },
-	{ "norcalli/nvim-colorizer.lua" },
-	{ "eoh-bse/minintro.nvim", lazy = false, opts = {} },
+	{ "eoh-bse/minintro.nvim", opts = {} },
+	{ "williamboman/mason.nvim", opts = {} },
+	{ "aserowy/tmux.nvim", opts = { copy_sync = false } },
+	{ "norcalli/nvim-colorizer.lua", opts = {} },
+
 	{
-		"folke/zen-mode.nvim",
-		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
-		opts = { plugins = { tmux = { enabled = true } } },
-	},
-	{
-		"echasnovski/mini.files",
-		version = false,
-		keys = { { "<leader>e", "<cmd>lua MiniFiles.open()<cr>", desc = "Explorer" } },
-		opts = {
-			mappings = { go_in_plus = "l", synchronize = "<cr>" },
-			windows = { max_number = 3, width_focus = 28, width_nofocus = 28 },
-			options = { permanent_delete = false },
-		},
+		"preservim/vimux",
+		config = function()
+			vim.g.VimuxOrientation = "h"
+			vim.g.VimuxHeight = "40"
+		end,
 	},
 	{
 		"jpalardy/vim-slime",
@@ -26,5 +19,10 @@ return {
 			vim.g.slime_dont_ask_default = 1
 			vim.g.slime_default_config = { socket_name = "default", target_pane = "{right-of}" }
 		end,
+	},
+	{
+		"folke/zen-mode.nvim",
+		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "ZenMode" } },
+		opts = { window = { width = 100 }, plugins = { tmux = { enabled = true } } },
 	},
 }

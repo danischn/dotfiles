@@ -24,7 +24,7 @@ let mapleader=" "
 inoremap jk <ESC>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-nnoremap <silent> <esc> :noh<cr>
+nnoremap <esc> :noh<cr>
 nnoremap <leader>e :Lexplore<cr>
 vnoremap < <gv
 vnoremap > >gv
