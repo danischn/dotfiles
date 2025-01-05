@@ -17,7 +17,7 @@ input * {
 }
 
 # Hide cursor after 4 seconds of no input
-seat * hide_cursor 4000
+seat * hide_cursor  4000
 seat * hide_cursor when-typing enable
 
 output eDP-1 {

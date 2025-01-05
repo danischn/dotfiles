@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("iben") -- my own colorscheme
+vim.cmd.colorscheme("iben")
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 0 -- hide command bar
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file

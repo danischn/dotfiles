@@ -1,7 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	lazy = false,
+	enabled = true,
 	config = function()
 		local treesitter = require("nvim-treesitter.configs")
 		treesitter.setup({
@@ -20,6 +20,7 @@ return {
 				"vimdoc",
 				"query",
 				"sql",
+				"vimdoc",
 			},
 		})
 	end,
