@@ -8,6 +8,15 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<leader>\\", "<C-w>v")
 vim.keymap.set("n", "<leader>-", "<C-w>s")
 
+vim.keymap.set("i", "<BS>", function()
+	print("Use Control-(H/W/U) instead")
+end)
+
+vim.keymap.set("n", "<bs>", "<nop>")
+
+vim.keymap.set("n", "<leader>c", "gcc", { remap = true })
+vim.keymap.set("v", "<leader>c", "gc", { remap = true })
+
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -20,10 +29,4 @@ vim.keymap.set("n", "<leader>.", function()
 	vim.uv.chdir(vim.fn.expand("~/dotfiles/nvim"))
 end)
 
-vim.keymap.set("n", "<leader>x", "<cmd>.lua<CR>", { buffer = 0, desc = "Execute the current line" })
-vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>", { buffer = 0, desc = "Execute the current file" })
-
 vim.keymap.set("n", "<leader>i", "<cmd>colo iben<CR>")
-
-vim.keymap.set("n", "<leader>c", "gcc", { remap = true })
-vim.keymap.set("v", "<leader>c", "gc", { remap = true })

@@ -5,6 +5,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Disable semantic highlighting
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = function()
 		for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
