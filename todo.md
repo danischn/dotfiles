@@ -42,3 +42,4 @@
 - [] Sort pdfs by recently opened in tofi
 - [] Tofi dont wrap when at bottom
 - [] Dont add failed commands to history
+- [] Focus recently opened window, for example when opening pdf.

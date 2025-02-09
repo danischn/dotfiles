@@ -124,7 +124,7 @@ local groups = {
 
 	-- Treesitter
 	["@variable"] = { link = "Identifier" },
-  ["@variable.builtin"] = { link = "Identifier" },
+	["@variable.builtin"] = { link = "Identifier" },
 	["@variable.parameter"] = { link = "Identifier" },
 	["@variable.member"] = { link = "Identifier" },
 

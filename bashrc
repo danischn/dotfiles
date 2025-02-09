@@ -122,6 +122,5 @@ RESET='\[\033[0m\]'
 PURPLE='\[\033[1;35m\]'
 BLUE='\[\033[1;34m\]'
 
-
 # Update the PS1 variable with bold formatting
 PS1="$BLUE\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ "

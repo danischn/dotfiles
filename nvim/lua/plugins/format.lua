@@ -6,6 +6,7 @@ return {
 			python = { "black" },
 			lua = { "stylua" },
 			markdown = { "prettier" },
+			c = { "clang-format" },
 		},
 	},
 }
