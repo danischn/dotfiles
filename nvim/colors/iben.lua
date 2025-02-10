@@ -34,6 +34,7 @@ local groups = {
 	NormalFloat = { link = "Normal" },
 	Comment = { fg = comment },
 	NonText = { fg = "#696969" },
+  EndOfBuffer = { fg = bg },
 
 	Constant = { fg = black },
 	String = { fg = string },
@@ -85,8 +86,9 @@ local groups = {
 	LineNr = { fg = "#7d7c7c" },
 	CursorLineNr = { link = "Normal" },
 
-	StatusLine = { fg = black, bg = bg },
-	StatusLineNC = { fg = black, bg = bg },
+	StatusLine = { fg ="#555555", bg = "#E6E4DF" },
+	StatusLineNC = { fg = "#555555", bg = bg },
+	StatusLineCWD = { fg = "#555555", bg = "#E6E4DF", bold = true },
 
 	TabLine = { link = "Normal" },
 	TabLineSel = { reverse = true },
@@ -165,7 +167,7 @@ local groups = {
 	["@function.call"] = { link = "Function" },
 	["@function.macro"] = { link = "Function" },
 
-	["@function.method"] = { link = "@function" },
+  ["@function.method"] = { link = "@function" },
 	["@function.method.call"] = { link = "@function.call" },
 
 	["@constructor"] = { link = "Identifier" },
