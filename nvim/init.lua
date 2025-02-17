@@ -3,24 +3,17 @@ require("keymaps")
 require("autocmds")
 require("statusline")
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-	spec = {
-		{ import = "plugins" },
-	},
-	change_detection = {
-		enabled = false,
-	},
+require("paq")({
+  "savq/paq-nvim",
+  "kylechui/nvim-surround",
+  "williamboman/mason.nvim",
+  "aserowy/tmux.nvim",
+  "preservim/vimux",
+  "jpalardy/vim-slime",
+  "folke/zen-mode.nvim",
 })
+
+require("nvim-surround").setup()
+require("mason").setup()
+require("tmux").setup({copy_sync = false})
+require("zen-mode").setup()

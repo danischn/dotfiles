@@ -19,6 +19,12 @@ vim.opt.number = true -- set numbered lines
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor
+vim.g.VimuxOrientation = "h"
+vim.g.VimuxHeight = "40"
+vim.g.slime_target = "tmux"
+vim.g.slime_dont_ask_default = 1
+vim.g.slime_default_config = { socket_name = "default", target_pane = "{right-of}" }
+
 
 vim.diagnostic.config({ virtual_text = true })
 
