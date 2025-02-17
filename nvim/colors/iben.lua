@@ -18,221 +18,219 @@ local hint = "#8EBEEC"
 local info = "#88CC66"
 
 local ansi = {
-	black = "#000000",
-	blue = "#325CC0",
-	brightyellow = "#FFBC5D",
-	cyan = "#0083b2",
-	green = "#448c27",
-	magenta = "#7A3E9D",
-	red = "#AA3731",
-	white = "#F7F7F7",
-	yellow = "#CB9000",
+  black = "#000000",
+  blue = "#325CC0",
+  brightyellow = "#FFBC5D",
+  cyan = "#0083b2",
+  green = "#448c27",
+  magenta = "#7A3E9D",
+  red = "#AA3731",
+  white = "#F7F7F7",
+  yellow = "#CB9000",
 }
 
 local groups = {
-	Normal = { fg = black, bg = bg },
-	NormalFloat = { link = "Normal" },
-	Comment = { fg = comment },
-	NonText = { fg = "#696969" },
+  Normal = { fg = black, bg = bg },
+  NormalFloat = { link = "Normal" },
+  Comment = { fg = comment },
+  NonText = { fg = "#696969" },
   EndOfBuffer = { fg = bg },
+  Visual = { link = "Cursorline" },
 
-	Constant = { fg = black },
-	String = { fg = string },
-	Number = { link = "Constant" },
-	Boolean = { link = "Constant" },
-	Float = { link = "Constant" },
+  Constant = { fg = black },
+  String = { fg = string },
+  Number = { link = "Constant" },
+  Boolean = { link = "Constant" },
+  Float = { link = "Constant" },
 
-	Identifier = { fg = black },
-	Function = { fg = def },
+  Identifier = { fg = black },
+  Function = { fg = def },
 
-	Statement = { fg = black, bold = true },
-	Conditional = { link = "Statement" },
-	Repeat = { link = "Statement" },
-	Label = { link = "Statement" },
-	Operator = { fg = black },
-	Keyword = { link = "Statement" },
-	Exception = { link = "Statement" },
+  Statement = { fg = black, bold = true },
+  Conditional = { link = "Statement" },
+  Repeat = { link = "Statement" },
+  Label = { link = "Statement" },
+  Operator = { fg = black },
+  Keyword = { link = "Statement" },
+  Exception = { link = "Statement" },
 
-	Question = { fg = black },
-	PreProc = { link = "Question" },
-	Include = { link = "Question" },
-	Define = { link = "Question" },
-	Macro = { link = "Question" },
-	PreCondit = { link = "Question" },
+  Question = { fg = black },
+  PreProc = { link = "Question" },
+  Include = { link = "Question" },
+  Define = { link = "Question" },
+  Macro = { link = "Question" },
+  PreCondit = { link = "Question" },
 
-	Type = { fg = black },
-	StorageClass = { link = "Type" },
-	Structure = { link = "Type" },
-	Typedef = { link = "Type" },
+  Type = { fg = black },
+  StorageClass = { link = "Type" },
+  Structure = { link = "Type" },
+  Typedef = { link = "Type" },
 
-	Special = { fg = black },
-	SpecialKey = { link = "Special" },
-	SpecialChar = { link = "Special" },
-	Tag = { fg = black, underline = true },
-	Delimiter = { link = "Special" },
-	SpecialComment = { link = "Special" },
-	Debug = { link = "Special" },
+  Special = { fg = black },
+  SpecialKey = { link = "Special" },
+  SpecialChar = { link = "Special" },
+  Tag = { fg = black, underline = true },
+  Delimiter = { link = "Special" },
+  SpecialComment = { link = "Special" },
+  Debug = { link = "Special" },
 
-	Underlined = { underline = true },
+  Underlined = { underline = true },
 
-	Directory = { link = "SpecialKey" },
+  Directory = { link = "SpecialKey" },
 
-	Title = { fg = constant },
+  Title = { fg = constant },
 
-	IncSearch = { fg = black, bg = active },
-	Search = { link = "IncSearch" },
-	CurSearch = { link = "IncSearch" },
+  IncSearch = { fg = black, bg = active },
+  Search = { link = "IncSearch" },
+  CurSearch = { link = "IncSearch" },
 
-	LineNr = { fg = "#7d7c7c" },
-	CursorLineNr = { link = "Normal" },
+  LineNr = { fg = "#7d7c7c" },
+  CursorLineNr = { link = "Normal" },
 
-	StatusLine = { fg ="#555555", bg = "#E6E4DF" },
-	StatusLineNC = { fg = "#555555", bg = bg },
-	StatusLineCWD = { fg = "#555555", bg = "#E6E4DF", bold = true },
+  StatusLine = { fg = "#555555", bg = "#E6E4DF" },
+  StatusLineNC = { fg = "#555555", bg = bg },
+  StatusLineCWD = { fg = "#555555", bg = "#E6E4DF", bold = true },
 
-	TabLine = { link = "Normal" },
-	TabLineSel = { reverse = true },
+  TabLine = { link = "Normal" },
+  TabLineSel = { reverse = true },
 
-	WinSeparator = { fg = black },
+  WinSeparator = { fg = black },
 
-	SignColumn = { link = "LineNr" },
-	FoldColumn = { link = "SignColumn" },
+  SignColumn = { link = "LineNr" },
+  FoldColumn = { link = "SignColumn" },
 
-	Conceal = { fg = "#b0b0b0" },
-	SpellBad = { undercurl = 1, sp = ansi.red },
-	SpellCap = { undercurl = 1, sp = ansi.blue },
-	SpellLocal = { undercurl = 1, sp = ansi.cyan },
-	SpellRare = { undercurl = 1, sp = ansi.magenta },
+  Conceal = { fg = "#b0b0b0" },
+  SpellBad = { undercurl = 1, sp = ansi.red },
+  SpellCap = { undercurl = 1, sp = ansi.blue },
+  SpellLocal = { undercurl = 1, sp = ansi.cyan },
+  SpellRare = { undercurl = 1, sp = ansi.magenta },
 
-	Pmenu = { fg = black },
-	PmenuSel = { link = "CursorLine" },
+  Pmenu = { fg = black, bg = "#F0EEE9" },
+  PmenuSel = { fg = black, bg = "#DAD8D3" },
 
-	Visual = { link = "CursorLine" },
-	Folded = {},
+  TermCursor = { link = "Cursor" },
+  CursorLine = { bg = "#E6E4DF" },
+  CursorColumn = { link = "CursorLine" },
 
-	TermCursor = { link = "Cursor" },
-	CursorLine = { bg = "#E6E4DF" },
-	CursorColumn = { link = "CursorLine" },
+  MoreMsg = { fg = ansi.green, bold = 1 },
+  ErrorMsg = { fg = black, bg = ansi.red },
+  WarningMsg = { fg = "#e1ad4c" },
 
-	MoreMsg = { fg = ansi.green, bold = 1 },
-	ErrorMsg = { fg = black, bg = ansi.red },
-	WarningMsg = { fg = "#e1ad4c" },
+  Ignore = {},
+  Error = { link = "ErrorMsg" },
+  Todo = { bg = "#d0d058", fg = bg },
 
-	Ignore = {},
-	Error = { link = "ErrorMsg" },
-	Todo = { bg = "#d0d058", fg = bg },
+  MatchParen = { fg = ansi.red, underline = 1 },
 
-	MatchParen = { fg = ansi.red, underline = 1 },
+  -- Treesitter
+  ["@variable"] = { link = "Identifier" },
+  ["@variable.builtin"] = { link = "Identifier" },
+  ["@variable.parameter"] = { link = "Identifier" },
+  ["@variable.member"] = { link = "Identifier" },
 
-	-- Treesitter
-	["@variable"] = { link = "Identifier" },
-	["@variable.builtin"] = { link = "Identifier" },
-	["@variable.parameter"] = { link = "Identifier" },
-	["@variable.member"] = { link = "Identifier" },
+  ["@constant"] = { link = "Constant" },
+  ["@constant.builtin"] = { link = "Type" },
+  ["@constant.macro"] = { link = "Define" },
 
-	["@constant"] = { link = "Constant" },
-	["@constant.builtin"] = { link = "Type" },
-	["@constant.macro"] = { link = "Define" },
+  ["@module"] = { link = "Include" },
+  ["@module.builtin"] = { link = "Include" },
+  ["@label"] = { link = "Label" },
 
-	["@module"] = { link = "Include" },
-	["@module.builtin"] = { link = "Include" },
-	["@label"] = { link = "Label" },
+  ["@string"] = { link = "String" },
+  ["@string.documentation"] = { link = "String" },
+  ["@string.regexp"] = { link = "String" },
+  ["@string.escape"] = { link = "SpecialChar" },
+  ["@string.special"] = { link = "SpecialChar" },
+  ["@string.special.symbol"] = { link = "Identifier" },
+  ["@string.special.path"] = { link = "Underlined" },
+  ["@string.special.url"] = { link = "Underlined" },
 
-	["@string"] = { link = "String" },
-	["@string.documentation"] = { link = "String" },
-	["@string.regexp"] = { link = "String" },
-	["@string.escape"] = { link = "SpecialChar" },
-	["@string.special"] = { link = "SpecialChar" },
-	["@string.special.symbol"] = { link = "Identifier" },
-	["@string.special.path"] = { link = "Underlined" },
-	["@string.special.url"] = { link = "Underlined" },
+  ["@character"] = { link = "Character" },
+  ["@character.special"] = { link = "SpecialChar" },
 
-	["@character"] = { link = "Character" },
-	["@character.special"] = { link = "SpecialChar" },
+  ["@boolean"] = { link = "Boolean" },
+  ["@number"] = { link = "Number" },
+  ["@number.float"] = { link = "Float" },
 
-	["@boolean"] = { link = "Boolean" },
-	["@number"] = { link = "Number" },
-	["@number.float"] = { link = "Float" },
+  ["@type"] = { link = "Type" },
+  ["@type.builtin"] = { link = "Type" },
+  ["@type.qualifier"] = { link = "Type" },
+  ["@type.definition"] = { link = "Typedef" },
 
-	["@type"] = { link = "Type" },
-	["@type.builtin"] = { link = "Type" },
-	["@type.qualifier"] = { link = "Type" },
-	["@type.definition"] = { link = "Typedef" },
+  ["@attribute"] = { link = "PreProc" },
+  ["@property"] = { link = "Identifier" },
 
-	["@attribute"] = { link = "PreProc" },
-	["@property"] = { link = "Identifier" },
-
-	["@function"] = { link = "Function" },
-	["@function.builtin"] = { link = "Function" },
-	["@function.call"] = { link = "Function" },
-	["@function.macro"] = { link = "Function" },
+  ["@function"] = { link = "Function" },
+  ["@function.builtin"] = { link = "Function" },
+  ["@function.call"] = { link = "Function" },
+  ["@function.macro"] = { link = "Function" },
 
   ["@function.method"] = { link = "@function" },
-	["@function.method.call"] = { link = "@function.call" },
+  ["@function.method.call"] = { link = "@function.call" },
 
-	["@constructor"] = { link = "Identifier" },
-	["@operator"] = { link = "Operator" },
+  ["@constructor"] = { link = "Identifier" },
+  ["@operator"] = { link = "Operator" },
 
-	["@keyword"] = { link = "Keyword" },
+  ["@keyword"] = { link = "Keyword" },
 
-	["@punctutation"] = { link = "Delimiter" },
+  ["@punctutation"] = { link = "Delimiter" },
 
-	["@comment"] = { link = "Comment" },
+  ["@comment"] = { link = "Comment" },
 
-	["@comment.warning"] = { link = "WarningMsg" },
-	["@comment.error"] = { link = "Error" },
-	["@comment.todo"] = { link = "Todo" },
-	["@comment.note"] = { link = "SpecialComment" },
+  ["@comment.warning"] = { link = "WarningMsg" },
+  ["@comment.error"] = { link = "Error" },
+  ["@comment.todo"] = { link = "Todo" },
+  ["@comment.note"] = { link = "SpecialComment" },
 
-	["@markup.strong"] = { bold = true },
-	["@markup.emphasis"] = { italic = true },
-	["@markup.underline"] = { underline = true },
-	["@markup.strike"] = { strikethrough = true },
+  ["@markup.strong"] = { bold = true },
+  ["@markup.emphasis"] = { italic = true },
+  ["@markup.underline"] = { underline = true },
+  ["@markup.strike"] = { strikethrough = true },
 
-	["@markup.heading"] = { fg = black, bold = true },
+  ["@markup.heading"] = { fg = black, bold = true },
 
-	["@markup.quote"] = { link = "Comment" },
-	["@markup.math"] = { link = "Special" },
-	["@markup.environment"] = { link = "Macro" },
+  ["@markup.quote"] = { link = "Comment" },
+  ["@markup.math"] = { link = "Special" },
+  ["@markup.environment"] = { link = "Macro" },
 
-	["@markup.link"] = { link = "Underlined" },
+  ["@markup.link"] = { link = "Underlined" },
 
-	["@markup.raw"] = { link = "SpecialComment" },
-	["@markup.raw.block"] = {},
+  ["@markup.raw"] = { link = "SpecialComment" },
+  ["@markup.raw.block"] = {},
 
-	["@markup.list"] = { link = "Identifier" },
-	["@markup.list.checked"] = { link = "Comment" },
-	["@markup.list.unchecked"] = { link = "Identifier" },
+  ["@markup.list"] = { link = "Identifier" },
+  ["@markup.list.checked"] = { link = "Comment" },
+  ["@markup.list.unchecked"] = { link = "Identifier" },
 
-	["@tag"] = { link = "Label" },
-	["@tag.delimiter"] = { link = "Delimiter" },
-	["@tag.attribute"] = { link = "Identifier" },
+  ["@tag"] = { link = "Label" },
+  ["@tag.delimiter"] = { link = "Delimiter" },
+  ["@tag.attribute"] = { link = "Identifier" },
 
-	["@diff.plus"] = { link = "DiffAdd" },
-	["@diff.minus"] = { link = "DiffDelete" },
-	["@diff.delta"] = { link = "DiffChange" },
+  ["@diff.plus"] = { link = "DiffAdd" },
+  ["@diff.minus"] = { link = "DiffDelete" },
+  ["@diff.delta"] = { link = "DiffChange" },
 
-	-- lsp
-	DiagnosticError = { fg = error },
-	DiagnosticWarn = { fg = warn },
-	DiagnosticHint = { fg = hint },
-	DiagnosticInfo = { fg = info },
-	DiagnosticUnnecessary = { fg = black, underline = true },
-	DiagnosticVirtualTextError = { bg = "#F8B28F", fg = "#411414" },
-	DiagnosticVirtualTextWarn = { bg = "#fff987", fg = black },
-	DiagnosticVirtualTextHint = { fg = "#0F171D", bg = "#C3D0DA" },
-	DiagnosticVirtualTextInfo = { bg = "#ADFFB7", fg = "#042F09" },
+  -- lsp
+  DiagnosticError = { fg = error },
+  DiagnosticWarn = { fg = warn },
+  DiagnosticHint = { fg = hint },
+  DiagnosticInfo = { fg = info },
+  DiagnosticUnnecessary = { fg = black, underline = true },
+  DiagnosticVirtualTextError = { bg = "#F8B28F", fg = "#411414" },
+  DiagnosticVirtualTextWarn = { bg = "#fff987", fg = black },
+  DiagnosticVirtualTextHint = { fg = "#0F171D", bg = "#C3D0DA" },
+  DiagnosticVirtualTextInfo = { bg = "#ADFFB7", fg = "#042F09" },
 
-	-- mini.files
-	MiniFilesBorder = { link = "WinSeparator" }, -- border of regular windows.
-	MiniFilesBorderModified = { link = "DiffChange" }, -- border of windows showing modified buffer.
-	MiniFilesDirectory = { link = "SpecialKey" }, -- text and icon representing directory.
-	MiniFilesFile = { link = "Identifier" }, -- text representing file.
-	MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
-	MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
-	MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
+  -- mini.files
+  MiniFilesBorder = { link = "WinSeparator" }, -- border of regular windows.
+  MiniFilesBorderModified = { link = "DiffChange" }, -- border of windows showing modified buffer.
+  MiniFilesDirectory = { link = "SpecialKey" }, -- text and icon representing directory.
+  MiniFilesFile = { link = "Identifier" }, -- text representing file.
+  MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
+  MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
+  MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
 }
 
 for name, val in pairs(groups) do
-	vim.api.nvim_set_hl(0, name, val)
+  vim.api.nvim_set_hl(0, name, val)
 end
