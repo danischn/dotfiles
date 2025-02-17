@@ -33,3 +33,5 @@ require("conform").setup({
   },
 })
 vim.keymap.set("n", "<leader>f", "<cmd>lua require('conform').format()<cr>")
+
+vim.lsp.enable("clangd")
