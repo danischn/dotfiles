@@ -2,7 +2,6 @@ return {
   { "kylechui/nvim-surround", opts = {} },
   { "williamboman/mason.nvim", opts = {} },
   { "aserowy/tmux.nvim", opts = { copy_sync = false } },
-  { "norcalli/nvim-colorizer.lua", opts = {} },
   {
     "preservim/vimux",
     config = function()
