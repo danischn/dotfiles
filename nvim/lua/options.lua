@@ -1,7 +1,6 @@
 vim.cmd.colorscheme("iben")
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 0 -- hide command bar
-vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.ignorecase = true -- ignore case in search patterns
 vim.opt.smartcase = true -- overrides ignorecase if search pattern contains upper case characters
 vim.opt.hlsearch = true -- highlights searchs
