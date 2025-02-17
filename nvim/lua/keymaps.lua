@@ -18,13 +18,9 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("n", "<leader>1", function()
-	vim.o.cmdheight = 1 - vim.o.cmdheight
+  vim.o.cmdheight = 1 - vim.o.cmdheight
 end, { desc = "Change cmdheight" })
 
-vim.keymap.set("n", "<leader>.", function()
-	vim.uv.chdir(vim.fn.expand("~/dotfiles/nvim"))
-end)
-
 vim.keymap.set("n", "<leader>d", function()
-	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, noremap = true })

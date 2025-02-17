@@ -19,7 +19,7 @@ require("fzf-lua").setup({
     },
     cwd_prompt = false,
     actions = { ["ctrl-g"] = false },
-    fd_opts = [[--color=always --type f --hidden --follow]],
+    fd_opts = [[--color=always --type f --follow --exclude .git]],
     previewer = false,
   },
 })
