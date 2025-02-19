@@ -63,7 +63,7 @@ local groups = {
   Macro = { link = "Question" },
   PreCondit = { link = "Question" },
 
-  Type = { fg = purple },
+  Type = { fg = type },
   StorageClass = { link = "Type" },
   Structure = { link = "Type" },
   Typedef = { link = "Type" },
