@@ -12,6 +12,8 @@ require("paq")({
   "folke/zen-mode.nvim",
   "ibhagwan/fzf-lua",
   "stevearc/conform.nvim",
+  "stevearc/conform.nvim",
+  "nvim-treesitter/nvim-treesitter",
   -- Vim plugins:
   "preservim/vimux",
   "jpalardy/vim-slime",

@@ -18,3 +18,8 @@ vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor
 vim.diagnostic.config({ virtual_text = true })
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
+vim.g.VimuxOrientation = "h"
+vim.g.VimuxHeight = "40"
