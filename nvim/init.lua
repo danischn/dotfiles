@@ -18,14 +18,13 @@ require("paq")({
   "preservim/vimux",
   "jpalardy/vim-slime",
 })
-
+ 
+-- Enabling the plugins
 require("nvim-surround").setup()
 require("mason").setup()
 require("tmux").setup({ copy_sync = false })
-
+require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
 require("zen-mode").setup({ window = { width = 100 }, plugins = { tmux = { enabled = true } } })
-vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
-
 require("conform").setup({
   formatters_by_ft = {
     python = { "black" },
@@ -34,6 +33,13 @@ require("conform").setup({
     c = { "clang-format" },
   },
 })
-vim.keymap.set("n", "<leader>f", "<cmd>lua require('conform').format()<cr>")
 
+-- Keymap and options for plugins
+vim.keymap.set("n", "<leader>f", "<cmd>lua require('conform').format()<cr>")
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
+vim.g.VimuxOrientation = "h"
+vim.g.VimuxHeight = "40"
+
+
+-- Lsp
 vim.lsp.enable("clangd")

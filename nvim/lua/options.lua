@@ -20,6 +20,3 @@ vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the lef
 vim.diagnostic.config({ virtual_text = true })
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
-
-vim.g.VimuxOrientation = "h"
-vim.g.VimuxHeight = "40"
