@@ -11,7 +11,6 @@ local constant = "#8945B0"
 local string = "#448C27"
 local comment = "#999791"
 local active = "#FFBC5D"
-local type = "#7A3ED9"
 
 local error = "#D13E23"
 local warn = "#F4B371"
@@ -63,7 +62,7 @@ local groups = {
   Macro = { link = "Question" },
   PreCondit = { link = "Question" },
 
-  Type = { fg = type },
+  Type = { fg = black },
   StorageClass = { link = "Type" },
   Structure = { link = "Type" },
   Typedef = { link = "Type" },
