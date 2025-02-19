@@ -18,7 +18,7 @@ require("paq")({
   "preservim/vimux",
   "jpalardy/vim-slime",
 })
- 
+
 -- Enabling the plugins
 require("nvim-surround").setup()
 require("mason").setup()
@@ -31,6 +31,7 @@ require("conform").setup({
     lua = { "stylua" },
     markdown = { "prettier" },
     c = { "clang-format" },
+    java = { "google-java-format" },
   },
 })
 
@@ -39,7 +40,6 @@ vim.keymap.set("n", "<leader>f", "<cmd>lua require('conform').format()<cr>")
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
 vim.g.VimuxOrientation = "h"
 vim.g.VimuxHeight = "40"
-
 
 -- Lsp
 vim.lsp.enable("clangd")
