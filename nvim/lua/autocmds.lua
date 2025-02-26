@@ -34,3 +34,9 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
     vim.wo.cursorline = false
   end,
 })
+
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
+  callback = function()
+    vim.cmd("w")
+  end,
+})
