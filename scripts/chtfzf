@@ -6,7 +6,7 @@ fi
 
 utils=$(cat ~/.cache/chtshlist)
 
-selected=$(echo "$utils" | fzf-tmux -p40%)
+selected=$(echo "$utils" | fzf-tmux --border-label "TLDR-PAGES" -p40%)
 
 if [ -z "$selected" ]; then  
   exit 0
