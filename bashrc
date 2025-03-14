@@ -45,7 +45,7 @@ eval "$(fzf --bash)"
 # ------------------ functions ------------------
 
 function ff(){
-  fd_options=(--follow --color=always)
+  fd_options=(--follow --color=always --no-ignore-vcs)
   exclude_dirs=(
     Library
     Music
@@ -54,11 +54,10 @@ function ff(){
     Desktop
     Applications
     Pictures
-    automatic_backups
   )
 
   for dir in "${exclude_dirs[@]}"; do
-    fd_options+=(--exclude "$dir")
+    fd_options+=( --exclude "$dir")
   done
 
   selected=$(fd "${fd_options[@]}" | fzf-tmux -p50%,30% --ansi)

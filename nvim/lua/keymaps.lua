@@ -24,3 +24,7 @@ end, { desc = "Change cmdheight" })
 vim.keymap.set("n", "<leader>d", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, noremap = true })
+
+vim.keymap.set("n", "<leader>p", function()
+  vim.diagnostic.open_float({ border = "single" })
+end, { remap = true })

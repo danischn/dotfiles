@@ -16,26 +16,35 @@ function CurrentMode()
 end
 
 function Cwd()
-  return vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
+  local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~") .. "/"
+  local parts = vim.split(cwd, "/")
+
+  if #parts > 4 then
+    return table.concat({ "...", parts[#parts - 2], parts[#parts - 1], "" }, "/")
+  end
+  return cwd
 end
 
 function Gitbranch()
   local branch = vim.fn.systemlist("git branch --show-current 2> /dev/null")[1]
-  return branch and "|  " .. branch or ""
+  return branch or ""
 end
 
 -- Active statusline (full details)
 local active_statusline = table.concat({
-  " %{%v:lua.CurrentMode()%} ",
-  "| %#StatusLineCWD#%{%v:lua.Cwd()%}%*%f ",
-  "%{%v:lua.Gitbranch()%} ",
-  "%= ",
-  "[%l:%c] ",
+  " %{%v:lua.CurrentMode()%}",              -- Mode 
+  " | ",                                    -- Separator
+  -- "%= ",                                    -- Right align
+  -- "%#StatusLineCWD#%{%v:lua.Cwd()%}%*",     -- StatusLineCWD
+  "%f",                                     -- File
+  " | ",                                    -- Separator
+  " %{%v:lua.Gitbranch()%} ",              -- Branch
+  "%= ",                                    -- Right align
+  "[%l:%c] ",                               -- Linenr and column
 })
 
 -- Inactive statusline (simplified)
 local inactive_statusline = "%=%#Statement#%f%*%="
-
 vim.opt.statusline = inactive_statusline
 vim.wo.statusline = active_statusline
 

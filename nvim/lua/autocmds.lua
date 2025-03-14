@@ -23,6 +23,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     if client:supports_method("textDocument/diagnostic") then
+--       vim.keymap.set("n", "gp", function()
+--         vim.diagnostic.open_float()
+--       end)
+--     end
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    if vim.api.nvim_buf_get_option(buf, "modified") and not vim.api.nvim_buf_get_option(buf, "readonly") then
+      vim.cmd("w")
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   callback = function()
     vim.wo.cursorline = true
@@ -32,11 +52,5 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
   callback = function()
     vim.wo.cursorline = false
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
-  callback = function()
-    vim.cmd("w")
   end,
 })
