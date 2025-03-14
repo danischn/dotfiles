@@ -2,25 +2,68 @@ require("options")
 require("keymaps")
 require("autocmds")
 require("statusline")
+require("fzf")
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+require("paq")({
+  "savq/paq-nvim", -- Let Paq manage itself
+  "kylechui/nvim-surround",
+  "williamboman/mason.nvim",
+  "aserowy/tmux.nvim",
+  "folke/zen-mode.nvim",
+  "ibhagwan/fzf-lua",
+  "stevearc/conform.nvim",
+  "nvim-treesitter/nvim-treesitter",
+  "echasnovski/mini.files",
+  -- Vim plugins:
+  "preservim/vimux",
+  "jpalardy/vim-slime",
+>>>>>>> paq
+})
 
-require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-  },
-  change_detection = {
-    enabled = false,
+------------- Enabling the plugins -------------
+
+require("nvim-surround").setup()
+require("mason").setup()
+require("tmux").setup({ copy_sync = false })
+require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
+require("zen-mode").setup({ window = { width = 100 }, plugins = { tmux = { enabled = true } } })
+
+require("conform").setup({
+  formatters_by_ft = {
+    python = { "black" },
+    lua = { "stylua" },
+    markdown = { "prettier" },
+    c = { "clang-format" },
+    java = { "google-java-format" },
   },
 })
+
+require("mini.files").setup({
+  mappings = {
+    synchronize = "<CR>",
+    go_in_plus = "l",
+  },
+  windows = {
+    max_numer = 3,
+    width_focus = 20,
+    width_nofocus = 15,
+  },
+})
+
+------------- Keymaps for small plugins -------------
+
+vim.keymap.set("n", "<leader>f", "<cmd>lua require('conform').format()<cr>")
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
+vim.keymap.set("n", "<leader>e", function()
+  if not MiniFiles.close() then
+    MiniFiles.open()
+  end
+end)
+
+------------- Options for vim plugins -------------
+
+vim.g.VimuxOrientation = "h"
+vim.g.VimuxHeight = "40"
+
+-- Lsp
+vim.lsp.enable("clangd")

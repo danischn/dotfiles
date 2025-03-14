@@ -25,6 +25,7 @@ local ansi = {
   green = "#448c27",
   magenta = "#7A3E9D",
   red = "#AA3731",
+
   white = "#F7F7F7",
   yellow = "#CB9000",
 }
