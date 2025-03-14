@@ -17,7 +17,6 @@ require("paq")({
   -- Vim plugins:
   "preservim/vimux",
   "jpalardy/vim-slime",
->>>>>>> paq
 })
 
 ------------- Enabling the plugins -------------
