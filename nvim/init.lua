@@ -66,5 +66,5 @@ end)
 vim.g.VimuxOrientation = "h"
 vim.g.VimuxHeight = "40"
 
--- Lsp
-vim.lsp.enable("clangd")
+-- Enable Lsp-servers
+vim.lsp.enable({ "clangd", "luals" })
