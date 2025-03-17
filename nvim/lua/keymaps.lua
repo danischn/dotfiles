@@ -26,5 +26,9 @@ vim.keymap.set("n", "<leader>d", function()
 end, { silent = true, noremap = true })
 
 vim.keymap.set("n", "<leader>p", function()
-  vim.diagnostic.open_float({ border = "single" })
-end, { remap = true })
+  vim.diagnostic.jump({ count = 1, float = true })
+end)
+
+vim.keymap.set("n", "grr", function()
+  require("fzf-lua").lsp_finder()
+end)

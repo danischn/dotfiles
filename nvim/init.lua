@@ -17,6 +17,8 @@ require("paq")({
   -- Vim plugins:
   "preservim/vimux",
   "jpalardy/vim-slime",
+  "ludovicchabant/vim-gutentags",
+  "tpope/vim-fugitive",
 })
 
 ------------- Enabling the plugins -------------
