@@ -37,7 +37,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
   callback = function()
     local buf = vim.api.nvim_get_current_buf()
-    if vim.api.nvim_buf_get_option(buf, "modified") and not vim.api.nvim_buf_get_option(buf, "readonly") then
+    local modified = vim.api.nvim_get_option_value("modified", { buf = buf })
+    local readonly = vim.api.nvim_get_option_value("readonly", { buf = buf })
+    if modified and not readonly then
       vim.cmd("w")
     end
   end,
@@ -52,5 +54,12 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
   callback = function()
     vim.wo.cursorline = false
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "help", "fugitive" },
+  callback = function()
+    vim.cmd("wincmd L")
   end,
 })
