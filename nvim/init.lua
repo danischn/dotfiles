@@ -1,8 +1,8 @@
 require("options")
 require("keymaps")
 require("autocmds")
-require("statusline")
 require("fzf")
+require("lsp")
 
 require("paq")({
   "savq/paq-nvim", -- Let Paq manage itself
@@ -24,19 +24,28 @@ require("paq")({
 ------------- Enabling the plugins -------------
 
 require("nvim-surround").setup()
+require("debugprint").setup()
 require("mason").setup()
 require("tmux").setup({ copy_sync = false })
 require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
-require("zen-mode").setup({ window = { width = 100 }, plugins = { tmux = { enabled = true } } })
+require("zen-mode").setup({
+  window = {
+    width = 100 },
+    plugins = {
+      tmux = {
+        enabled = true
+      }
+    },
+})
 
 require("conform").setup({
   formatters_by_ft = {
     python = { "black" },
-    lua = { "stylua" },
     markdown = { "prettier" },
     c = { "clang-format" },
     java = { "google-java-format" },
   },
+  format_on_save = {}
 })
 
 require("mini.files").setup({
@@ -53,18 +62,10 @@ require("mini.files").setup({
 
 ------------- Keymaps for small plugins -------------
 
-vim.keymap.set("n", "<leader>f", "<cmd>lua require('conform').format()<cr>")
 vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
-vim.keymap.set("n", "<leader>e", function()
-  if not MiniFiles.close() then
-    MiniFiles.open()
-  end
-end)
+vim.keymap.set("n", "<leader>e", function() MiniFiles.open(nil, false) end)
 
 ------------- Options for vim plugins -------------
 
 vim.g.VimuxOrientation = "h"
 vim.g.VimuxHeight = "40"
-
--- Enable Lsp-servers
-vim.lsp.enable({ "clangd", "luals" })

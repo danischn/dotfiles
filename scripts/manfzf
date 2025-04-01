@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
-selected=$(man -k . | grep -v "([0-9]p)" | sed 's/ - .*//' | sort | fzf-tmux --border-label "MANPAGES" -p40%)
-name=$(echo "$selected" | sed -n 's/^\(.*\) ([0-9]\+).*/\1/p')
-section=$(echo "$selected" | sed -n 's/.*(\([0-9]\+\)).*/\1/p')
+selected=$(man -k . | sed 's/ - .*//' | sort | fzf-tmux --border-label "MANPAGES" -p40%)
+name=$(echo "$selected" | sed -n 's/^\([^ ]*\).*$/\1/p')
+section=$(echo "$selected" | sed -n 's/.*(\([^)]*\)).*/\1/p')
+
+echo "$section"
+echo "$name"
 
 man "$section" "$name"

@@ -17,6 +17,23 @@ vim.opt.number = true -- set numbered lines
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor
+vim.opt.updatetime = 200 -- Write swapfile more often to disk, also user for cursorhold
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
+vim.opt.laststatus = 3
 vim.g.c_syntax_for_h = true
+
+function Diagnostic_mark()
+  return vim.diagnostic.is_enabled() and "%#String#%*" or "%#StatusLineText#%*"
+end
+
+
+vim.opt.statusline = table.concat({
+  " %{toupper(mode())}",
+  " | ",
+  "%f",
+  "%{FugitiveHead() !=# '' ? ' |  '.FugitiveHead() : ''} ",
+  "%{%v:lua.Diagnostic_mark()%}",  -- Call function that returns highlighted string
+  "%= ",
+  "[%l:%c] ",
+})

@@ -17,8 +17,6 @@ require("fzf-lua").setup({
       height = 0.3,
       width = 0.5,
     },
-    cwd_prompt = false,
-    actions = { ["ctrl-g"] = false },
     fd_opts = [[--color=always --type f --follow --exclude .git]],
     previewer = false,
   },

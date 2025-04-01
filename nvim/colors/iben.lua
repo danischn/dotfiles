@@ -12,6 +12,8 @@ local string = "#448C27"
 local comment = "#999791"
 local active = "#FFBC5D"
 
+
+local statuslinetext = "#555555"
 local error = "#D13E23"
 local warn = "#F4B371"
 local hint = "#8EBEEC"
@@ -88,9 +90,10 @@ local groups = {
   LineNr = { fg = "#7d7c7c" },
   CursorLineNr = { link = "Normal" },
 
-  StatusLine = { fg = "#555555", bg = "#E6E4DF" },
-  StatusLineNC = { fg = "#555555", bg = bg },
-  StatusLineCWD = { fg = "#555555", bg = "#E6E4DF", bold = true },
+  StatusLine = { fg = statuslinetext, bg = "#E6E4DF" },
+  StatusLineNC = { fg = statuslinetext, bg = bg },
+  StatusLineCWD = { fg = statuslinetext, bg = "#E6E4DF", bold = true },
+  StatusLineText = { fg = statuslinetext},
 
   TabLine = { link = "Normal" },
   TabLineSel = { reverse = true },
@@ -176,7 +179,7 @@ local groups = {
 
   ["@punctutation"] = { link = "Delimiter" },
 
-  ["@comment"] = { link = "Comment" },
+  ["@comment"] = { link = "Comment", italic = true },
 
   ["@comment.warning"] = { link = "WarningMsg" },
   ["@comment.error"] = { link = "Error" },
