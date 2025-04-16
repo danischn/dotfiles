@@ -1,8 +1,9 @@
 require("options")
 require("keymaps")
 require("autocmds")
-require("fzf")
 require("lsp")
+require("fzf")
+require("mini-files")
 
 require("paq")({
   "savq/paq-nvim", -- Let Paq manage itself
@@ -14,29 +15,27 @@ require("paq")({
   "stevearc/conform.nvim",
   "nvim-treesitter/nvim-treesitter",
   "echasnovski/mini.files",
+  "otavioschwanck/arrow.nvim",
   -- Vim plugins:
   "preservim/vimux",
   "jpalardy/vim-slime",
-  "ludovicchabant/vim-gutentags",
   "tpope/vim-fugitive",
 })
 
 ------------- Enabling the plugins -------------
 
 require("nvim-surround").setup()
-require("debugprint").setup()
 require("mason").setup()
 require("tmux").setup({ copy_sync = false })
 require("nvim-treesitter.configs").setup({ highlight = { enable = true } })
+
 require("zen-mode").setup({
-  window = {
-    width = 100 },
-    plugins = {
-      tmux = {
-        enabled = true
-      }
-    },
-})
+  window = { width = 100 },
+    plugins = { tmux = { enabled = true } },
+  }
+)
+vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
+
 
 require("conform").setup({
   formatters_by_ft = {
@@ -48,22 +47,23 @@ require("conform").setup({
   format_on_save = {}
 })
 
-require("mini.files").setup({
+require("arrow").setup({
+  leader_key = "m",
+  hide_handbook = true,
   mappings = {
-    synchronize = "<CR>",
-    go_in_plus = "l",
+    edit = "e",
+    delete_mode = "r",
+    clear_all_items = "C",
+    toggle = "m", -- used as save if separate_save_and_remove is true
+    open_vertical = "v",
+    open_horizontal = "-",
+    quit = "q",
+    remove = "x", -- only used if separate_save_and_remove is true
+    next_item = "]",
+    prev_item = "[",
   },
-  windows = {
-    max_numer = 3,
-    width_focus = 20,
-    width_nofocus = 15,
-  },
+  index_keys = "asdfg",
 })
-
-------------- Keymaps for small plugins -------------
-
-vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>")
-vim.keymap.set("n", "<leader>e", function() MiniFiles.open(nil, false) end)
 
 ------------- Options for vim plugins -------------
 

@@ -12,8 +12,9 @@ local string = "#448C27"
 local comment = "#999791"
 local active = "#FFBC5D"
 
-
 local statuslinetext = "#555555"
+local statuslinebg = bg
+
 local error = "#D13E23"
 local warn = "#F4B371"
 local hint = "#8EBEEC"
@@ -90,15 +91,18 @@ local groups = {
   LineNr = { fg = "#7d7c7c" },
   CursorLineNr = { link = "Normal" },
 
-  StatusLine = { fg = statuslinetext, bg = "#E6E4DF" },
+  StatusLine = { fg = statuslinetext, bg = statuslinebg },
   StatusLineNC = { fg = statuslinetext, bg = bg },
-  StatusLineCWD = { fg = statuslinetext, bg = "#E6E4DF", bold = true },
-  StatusLineText = { fg = statuslinetext},
+  StatusLineCWD = { fg = statuslinetext, bg = statuslinebg , bold = true },
+  StatusLineMode = { fg = statuslinebg, bg = statuslinetext },
 
   TabLine = { link = "Normal" },
   TabLineSel = { reverse = true },
 
   WinSeparator = { fg = black },
+  WinBar = { fg = statuslinetext, bg = bg, bold = true },
+  WinBarNC = {link = "WinBar" },
+
 
   SignColumn = { link = "LineNr" },
   FoldColumn = { link = "SignColumn" },
@@ -233,6 +237,12 @@ local groups = {
   MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
   MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
   MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
+
+  -- arrow
+  ArrowFileIndex = { fg = error },
+  ArrowCurrentFile = { fg = black, bold = true },
+  ArrowAction = { fg = string },
+  ArrowDeleteMode = {fg = error },
 }
 
 for name, val in pairs(groups) do

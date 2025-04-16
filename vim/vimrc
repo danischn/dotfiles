@@ -26,8 +26,7 @@ set ttimeoutlen=100
 "--------------- Keymaps --------------
 set noesckeys 
 set backspace=indent,eol,start
-let mapleader=" "
-inoremap jk <ESC>
+let mapleap jk <ES>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap <silent> <esc> :nohlsearch<cr>

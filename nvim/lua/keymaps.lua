@@ -11,6 +11,8 @@ vim.keymap.set("v", "<leader>c", "gc", { remap = true })
 
 vim.keymap.set("n", "<leader>x", "<cmd>source %<cr>")
 
+vim.keymap.set("n", "gf", "<cmd>vs <cfile><cr>")
+
 vim.keymap.set("i", "jk", "<ESC>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")

@@ -15,7 +15,7 @@
 - [] Hide . and .. from ls and l command
 - [] Setup alt-tab for sway
 - [] Check out wilder plugin nvim
-- [] Make function bold in scheme, change treesitter colorscheme basically
+- [] Make function bold in scheme, change treesitter color scheme basically
 - [] Make script for searching through pdfs
 - [] Hide git shit and pycache shit from fzf in nvim
 - [] Smartcase search in zathura
@@ -23,12 +23,12 @@
 - [] Show fullscreen in waybar
 - [] Fix ftplugin setup in nvim
 - [] Make it possible to ssh into this pc
-- [] Make notification before battery is empty(batsignal doesnt work?)
+- [] Make notification before battery is empty(batsignal doesn't work?)
 - [] Fix application list tofi
 - [] Fix tofi prompt
 - [] add rules for apps you want to open in toggle mode
 - [] Pomodoro timer using dunst?
-- [] Change keybinds for moving workspace to different workspace (wasd?)
+- [] Change key binds for moving workspace to different workspace (was?) h
 - [] Check out a dotfiles manager like chezmoi
 - [] Visual debugger for linux. (GDB FRONTEND)
 - [] Focus app after opening it (sway?)
@@ -40,8 +40,7 @@
 - [] Do LSP init more manual in nvim
 - [] Easy way to rename pdf
 - [] Sort pdfs by recently opened in tofi
-- [] Tofi dont wrap when at bottom
-- [] Dont add failed commands to history
+- [] Tofi don't wrap when at bottom
+- [] Don't add failed commands to history
 - [] Focus recently opened window, for example when opening pdf.
 - [] Truncate working directory
-- [] Dont complete the same word i have written
