@@ -4,7 +4,4 @@ selected=$(man -k . | sed 's/ - .*//' | sort | fzf-tmux --border-label "MANPAGES
 name=$(echo "$selected" | sed -n 's/^\([^ ]*\).*$/\1/p')
 section=$(echo "$selected" | sed -n 's/.*(\([^)]*\)).*/\1/p')
 
-echo "$section"
-echo "$name"
-
 man "$section" "$name"

@@ -3,22 +3,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function() vim.hl.on_yank({ timeout = 50 }) end,
 })
 
--- Disable semantic highlighting
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-      vim.api.nvim_set_hl(0, group, {})
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.pdf",
-  callback = function()
-    vim.ui.open(vim.fn.expand("%"))
-  end
-})
-
 -- vim.api.nvim_create_autocmd({ "WinLeave", "FocusLost" }, {
 --   callback = function()
 --     local buf = vim.api.nvim_get_current_buf()

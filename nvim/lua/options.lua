@@ -14,16 +14,17 @@ vim.opt.termguicolors = true -- must be enabled
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.tabstop = 2;
 vim.opt.shiftwidth = 2;
+vim.opt.updatetime = 300;
 vim.opt.signcolumn = "yes:1"
 vim.opt.number = true -- set numbered lines
 vim.opt.wrap = false -- display lines as one long line
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor
 vim.opt.laststatus = 3
-vim.g.c_syntax_for_h = true
 vim.opt.listchars = { tab = '>>', trail = '•', extends = "»", precedes = "«", nbsp= "+" }
-vim.opt.formatoptions:remove({"r"})
-vim.opt.formatoptions:remove({"o"})
+vim.g.man_hardwrap = 1;
+vim.g.c_syntax_for_h = true
+
 
 
 vim.opt.winbar = table.concat({

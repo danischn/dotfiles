@@ -37,10 +37,12 @@
 - [] Open recently closed pdf
 - [] Make waybar show that battery is charging
 - [] Make something to blackout a display toggle it off basically
-- [] Do LSP init more manual in nvim
+- [x] Do LSP init more manual in nvim
 - [] Easy way to rename pdf
 - [] Sort pdfs by recently opened in tofi
 - [] Tofi don't wrap when at bottom
 - [] Don't add failed commands to history
 - [] Focus recently opened window, for example when opening pdf.
 - [] Truncate working directory
+- [] Add highlight to current line
+- [] Fix debug properly in nvim (dont give up)
