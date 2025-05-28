@@ -18,19 +18,24 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab  
 
-" 
 set ttimeout
 set ttimeoutlen=100
- 
+
+set autoread
 
 "--------------- Keymaps --------------
 set noesckeys 
 set backspace=indent,eol,start
-let mapleap jk <ES>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
-nnoremap <silent> <esc> :nohlsearch<cr>
+nnoremap <esc> :nohlsearch<cr>
 nnoremap <leader>e :Lexplore<cr>
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-k> <c-w>k
+nnoremap <c-j> <c-w>j
+
 vnoremap < <gv
 vnoremap > >gv
 
@@ -38,5 +43,4 @@ vnoremap > >gv
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
-
 autocmd VimEnter * normal! :startinsert :stopinsert

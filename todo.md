@@ -46,3 +46,4 @@
 - [] Truncate working directory
 - [] Add highlight to current line
 - [] Fix debug properly in nvim (dont give up)
+- [] Open new window in tmux in the directory you opened it from

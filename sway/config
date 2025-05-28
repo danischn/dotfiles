@@ -34,6 +34,7 @@ default_border pixel 0
 # Application opener
 set $drun tofi-drun | xargs swaymsg exec --
 bindsym $mod+Space exec $drun
+bindsym $mod+Return exec $term
 
 # Clipboard manager
 exec wl-paste --watch cliphist store

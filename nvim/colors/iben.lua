@@ -70,7 +70,7 @@ local groups = {
   Structure = { link = "Type" },
   Typedef = { link = "Type" },
 
-  Special = { fg = black },
+  Special = { fg = black},
   SpecialKey = { link = "Special" },
   SpecialChar = { link = "Special" },
   Tag = { fg = black, underline = true },
@@ -95,6 +95,8 @@ local groups = {
   StatusLineNC = { fg = statuslinetext, bg = bg },
   StatusLineCWD = { fg = statuslinetext, bg = statuslinebg , bold = true },
   StatusLineMode = { fg = statuslinebg, bg = statuslinetext },
+	DiagnosticEnabled = {fg = ansi.green, bg = statuslinebg },
+	DiagnosticDisabled = {fg = statuslinetext, bg = statuslinebg},
 
   TabLine = { link = "Normal" },
   TabLineSel = { reverse = true },
@@ -120,7 +122,7 @@ local groups = {
   CursorLine = { bg = "#E6E4DF" },
   CursorColumn = { link = "CursorLine" },
 
-  MoreMsg = { fg = ansi.green, bold = 1 },
+  MoreMsg = { fg = ansi.green, bold = true },
   ErrorMsg = { fg = black, bg = ansi.red },
   WarningMsg = { fg = "#e1ad4c" },
 
@@ -128,7 +130,11 @@ local groups = {
   Error = { link = "ErrorMsg" },
   Todo = { bg = "#d0d058", fg = bg },
 
-  MatchParen = { fg = ansi.red, underline = 1 },
+  MatchParen = { fg = ansi.red, underline = true },
+	FocusBg = {bg = "#E8D6C9"},
+
+	QuickFixLine = {bg = "#E6E4DF"},
+	qfFileName = {fg = string},
 
   -- Treesitter
   ["@variable"] = { link = "Identifier" },
