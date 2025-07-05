@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
 selected=$(man -k . | sed 's/ - .*//' | sort | fzf-tmux --border-label "MANPAGES" -p40%)
+
+if [ -z "$selected" ]; then
+    exit 0
+fi
+
 name=$(echo "$selected" | sed -n 's/^\([^ ]*\).*$/\1/p')
 section=$(echo "$selected" | sed -n 's/.*(\([^)]*\)).*/\1/p')
+
 
 man "$section" "$name"

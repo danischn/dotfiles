@@ -119,6 +119,8 @@ EXEC 31 # Unix
 .pl 32
 .pm 32
 .py 32
+.service 32
+.rules 32
 .scm 32
 .lua 32
 .go 32

@@ -1,4 +1,4 @@
-## Variables
+# Variables
 set $mod Mod4
 set $left h
 set $down j
@@ -7,13 +7,12 @@ set $right l
 set $term alacritty
 
 input * {
-	xkb_layout us,no
-	xkb_options grp:lswitch
-  repeat_delay 150
-  repeat_rate 40
-  accel_profile flat
-  pointer_accel 0.8
-  natural_scroll enabled
+        xkb_layout us
+        repeat_delay 150
+        repeat_rate 40
+        accel_profile flat
+        pointer_accel 0.8
+        natural_scroll enabled
 }
 
 # Hide cursor after 4 seconds of no input
@@ -31,10 +30,12 @@ default_border pixel 0
 
 # ----------------------------- Pickers ------------------------------
 
+set $menu tofi-run | xargs swaymsg exec --
+bindsym $mod+Return exec $menu
+
 # Application opener
 set $drun tofi-drun | xargs swaymsg exec --
 bindsym $mod+Space exec $drun
-bindsym $mod+Return exec $term
 
 # Clipboard manager
 exec wl-paste --watch cliphist store
@@ -63,26 +64,28 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
-set $ws1 "1:term"
-set $ws2 "2:web"
-set $ws3 "3:pdf"
-set $ws4 "4:misc"
+set $wterm    "term"
+set $wbrowser "browser"
+set $wpdf     "pdf"
+set $wmisc    "misc"
 
 # Switch to workspace
-bindsym control+1 workspace $ws1
-bindsym control+2 workspace $ws2
-bindsym control+3 workspace $ws3
-bindsym control+4 workspace $ws4
+bindsym $mod+t workspace $wterm
+bindsym $mod+b workspace $wbrowser
+bindsym $mod+r workspace $wpdf
+bindsym $mod+m workspace $wmisc
 
-assign [app_id="firefox"] workspace $ws2
-assign [app_id="org.pwmt.zathura"] workspace $ws3
+assign [app_id="firefox"] workspace $wbrowser
+assign [app_id="org.pwmt.zathura"] workspace $wpdf
+
 for_window [app_id="nwg-displays"] floating enable
+for_window [app_id="yad"] floating enable
 
 # Move focused container to workspace and focus it
-bindsym $mod+1 move container to workspace $ws1, workspace $ws1
-bindsym $mod+2 move container to workspace $ws2, workspace $ws2
-bindsym $mod+3 move container to workspace $ws3, workspace $ws3
-bindsym $mod+4 move container to workspace $ws4, workspace $ws4
+bindsym $mod+Shift+t move container to workspace $wterm, workspace $wterm
+bindsym $mod+Shift+b move container to workspace $wbrowser, workspace $wbrowser
+bindsym $mod+Shift+r move container to workspace $wpdf, workspace $wpdf
+bindsym $mod+Shift+m move container to workspace $wmisc, workspace $wmisc
 
 bindsym $mod+w move workspace to output up
 bindsym $mod+a move workspace to output left
@@ -93,7 +96,7 @@ bindsym $mod+d move workspace to output right
 bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-bindsym $mod+t floating toggle
+bindsym $mod+Tab floating toggle
 
 # Resizing containers:
 mode "resize" {
@@ -104,7 +107,7 @@ mode "resize" {
     bindsym escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+# bindsym $mod+r mode "resize"
 
 bar {
   swaybar_command waybar

@@ -1,24 +1,24 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrainsMono;
-    font-size: 14px;
+    font-family: JetBrainsMonoNerdFont;
+    font-size: 15px;
     border-bottom: none;
-    color: white;
+    color: black;
 }
 
 window#waybar {
-    background: #808080;
+    background: #FAF2EB ;
+    border-bottom: 1px solid rgba(100, 114, 125, 0.5);
 }
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
-    color: white;
 }
 
 #workspaces button.focused {
-    background: #696969  ;
+    color: black;
+    font-weight: bold;
 }
 
 #mode, #clock, #battery {

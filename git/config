@@ -7,3 +7,5 @@
 [core]
   excludesfile = ~/.config/git/ignore
   editor = nvim
+[safe]
+	directory = /home/schnei/urchin-keyboard/zmk/zephyr

@@ -98,8 +98,9 @@ local groups = {
 	DiagnosticEnabled = {fg = ansi.green, bg = statuslinebg },
 	DiagnosticDisabled = {fg = statuslinetext, bg = statuslinebg},
 
-  TabLine = { link = "Normal" },
-  TabLineSel = { reverse = true },
+  TabLine = { link = "StatusLine",},
+  TabLineSel = { fg = statuslinetext, bg = statuslinebg, bold = true},
+  TabLineFill = { link = "StatusLine"},
 
   WinSeparator = { fg = black },
   WinBar = { fg = statuslinetext, bg = bg, bold = true },
@@ -122,6 +123,7 @@ local groups = {
   CursorLine = { bg = "#E6E4DF" },
   CursorColumn = { link = "CursorLine" },
 
+  ModeMsg = {link = "Normal" },
   MoreMsg = { fg = ansi.green, bold = true },
   ErrorMsg = { fg = black, bg = ansi.red },
   WarningMsg = { fg = "#e1ad4c" },
@@ -131,7 +133,7 @@ local groups = {
   Todo = { bg = "#d0d058", fg = bg },
 
   MatchParen = { fg = ansi.red, underline = true },
-	FocusBg = {bg = "#E8D6C9"},
+	FocusBg = {bg = "#F5ECE6"},
 
 	QuickFixLine = {bg = "#E6E4DF"},
 	qfFileName = {fg = string},
@@ -237,12 +239,13 @@ local groups = {
 
   -- mini.files
   MiniFilesBorder = { link = "WinSeparator" }, -- border of regular windows.
-  MiniFilesBorderModified = { link = "DiffChange" }, -- border of windows showing modified buffer.
+  MiniFilesBorderModified = { fg = black, bold = true }, -- border of windows showing modified buffer.
   MiniFilesDirectory = { link = "SpecialKey" }, -- text and icon representing directory.
   MiniFilesFile = { link = "Identifier" }, -- text representing file.
   MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
   MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
   MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
+
 
   -- arrow
   ArrowFileIndex = { fg = error },

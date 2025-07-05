@@ -12,6 +12,9 @@ yellow = "#fffd00"
 background = "#000000"
 foreground = "#ffffff"
 
+[cursor.style]
+shape = "Beam"
+
 [colors.normal]
 black = "#000000"
 blue = "#0d73cc"
@@ -33,7 +36,7 @@ TERM = "xterm-256color"
 size = 13.5
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "JetBrainsMonoNerdFont"
 style = "regular"
 
 [window]
@@ -42,3 +45,4 @@ decorations = "None"
 [window.padding]
 x = 5
 y = 2
+

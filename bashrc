@@ -37,8 +37,7 @@ export FZF_DEFAULT_OPTS="
   --prompt='❯ '
   --pointer='▶'
   --marker='│'
-  --border=sharp
-  --tmux
+  --height=10
 "
 eval "$(fzf --bash)"
 
@@ -95,11 +94,10 @@ alias c='clear'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -ir'
-alias b='cd - >/dev/null'
+alias b='cd - > /dev/null'
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
 alias tks='tmux kill-server'
-alias ntrash='cd ~/.local/share/nvim/mini.files/trash'
 alias week='date +%V'
 alias py='python'
 # ------------------- prompt -------------------
@@ -119,6 +117,8 @@ function git_dirty(){
 RESET='\[\033[0m\]'
 PURPLE='\[\033[1;35m\]'
 BLUE='\[\033[1;34m\]'
+P_START='\033]133;A\007'
+P_END='\033]133;B\007'
 
 # Update the PS1 variable with bold formatting
-PS1="$BLUE\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ "
+PS1="$P_START$BLUE\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ $P_END"
