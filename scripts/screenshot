@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grimshot savecopy area | tesseract - - --psm 6 | wl-copy

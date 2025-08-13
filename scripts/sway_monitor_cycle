@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+unfocused_monitor=$(swaymsg -t get_outputs | jq '.[] | select(.focused == false) | .name')
+echo $unfocused_monitor
+swaymsg move workspace to output $unfocused_monitor

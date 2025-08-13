@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+# If the window doesnt exists, create it and show it in toggle mode
+# If it exists but not on screen, show it
+# If it exits on screen hide it
+# scratchpad_containers=$(swaymsg -t get_tree | jq '.nodes[].nodes[] | select(.name == "__i3_scratch")')
+# ech
+gpt=$(ps aux | grep "[/]opt/zen-browser-bin/zen-bin https://chatgpt.com/")
+
+if [ -z "$gpt" ]; then
+    zen-browser https://chatgpt.com/
+else
+    swaymsg scratchpad show
+fi

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+unfocused_monitor=$(hyprctl -j monitors | jq -r '.[] | select(.focused == false) | .name ')
+hyprctl dispatch movecurrentworkspacetomonitor $unfocused_monitor

@@ -1,0 +1,16 @@
+snippet main
+	#include <stdio.h>
+
+	int main(int argc, char **argv)
+	{
+		$0
+		return 0;
+	}
+snippet inc
+	#include "$0.h"
+snippet sinc
+	#include <$0.h>
+snippet print
+	printf("$1\n"$2);$0
+snippet fprint
+	fprintf(${1:stderr}, "$2\n"$3)$0;
