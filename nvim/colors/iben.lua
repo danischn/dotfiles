@@ -1,5 +1,3 @@
--- https://github.com/tonsky/sublime-scheme-alabaster
-
 vim.cmd("hi clear")
 vim.g.colors_name = "iben"
 vim.o.background = "light"
@@ -13,7 +11,7 @@ local comment = "#999791"
 local active = "#FFBC5D"
 
 local statuslinetext = "#555555"
-local statuslinebg = bg
+local statuslinebg = "#ECE6DC"
 
 local error = "#D13E23"
 local warn = "#F4B371"
@@ -88,6 +86,8 @@ local groups = {
   Search = { link = "IncSearch" },
   CurSearch = { link = "IncSearch" },
 
+  SchneiSearch = { fg = black, bg = active},
+
   LineNr = { fg = "#7d7c7c" },
   CursorLineNr = { link = "Normal" },
 
@@ -98,14 +98,13 @@ local groups = {
 	DiagnosticEnabled = {fg = ansi.green, bg = statuslinebg },
 	DiagnosticDisabled = {fg = statuslinetext, bg = statuslinebg},
 
-  TabLine = { link = "StatusLine",},
+  TabLine = { bg = bg },
   TabLineSel = { fg = statuslinetext, bg = statuslinebg, bold = true},
-  TabLineFill = { link = "StatusLine"},
+  TabLineFill = { bg = bg},
 
-  WinSeparator = { fg = black },
+  WinSeparator = { fg = bg },
   WinBar = { fg = statuslinetext, bg = bg, bold = true },
   WinBarNC = {link = "WinBar" },
-
 
   SignColumn = { link = "LineNr" },
   FoldColumn = { link = "SignColumn" },
@@ -133,7 +132,7 @@ local groups = {
   Todo = { bg = "#d0d058", fg = bg },
 
   MatchParen = { fg = ansi.red, underline = true },
-	FocusBg = {bg = "#F5ECE6"},
+	FocusBg = {bg = "#E6E4DF"},
 
 	QuickFixLine = {bg = "#E6E4DF"},
 	qfFileName = {fg = string},
@@ -238,20 +237,13 @@ local groups = {
   DiagnosticVirtualTextInfo = { bg = "#ADFFB7", fg = "#042F09" },
 
   -- mini.files
-  MiniFilesBorder = { link = "WinSeparator" }, -- border of regular windows.
+  MiniFilesBorder = { fg = black }, -- border of regular windows.
   MiniFilesBorderModified = { fg = black, bold = true }, -- border of windows showing modified buffer.
   MiniFilesDirectory = { link = "SpecialKey" }, -- text and icon representing directory.
   MiniFilesFile = { link = "Identifier" }, -- text representing file.
   MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
   MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
   MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
-
-
-  -- arrow
-  ArrowFileIndex = { fg = error },
-  ArrowCurrentFile = { fg = black, bold = true },
-  ArrowAction = { fg = string },
-  ArrowDeleteMode = {fg = error },
 }
 
 for name, val in pairs(groups) do

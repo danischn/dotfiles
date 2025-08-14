@@ -5,14 +5,10 @@
 vim.cmd.colorscheme("iben")
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
-vim.opt.number = true
 vim.opt.cmdheight = 0
 vim.opt.showmode = false
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 vim.opt.showtabline = 0
-
-vim.opt.winbar = "%f%m"
-
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
@@ -43,6 +39,8 @@ vim.opt.exrc = true
 vim.g.c_syntax_for_h = true
 
 vim.cmd("cabbrev cd tcd")
+vim.cmd.hi("clear Search") -- So i only highlight the window i am currently in -- So i only highlight the window i am currently in
+vim.cmd.hi("clear IncSearch") --
 
 ---------------------------------------------------------------
 --- Keymaps
@@ -63,8 +61,6 @@ vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
 
-vim.keymap.set("n", "<leader>t", ":vertical term<cr>")
-
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
@@ -79,17 +75,7 @@ vim.keymap.set("n", "<leader>'", "<cmd>FzfLua files<cr>")
 vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>")
 vim.keymap.set("n", "<leader>h", "<cmd>FzfLua help_tags<cr>")
 vim.keymap.set("n", "<leader>m", "<cmd>FzfLua manpages<cr>")
-vim.keymap.set("n", "<leader>l", "<cmd>FzfLua lines<cr>")
 vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
-
-vim.keymap.set("n", "[t", ":tabprev<CR>", { silent = true })
-vim.keymap.set("n", "]t", ":tabnext<CR>", { silent = true })
-
-vim.api.nvim_create_user_command("Tabn", function(opts)
-  vim.t.tabTitle = opts.args
-  vim.cmd.redrawstatus()
-end, { nargs = 1 })
-
 ---------------------------------------------------------------
 --- Autocmds
 ---------------------------------------------------------------
@@ -108,6 +94,20 @@ vim.api.nvim_create_autocmd('QuickFixCmdPost', {
 		local half_width = math.floor(vim.o.columns / 2)
 		vim.cmd("vertical resize " .. half_width)
 	end,
+})
+
+vim.api.nvim_create_autocmd({"BufWinEnter", "VimEnter", "WinEnter"}, {
+  callback = function()
+    if vim.bo.filetype == "minifiles" then return end
+    vim.wo.winhl = "Search:SchneiSearch,IncSearch:SchneiSearch"
+  end
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+  callback = function()
+    if vim.bo.filetype == "minifiles" then return end
+    vim.wo.winhl = ""
+  end
 })
 
 ---------------------------------------------------------------
@@ -161,25 +161,22 @@ require("nvim-treesitter.configs").setup({
 require("mason").setup()
 
 require("conform").setup({
-  formatters_by_ft = {
-    python = { "black" },
-    markdown = { "prettier" },
-    c = { "clang-format" },
-    java = { "google-java-format" },
-  },
-  format_after_save = {}
+	formatters_by_ft = {
+		python = { "black" },
+		markdown = { "prettier" },
+		c = { "clang-format" },
+		java = { "google-java-format" }, },
 })
-
 require("mini.files").setup({
-  mappings = {
-    synchronize = "<cr>",
-    go_in_plus = "l",
-  },
-  windows = {
-    max_numer = 3,
-    width_focus = 30,
-    width_nofocus = 30,
-  },
+	mappings = {
+		synchronize = "<cr>",
+		go_in_plus = "l",
+	},
+	windows = {
+		max_numer = 3,
+		width_focus = 30,
+		width_nofocus = 30,
+	},
 })
 vim.keymap.set("n", "<leader>e", function() MiniFiles.open(nil, false) end)
 vim.keymap.set("n", "<leader>.", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end)
