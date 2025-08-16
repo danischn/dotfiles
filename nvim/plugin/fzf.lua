@@ -45,9 +45,12 @@ local function new_tab()
     opts.actions = {
         ['default'] = function(selected)
             local item = vim.fn.getenv("HOME") .. "/" .. selected[1]
-            local dir = vim.fn.fnamemodify(item, ":p:~:h")
-            vim.cmd("$tabnew ".. item)
+            local dir = vim.fn.fnamemodify(item, ":p:h") .. "/"
+            vim.cmd("$tabnew " .. item)
             vim.cmd.tcd(dir)
+            if item == dir then
+              vim.cmd.enew()
+            end
         end
     }
     fzf.fzf_exec("fd --hidden  --color=always --base-directory $HOME", opts)

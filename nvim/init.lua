@@ -8,7 +8,7 @@ vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboar
 vim.opt.cmdheight = 0
 vim.opt.showmode = false
 vim.opt.laststatus = 2
-vim.opt.showtabline = 0
+vim.opt.showtabline = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
@@ -27,55 +27,61 @@ vim.opt.smartindent = true
 
 vim.opt.updatetime = 300
 vim.opt.signcolumn = "yes:1"
-vim.opt.wrap = false
+
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 vim.opt.expandtab= true
+
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showbreak = ".."
 
 vim.opt.listchars = { tab = '>>', trail = '•', extends = "»", precedes = "«", nbsp= "+"}
 
 vim.opt.winborder = 'single'
 vim.opt.exrc = true
 vim.g.c_syntax_for_h = true
+vim.g.qf_disable_statusline = 1
 
 vim.cmd("cabbrev cd tcd")
-vim.cmd.hi("clear Search") -- So i only highlight the window i am currently in -- So i only highlight the window i am currently in
-vim.cmd.hi("clear IncSearch") --
+vim.cmd.hi("clear Search")
+vim.cmd.hi("clear IncSearch")
 
 ---------------------------------------------------------------
 --- Keymaps
 ---------------------------------------------------------------
+local map = vim.keymap.set
 
 vim.g.mapleader = " "
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr>")
-vim.keymap.set("n", "J", "mzJ`z")
-vim.keymap.set("n", "<leader>c", "gcc", { remap = true })
-vim.keymap.set("v", "<leader>c", "gc", { remap = true })
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+map("n", "<esc>", "<cmd>nohlsearch<cr>")
+map("n", "J", "mzJ`z")
+map("n", "<leader>c", "gcc", { remap = true })
+map("v", "<leader>c", "gc", { remap = true })
 
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
+map("v", "<", "<gv")
+map("v", ">", ">gv")
 
-vim.keymap.set("t", "<esc>", "<C-\\><C-n>")
+map("t", "<esc>", "<C-\\><C-n>")
 
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-q>", "<C-w>q")
+map("n", "<C-h>", "<C-w>h")
+map("n", "<C-j>", "<C-w>j")
+map("n", "<C-k>", "<C-w>k")
+map("n", "<C-l>", "<C-w>l")
+map("n", "<C-q>", "<C-w>q")
 
-vim.keymap.set("n", "<leader>1", function()
+map("n", "<leader>1", function()
   vim.o.cmdheight = 1 - vim.o.cmdheight
 end, { desc = "Change cmdheight" })
 
-vim.keymap.set("n", "<leader>'", "<cmd>FzfLua files<cr>")
-vim.keymap.set("n", "<leader>/", "<cmd>FzfLua live_grep<cr>")
-vim.keymap.set("n", "<leader>h", "<cmd>FzfLua help_tags<cr>")
-vim.keymap.set("n", "<leader>m", "<cmd>FzfLua manpages<cr>")
-vim.keymap.set("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
+map("n", "<leader>'", "<cmd>FzfLua files<cr>")
+map("n", "<leader>/", "<cmd>FzfLua live_grep<cr>")
+map("n", "<leader>h", "<cmd>FzfLua help_tags<cr>")
+map("n", "<leader>m", "<cmd>FzfLua manpages<cr>")
+map("n", "<leader>b", "<cmd>FzfLua buffers<cr>")
 ---------------------------------------------------------------
 --- Autocmds
 ---------------------------------------------------------------

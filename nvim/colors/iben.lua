@@ -91,19 +91,19 @@ local groups = {
   LineNr = { fg = "#7d7c7c" },
   CursorLineNr = { link = "Normal" },
 
-  StatusLine = { fg = statuslinetext, bg = statuslinebg },
+  StatusLine = { fg = statuslinetext, bg = bg },
   StatusLineNC = { fg = statuslinetext, bg = bg },
-  StatusLineCWD = { fg = statuslinetext, bg = statuslinebg , bold = true },
+  StatusLineCWD = { fg = statuslinetext, bg = bg , bold = true },
   StatusLineMode = { fg = statuslinebg, bg = statuslinetext },
-	DiagnosticEnabled = {fg = ansi.green, bg = statuslinebg },
-	DiagnosticDisabled = {fg = statuslinetext, bg = statuslinebg},
+	DiagnosticEnabled = {fg = ansi.green, bg = bg },
+	DiagnosticDisabled = {fg = statuslinetext, bg = bg},
 
-  TabLine = { bg = bg },
-  TabLineSel = { fg = statuslinetext, bg = statuslinebg, bold = true},
+  TabLine = { fg = statuslinetext, bg = bg },
+  TabLineSel = { fg = statuslinetext, bg = bg, underline = true},
   TabLineFill = { bg = bg},
 
   WinSeparator = { fg = bg },
-  WinBar = { fg = statuslinetext, bg = bg, bold = true },
+  WinBar = { fg = statuslinetext, bg = bg, underline=true},
   WinBarNC = {link = "WinBar" },
 
   SignColumn = { link = "LineNr" },
@@ -125,14 +125,14 @@ local groups = {
   ModeMsg = {link = "Normal" },
   MoreMsg = { fg = ansi.green, bold = true },
   ErrorMsg = { fg = black, bg = ansi.red },
-  WarningMsg = { fg = "#e1ad4c" },
+  WarningMsg = { fg = black, bg = "#e1ad4c" },
 
   Ignore = {},
   Error = { link = "ErrorMsg" },
   Todo = { bg = "#d0d058", fg = bg },
 
   MatchParen = { fg = ansi.red, underline = true },
-	FocusBg = {bg = "#E6E4DF"},
+	FocusBg = {bg = statuslinebg},
 
 	QuickFixLine = {bg = "#E6E4DF"},
 	qfFileName = {fg = string},
@@ -159,7 +159,7 @@ local groups = {
   ["@string.special.symbol"] = { link = "Identifier" },
   ["@string.special.path"] = { link = "Underlined" },
   ["@string.special.url"] = { link = "Underlined" },
-
+  
   ["@character"] = { link = "Character" },
   ["@character.special"] = { link = "SpecialChar" },
 
