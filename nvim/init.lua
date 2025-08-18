@@ -34,7 +34,9 @@ vim.opt.expandtab= true
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
+vim.opt.breakindent = true
 vim.opt.showbreak = ".."
+
 
 vim.opt.listchars = { tab = '>>', trail = '•', extends = "»", precedes = "«", nbsp= "+"}
 
@@ -44,6 +46,7 @@ vim.g.c_syntax_for_h = true
 vim.g.qf_disable_statusline = 1
 
 vim.cmd("cabbrev cd tcd")
+-- This is for making the hlsearch only work for the current window
 vim.cmd.hi("clear Search")
 vim.cmd.hi("clear IncSearch")
 
@@ -129,6 +132,8 @@ vim.pack.add({
   gh .. "ibhagwan/fzf-lua",
   gh .. "stevearc/conform.nvim",
   gh .. "echasnovski/mini.files",
+  gh .. "mfussenegger/nvim-dap",
+  gh .. "dcampos/nvim-snippy",
 })
 
 ---------------------------------------------------------------
@@ -173,16 +178,19 @@ require("conform").setup({
 		c = { "clang-format" },
 		java = { "google-java-format" }, },
 })
-require("mini.files").setup({
-	mappings = {
-		synchronize = "<cr>",
-		go_in_plus = "l",
-	},
-	windows = {
-		max_numer = 3,
-		width_focus = 30,
-		width_nofocus = 30,
-	},
+
+require("snippy").setup({
+  mappings = {
+      is = {
+          ["<Tab>"] = "expand_or_advance",
+          ["<S-Tab>"] = "previous",
+      },
+  },
+  virtual_markers = {
+      enabled = true,
+      default = '_',
+      empty = '_',
+      hl_group = 'SnippyMarker',
+  }
 })
-vim.keymap.set("n", "<leader>e", function() MiniFiles.open(nil, false) end)
-vim.keymap.set("n", "<leader>.", function() MiniFiles.open(vim.api.nvim_buf_get_name(0), false) end)
+

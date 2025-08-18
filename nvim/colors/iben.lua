@@ -244,6 +244,8 @@ local groups = {
   MiniFilesNormal = { link = "Normal" }, -- basic foreground/background highlighting.
   MiniFilesTitle = { link = "Comment" }, -- title of regular windows.
   MiniFilesTitleFocused = { link = "PreProc" }, -- title of focused window.
+
+  SnippyMarker = {fg = error}
 }
 
 for name, val in pairs(groups) do

@@ -38,7 +38,7 @@ vim.api.nvim_create_autocmd('TabClosed', {
     local tab = tonumber(args.file)
     local termbuf = m.table[tab] and m.table[tab].buf
     if termbuf == nil then
-      return 
+      return
     end
     if vim.api.nvim_buf_is_valid(termbuf) then
         vim.api.nvim_buf_delete(termbuf, { force = true })
@@ -46,5 +46,4 @@ vim.api.nvim_create_autocmd('TabClosed', {
   end,
 })
 
-vim.keymap.set({"n", "t"}, "<C-space>", m.toggle_term)
-
+vim.keymap.set({"n", "t"}, "<C-g>", m.toggle_term)
