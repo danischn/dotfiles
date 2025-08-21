@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+
+selected=$(fd --hidden  --color=always --base-directory $HOME | fzf-tmux -p --ansi)
+nvim "$selected"
+

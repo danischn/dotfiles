@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+if [ -n "$1" ]; then
+    path="$1"
+else
+    read -r path
+fi
+
+tilde_path=$(echo  "$path" | sed -E "s|^$HOME|~|")
+result=$(echo "$tilde_path" | sed -E "s|.*/(([^/]*/){3}[^/]*)$|\1|")
+
+if [[ "${result:0:2}" == "~/" ]]; then
+    echo "$result"
+else
+    echo "$result" | sed -E "s|^[^/]*(/)|...\1|"
+fi 
