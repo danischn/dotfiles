@@ -57,6 +57,7 @@ function Tabline()
   local cwd = get_cwd()
   local right_pad = string.rep(" ", string.len(cwd))
   local segments = {
+     "%#TabLine#",
     cwd,
     "%=",
     get_tabs(),
@@ -67,3 +68,6 @@ function Tabline()
 end
 
 vim.opt.tabline = "%{%v:lua.Tabline()%}"
+vim.opt.laststatus = 3
+vim.opt.showtabline = 2
+vim.opt.statusline = "  "

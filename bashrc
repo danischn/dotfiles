@@ -97,7 +97,6 @@ alias rm='rm -ir'
 alias b='cd - > /dev/null'
 alias tam='tmux attach -t main'
 alias tnm='tmux new -s main'
-alias tks='tmux kill-server'
 alias week='date +%V'
 alias py='python'
 # ------------------- prompt -------------------

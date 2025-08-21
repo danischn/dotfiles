@@ -1,4 +1,4 @@
-local m = {}
+m = {}
 
 m.state = {
     focus_on = false,
@@ -57,8 +57,4 @@ function m.toggleFocus()
   end
 end
 
-function m.setup()
-	vim.keymap.set("n", "<leader>z", function() m.toggleFocus() end)
-end
-
-m.setup()
+vim.keymap.set("n", "<leader>z", function() m.toggleFocus() end)

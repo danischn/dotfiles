@@ -8,20 +8,18 @@ local function filename()
   return parent .. hl_file .. file .. "%*"
 end
 
-local function diagnostics_enabled()
-  local icon = ""
-  local hl = vim.diagnostic.is_enabled({bufnr = 0}) and "%#DiagnosticEnabled#" or "%#DiagnosticDisabled#"
-  local hl_end = "%*"
-  return hl .. icon .. hl_end
-end
-
 local function diagnostics()
-    local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-    local num_err = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-    return "E:" .. num_err .. " W:" .. num_warn
+  if not vim.diagnostic.is_enabled({bufnr = 0}) then
+    return ""
+  end
+  local num_warn = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+  local num_err = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+  return "E:" .. num_err .. " W:" .. num_warn
 end
 
 local function search_count()
+  local hl = "%#IncSearch#"
+  local hl_end = "%*"
   if vim.v.hlsearch == 0 then
     return ""
   end
@@ -31,7 +29,7 @@ local function search_count()
   end
 
   local result = vim.fn.searchcount()
-  return result.current .. "/" .. result.total
+  return string.format("%s%d/%d%s", hl, result.current, result.total, hl_end)
 end
 
 local function prog_bar()
@@ -39,11 +37,12 @@ local function prog_bar()
     filename(),
     "%m",
     " ",
-    search_count(),
     "%=",
-    diagnostics_enabled(),
+    search_count(),
     " ",
-    diagnostics()
+    diagnostics(),
+    " ",
+    "%l:%c"
   }
   return table.concat(segments)
 end

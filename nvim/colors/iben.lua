@@ -100,7 +100,7 @@ local groups = {
 
   TabLine = { fg = statuslinetext, bg = bg },
   TabLineSel = { fg = statuslinetext, bg = bg, underline = true},
-  TabLineFill = { bg = bg},
+  TabLineFill = { bg = bg },
 
   WinSeparator = { fg = bg },
   WinBar = { fg = statuslinetext, bg = bg, underline=true},
@@ -118,6 +118,7 @@ local groups = {
   Pmenu = { fg = black, bg = "#F0EEE9" },
   PmenuSel = { fg = black, bg = "#DAD8D3" },
 
+  Cursor = { bg = black },
   TermCursor = { link = "Cursor" },
   CursorLine = { bg = "#E6E4DF" },
   CursorColumn = { link = "CursorLine" },

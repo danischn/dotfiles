@@ -1,7 +1,6 @@
 ---------------------------------------------------------------
 --- OPTIONS
 ---------------------------------------------------------------
-
 vim.cmd.colorscheme("iben")
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 
@@ -26,7 +25,7 @@ vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 
 vim.opt.updatetime = 300
-vim.opt.signcolumn = "yes:1"
+vim.opt.signcolumn = "no"
 
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
@@ -74,7 +73,15 @@ map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
-map("n", "<C-q>", "<C-w>q")
+
+map("n", "<C-q>", function()
+  local wins = #vim.api.nvim_tabpage_list_wins(0)
+  if wins > 1 then
+      vim.cmd.close()
+  else
+      vim.api.nvim_echo({{' Cant close last window in tab! ', "WarningMsg"}}, false, {})
+  end
+end)
 
 map("n", "<leader>1", function()
   vim.o.cmdheight = 1 - vim.o.cmdheight
@@ -119,6 +126,7 @@ vim.api.nvim_create_autocmd("WinLeave", {
   end
 })
 
+
 ---------------------------------------------------------------
 --- Plugins
 ---------------------------------------------------------------
@@ -142,38 +150,36 @@ vim.pack.add({
 
 
 require("nvim-treesitter.configs").setup({
-	highlight = {
-		enable = true
-	},
-	textobjects = {
-		select = {
-			enable = true,
-			keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@call.outer",
-        ["ic"] = "@call.inner",
-			},
-		},
-		move  = {
-			enable = true,
-			goto_next_start = {
-				["]f"] = "@function.outer",
-				["]c"] = "@call.outer",
-			},
-			goto_previous_start = {
-				["[f"] = "@function.outer",
-				["[c"] = "@call.outer",
-			},
-		}
-	}
+    highlight = {
+        enable = true
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@call.outer",
+                ["ic"] = "@call.inner",
+            },
+        },
+    },
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = '<CR>',
+            node_incremental = '<CR>',
+            scope_incremental = false,
+            node_decremental = '<BS>',
+        }
+    },
 })
 
 require("mason").setup()
 
 require("conform").setup({
 	formatters_by_ft = {
-		python = { "black" },
+python = { "black" },
 		markdown = { "prettier" },
 		c = { "clang-format" },
 		java = { "google-java-format" }, },
@@ -193,4 +199,3 @@ require("snippy").setup({
       hl_group = 'SnippyMarker',
   }
 })
-

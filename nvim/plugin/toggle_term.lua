@@ -3,17 +3,20 @@ m.width = math.floor(vim.o.columns * 0.9)
 m.height = math.floor(vim.o.lines * 0.9)
 m.col = math.floor((vim.o.columns - m.width) / 2)
 m.row = math.floor((vim.o.lines - m.height) / 2)
-m.win_opts = {
+
+m.float_win = {
   relative = 'editor',
   row = m.row,
   col = m.col,
   width = m.width,
   height = m.height,
   style = 'minimal',
-  border = 'single'}
+  border = 'single'
+}
+
 m.table = {}
 
-function m.toggle_term()
+function m.toggle_term(win_opts)
   local tab = vim.fn.tabpagenr()
   m.table[tab] = m.table[tab] or {}
   if (not m.table[tab].buf or not vim.api.nvim_buf_is_valid(m.table[tab].buf)) then
@@ -23,11 +26,11 @@ function m.toggle_term()
   if m.table[tab].win and vim.api.nvim_win_is_valid(m.table[tab].win) then
     vim.api.nvim_win_hide(m.table[tab].win)
   elseif vim.bo[m.table[tab].buf].buftype ~= "terminal" then
-    m.table[tab].win = vim.api.nvim_open_win(m.table[tab].buf, true, m.win_opts)
+    m.table[tab].win = vim.api.nvim_open_win(m.table[tab].buf, true, win_opts)
     vim.cmd.terminal()
     vim.cmd.startinsert()
   else
-    m.table[tab].win = vim.api.nvim_open_win(m.table[tab].buf, true, m.win_opts)
+    m.table[tab].win = vim.api.nvim_open_win(m.table[tab].buf, true, win_opts)
     vim.cmd.startinsert()
   end
 end
@@ -46,4 +49,4 @@ vim.api.nvim_create_autocmd('TabClosed', {
   end,
 })
 
-vim.keymap.set({"n", "t"}, "<C-g>", m.toggle_term)
+vim.keymap.set({"n", "t"}, "<C-g>", function() m.toggle_term(m.float_win) end)
