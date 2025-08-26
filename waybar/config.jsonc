@@ -5,6 +5,7 @@
 
     "network": {
         "interface": "wlp2s0",
+        "on-click": "nm-connection-editor",
         "format-wifi": " ",
         "format-disconnected": "󱛅 ", 
         "tooltip-format-wifi": "{essid}",
