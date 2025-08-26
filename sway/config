@@ -21,7 +21,7 @@ seat * hide_cursor  4000
 seat * hide_cursor when-typing enable
 
 output * {
-  background #696969 solid_color
+  background #E6DED2 solid_color
 }
 
 output eDP-1 {
@@ -29,7 +29,7 @@ output eDP-1 {
 }
 
 
-default_border pixel 2
+default_border pixel 1
 gaps inner 6
 
 set $clear #ffffff00
