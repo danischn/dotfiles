@@ -1,14 +1,31 @@
 {
     "layer": "top",
-    "modules-center": ["sway/workspaces", "sway/mode"],
-    "modules-right": ["battery", "clock"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["network", "bluetooth", "battery", "clock"],
+
+    "network": {
+        "interface": "wlp2s0",
+        "format-wifi": " ",
+        "format-disconnected": "󱛅 ", 
+        "tooltip-format-wifi": "{essid}",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "blueberry"
+    },
+
     "battery": {
-        "format": "{capacity}% {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format": "{capacity}%",
+        "tooltip": false
     },
 
     "clock": {
-        "format": "{:%H:%M} ",
-        "tooltip": false
+        "format": "{:%H.%M}",
+        "tooltip": true,
+        "tooltip-format": "{:%d.%m \nWeek %g}"
     }
 }

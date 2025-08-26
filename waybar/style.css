@@ -12,6 +12,15 @@ window#waybar {
     border-bottom: 1px solid rgba(100, 114, 125, 0.5);
 }
 
+tooltip {
+  background: #FAF2EB;
+  border: 1px solid black;
+}
+
+tooltip label {
+  color: black;
+}
+
 #workspaces button {
     padding: 0 5px;
 }
@@ -21,14 +30,7 @@ window#waybar {
     border-bottom: 2px solid black;
 }
 
-#mode, #clock, #battery {
-    padding: 0 10px;
-}
-
-#clock {
-    background-color: transparent;
-}
-
-#battery {
+#clock, #battery, #bluetooth, #network {
+    padding: 0 8px;
     background-color: transparent;
 }
