@@ -8,6 +8,7 @@ set $term alacritty
 
 input * {
         xkb_layout us
+        xkb_variant "altgr-intl"
         repeat_delay 150
         repeat_rate 40
         accel_profile flat
@@ -19,30 +20,32 @@ input * {
 seat * hide_cursor  4000
 seat * hide_cursor when-typing enable
 
-output eDP-1 {
+output * {
   background #696969 solid_color
+}
+
+output eDP-1 {
   scale 1.375
 }
 
-default_dim_inactive 0.2
 
-default_border pixel 0
+default_border pixel 2
+gaps inner 6
+
+set $clear #ffffff00
+
+client.focused           #000000  #000000     #000000  #000000    #000000ff
+client.focused_inactive  #ffffff  #ffffff     #ffffff  #ffffff    $clear
+client.unfocused         #333333  #222222     #888888  #292d2e    $clear
 
 # ----------------------------- Pickers ------------------------------
-
-set $menu tofi-run | xargs swaymsg exec --
-bindsym $mod+Return exec $menu
-
 # Application opener
-set $drun tofi-drun | xargs swaymsg exec --
+set $drun fuzzel
 bindsym $mod+Space exec $drun
 
-# Clipboard manager
-exec wl-paste --watch cliphist store
-bindsym $mod+v exec open-cliphist
-
-# PDF opener
 bindsym $mod+p exec open-pdf
+bindsym $mod+g exec sway_toggle_gpt
+bindsym $mod+o exec sway_monitor_cycle
 
 # Screenshotter
 bindsym Print exec printf "area\nfullscreen" | tofi | xargs -I{} grimshot savecopy {}
@@ -50,7 +53,7 @@ bindsym Print exec printf "area\nfullscreen" | tofi | xargs -I{} grimshot saveco
 # ----------------------------- Keybinds ------------------------------
 
 # Kill focused window
-bindsym $mod+q kill
+bindsym $mod+Shift+q kill
 
 # Move your focus around
 bindsym $mod+$left fullscreen disable; focus left
@@ -64,50 +67,28 @@ bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
-set $wterm    "term"
-set $wbrowser "browser"
-set $wpdf     "pdf"
-set $wmisc    "misc"
+set $wterm    "1:term"
+set $wbrowser "2:web"
+set $wpdf     "3:pdf"
+set $wmisc    "4:misc"
 
-# Switch to workspace
-bindsym $mod+t workspace $wterm
-bindsym $mod+b workspace $wbrowser
-bindsym $mod+r workspace $wpdf
-bindsym $mod+m workspace $wmisc
+bindsym $mod+a workspace $wterm
+bindsym $mod+s workspace $wbrowser
+bindsym $mod+d workspace $wpdf
+bindsym $mod+f workspace $wmisc
 
 assign [app_id="firefox"] workspace $wbrowser
 assign [app_id="org.pwmt.zathura"] workspace $wpdf
-
 for_window [app_id="nwg-displays"] floating enable
 for_window [app_id="yad"] floating enable
+for_window [app_id="zen"] move scratchpad
 
-# Move focused container to workspace and focus it
-bindsym $mod+Shift+t move container to workspace $wterm, workspace $wterm
-bindsym $mod+Shift+b move container to workspace $wbrowser, workspace $wbrowser
-bindsym $mod+Shift+r move container to workspace $wpdf, workspace $wpdf
-bindsym $mod+Shift+m move container to workspace $wmisc, workspace $wmisc
-
-bindsym $mod+w move workspace to output up
-bindsym $mod+a move workspace to output left
-bindsym $mod+s move workspace to output down
-bindsym $mod+d move workspace to output right
-
-# Make the current focus fullscreen
-bindsym $mod+f fullscreen
-
-# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+a move container to workspace $wterm, workspace $wterm
+bindsym $mod+Shift+s move container to workspace $wbrowser, workspace $wbrowser
+bindsym $mod+Shift+d move container to workspace $wpdf, workspace $wpdf
+bindsym $mod+Shift+f move container to workspace $wmisc, workspace $wmisc
+bindsym $mod+m fullscreen
 bindsym $mod+Tab floating toggle
-
-# Resizing containers:
-mode "resize" {
-    bindsym $left resize shrink width 20px
-    bindsym $down resize grow height 20px
-    bindsym $up resize shrink height 20px
-    bindsym $right resize grow width 20px
-    bindsym escape mode "default"
-}
-
-# bindsym $mod+r mode "resize"
 
 bar {
   swaybar_command waybar

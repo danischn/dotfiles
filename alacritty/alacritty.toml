@@ -46,5 +46,5 @@ style = "regular"
 decorations = "None"
 
 [window.padding]
-x = 25
+x = 30
 y = 18
