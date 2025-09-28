@@ -1,4 +1,4 @@
-vim.lsp.enable({ "clangd", "luals" })
+vim.lsp.enable({ "clangd", "luals", "tinymist"})
 
 vim.keymap.set("n", "<leader>n", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled({bufnr = 0}), {bufnr = 0})

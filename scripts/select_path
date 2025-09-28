@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+choose_path() {
+    fd --type dir . "$HOME" \
+        | sed "s|$HOME|~|" \
+        | fuzzel --dmenu --width 70 --placeholder="Save to:" --lines=3 --no-exit-on-keyboard-focus-loss --match-mode=exact\
+        | sed "s|~|$HOME|"
+}
+
+path=$(choose_path)
+
+while [[ ! -f "$path"  || -z "${path##*.}" ]]; do
+    notify-send "Invalid path" "$path"
+    path=$(choose_path)
+done
+
+echo "$path"

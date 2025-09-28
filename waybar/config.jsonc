@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["network", "bluetooth", "battery", "clock"],
+    "modules-right": ["network", "custom/screenshot", "bluetooth", "battery", "clock"],
 
     "network": {
         "interface": "wlp2s0",
@@ -28,5 +28,10 @@
         "format": "{:%H.%M}",
         "tooltip": true,
         "tooltip-format": "{:%d.%m \nWeek %g}"
+    },
+
+    "custom/screenshot": {
+        "format": " 󰄀 ", 
+        "on-click": "screenshot"
     }
 }

@@ -7,7 +7,7 @@ vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboar
 vim.opt.cmdheight = 0
 vim.opt.showmode = false
 vim.opt.laststatus = 2
-vim.opt.showtabline = 2
+vim.opt.showtabline = 0 -- Dont know if i want to use tmux or neovim for this yet
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
@@ -105,6 +105,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.api.nvim_create_autocmd('QuickFixCmdPost', {
   group = vim.api.nvim_create_augroup("AutoOpenQF", {clear = true}),
+  pattern = {"*.c", "*.h"},
 	callback = function()
 		vim.cmd("vert copen")
 		local half_width = math.floor(vim.o.columns / 2)
@@ -142,6 +143,7 @@ vim.pack.add({
   gh .. "echasnovski/mini.files",
   gh .. "mfussenegger/nvim-dap",
   gh .. "dcampos/nvim-snippy",
+  gh .. "tommcdo/vim-lion",
 })
 
 ---------------------------------------------------------------

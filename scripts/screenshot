@@ -1,3 +1,16 @@
 #!/bin/bash
 
-grimshot savecopy area | tesseract - - --psm 6 | wl-copy
+tmpfile="$(mktemp --suffix=.png)"
+grim -g "$(slurp -c '#ff0000ff')" -t ppm - \
+  | satty --filename - --fullscreen --output-filename "$tmpfile"
+
+# save only if something was actually written
+if [[ ! -s "$tmpfile" ]]; then
+    rm -f "$tmpfile"
+    exit 1
+fi
+
+sleep 0.1
+final="$(select_path)"
+mv "$tmpfile" "$final"
+notify-send "Screenshot" "Saved to ${final}"

@@ -114,10 +114,8 @@ function git_dirty(){
 
 # Define the color codes for bold text and blue color
 RESET='\[\033[0m\]'
-PURPLE='\[\033[1;35m\]'
-BLUE='\[\033[1;34m\]'
-P_START='\033]133;A\007'
-P_END='\033]133;B\007'
+PURPLE='\[\033[35m\]'
+BLUE='\[\033[34m\]'
 
 # Update the PS1 variable with bold formatting
-PS1="$P_START$BLUE\w${PURPLE}\$(git_branch)\$(git_dirty) ${RESET}➜ $P_END"
+PS1="\n┌─[${BLUE}\w${RESET}]${PURPLE}\$(git_branch)\$(git_dirty)${RESET}\n└─$ "

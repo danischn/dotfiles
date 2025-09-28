@@ -12,7 +12,7 @@ input * {
         repeat_delay 150
         repeat_rate 40
         accel_profile flat
-        pointer_accel 0.8
+        pointer_accel 0.5
         natural_scroll enabled
 }
 
@@ -46,9 +46,6 @@ bindsym $mod+Space exec $drun
 bindsym $mod+p exec open-pdf
 bindsym $mod+g exec sway_toggle_gpt
 bindsym $mod+o exec sway_monitor_cycle
-
-# Screenshotter
-bindsym Print exec printf "area\nfullscreen" | tofi | xargs -I{} grimshot savecopy {}
 
 # ----------------------------- Keybinds ------------------------------
 

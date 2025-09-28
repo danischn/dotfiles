@@ -161,7 +161,7 @@ local groups = {
   ["@string.special.path"] = { link = "Underlined" },
   ["@string.special.url"] = { link = "Underlined" },
   
-  ["@character"] = { link = "Character" },
+  ["@character"] = { link = "String" },
   ["@character.special"] = { link = "SpecialChar" },
 
   ["@boolean"] = { link = "Boolean" },
